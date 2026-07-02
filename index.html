@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Danyal Amin — 2D Animator &amp; Motion Designer</title>
+<meta name="description" content="Danyal Amin — 2D Animator and Graphic Designer. Story animation, nursery rhymes, and motion graphics for children's educational media.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sky: #4FB8E8;
+    --sky-deep: #2E93C4;
+    --sun: #FFC857;
+    --paper: #F5FAFF;
+    --card: #FFFFFF;
+    --ink: #163455;
+    --ink-soft: #4F6B87;
+    --line: #DCEBF7;
+    --radius: 18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{font-family:'Baloo 2', sans-serif;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,250,255,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:76px;
+  }
+  .brand{font-weight:700; font-size:1.3rem; color:var(--ink); text-decoration:none; letter-spacing:.2px;}
+  .brand span{color:var(--sky-deep);}
+  .navlinks{display:flex; gap:6px; list-style:none; margin:0; padding:0;}
+  .navlinks a{
+    text-decoration:none; font-weight:600; font-size:.95rem; color:var(--ink-soft);
+    padding:9px 16px; border-radius:999px; transition:.2s;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible{background:#E7F4FD; color:var(--sky-deep); outline:none;}
+  .navlinks a.cta{background:var(--sun); color:#3A2A00;}
+  .navlinks a.cta:hover{background:#ffbd3d;}
+  .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+  .menu-btn span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; border-radius:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; overflow:hidden; padding:76px 0 40px;}
+  .hero .wrap{display:grid; grid-template-columns:1.1fr 1fr; gap:56px; align-items:center; position:relative; z-index:2;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-weight:600; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--sky-deep); background:#E7F4FD; padding:6px 14px; border-radius:999px; margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(2.2rem, 4.4vw, 3.4rem); line-height:1.08; margin:0 0 18px; font-weight:800;}
+  .hero h1 .accent{color:var(--sky-deep); position:relative;}
+  .hero p.lead{font-size:1.12rem; color:var(--ink-soft); max-width:46ch; margin:0 0 30px; line-height:1.6;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700;
+    padding:14px 26px; border-radius:999px; font-size:.98rem; transition:.2s; border:2px solid transparent;
+  }
+  .btn-primary{background:var(--sky-deep); color:#fff;}
+  .btn-primary:hover{background:#217aa8; transform:translateY(-1px);}
+  .btn-ghost{border-color:var(--sky-deep); color:var(--sky-deep);}
+  .btn-ghost:hover{background:#E7F4FD;}
+
+  .avatar-row{display:flex; align-items:center; gap:16px;}
+  .avatar{
+    width:64px; height:64px; border-radius:50%; background:linear-gradient(150deg,var(--sky),var(--sun));
+    display:flex; align-items:center; justify-content:center; font-family:'Baloo 2'; font-weight:700; color:#fff; font-size:1.4rem;
+    border:3px solid #fff; box-shadow:0 6px 18px rgba(47,140,190,.28); flex-shrink:0; overflow:hidden;
+  }
+  .avatar img{width:100%; height:100%; object-fit:cover;}
+  .avatar-row .name{font-weight:700; font-size:.98rem;}
+  .avatar-row .role{color:var(--ink-soft); font-size:.86rem;}
+
+  .showreel{position:relative;}
+  .showreel-frame{
+    position:relative; border-radius:24px; overflow:hidden; background:#0d2438;
+    box-shadow:0 22px 50px -18px rgba(22,52,85,.45);
+    aspect-ratio:16/9; border:6px solid #fff;
+  }
+  .showreel-frame iframe{width:100%; height:100%; border:0; display:block;}
+  .showreel-tag{
+    position:absolute; top:-16px; left:22px; background:var(--sun); color:#3A2A00;
+    font-family:'Baloo 2'; font-weight:700; padding:8px 18px; border-radius:999px; font-size:.85rem;
+    box-shadow:0 8px 18px rgba(255,200,87,.4); z-index:3;
+  }
+
+  .cloud{position:absolute; opacity:.55; z-index:1;}
+  .cloud svg{display:block;}
+  .cloud.c1{top:6%; left:-60px; width:180px; animation:drift 26s ease-in-out infinite;}
+  .cloud.c2{top:60%; right:-40px; width:130px; animation:drift 22s ease-in-out infinite reverse;}
+  .cloud.c3{bottom:2%; left:38%; width:100px; animation:drift 30s ease-in-out infinite;}
+  @keyframes drift{0%,100%{transform:translateY(0px);} 50%{transform:translateY(-18px);}}
+  @media (prefers-reduced-motion: reduce){ .cloud{animation:none;} }
+
+  /* ---------- WAVE DIVIDER ---------- */
+  .wave{display:block; width:100%; height:70px; margin-top:-4px;}
+
+  /* ---------- SECTIONS ---------- */
+  section.portfolio-section{padding:74px 0;}
+  .section-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:36px; flex-wrap:wrap; gap:16px;}
+  .section-head .tag{
+    font-weight:600; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--sky-deep); margin-bottom:8px; display:block;
+  }
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem); margin:0; font-weight:700;}
+  .section-head p{color:var(--ink-soft); margin:6px 0 0; max-width:52ch;}
+
+  .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;}
+  .card{
+    background:var(--card); border-radius:var(--radius); overflow:hidden; border:1px solid var(--line);
+    transition:.25s; display:flex; flex-direction:column;
+  }
+  .card:hover{transform:translateY(-5px); box-shadow:0 20px 34px -20px rgba(22,52,85,.28); border-color:transparent;}
+  .card-media{
+    aspect-ratio:16/10; position:relative; background:linear-gradient(135deg,#DFF1FC,#F5FAFF);
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .card-media iframe{width:100%; height:100%; border:0;}
+  .placeholder-media{
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:var(--sky-deep); text-align:center; padding:20px;
+  }
+  .placeholder-media svg{width:38px; height:38px; opacity:.7;}
+  .placeholder-media span{font-size:.78rem; font-weight:600; color:var(--ink-soft);}
+  .card-body{padding:18px 20px 22px;}
+  .card-body h3{font-size:1.06rem; margin:0 0 6px; font-weight:700;}
+  .card-body p{margin:0; font-size:.88rem; color:var(--ink-soft); line-height:1.5;}
+  .pill{
+    display:inline-block; font-size:.72rem; font-weight:700; color:var(--sky-deep); background:#E7F4FD;
+    padding:4px 10px; border-radius:999px; margin-bottom:10px;
+  }
+
+  .section-alt{background:#EFF8FF;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:center;}
+  .about-photo{
+    aspect-ratio:4/5; border-radius:24px; background:linear-gradient(160deg,var(--sky),#8fd6f7);
+    display:flex; align-items:center; justify-content:center; overflow:hidden; border:6px solid #fff;
+    box-shadow:0 20px 40px -18px rgba(22,52,85,.35);
+  }
+  .about-photo img{width:100%; height:100%; object-fit:cover;}
+  .about-photo .ph-icon{color:#fff; opacity:.85;}
+  .about h2{font-size:clamp(1.6rem,3vw,2.2rem); margin:0 0 16px;}
+  .about p{color:var(--ink-soft); line-height:1.7; margin:0 0 16px;}
+  .stat-row{display:flex; gap:34px; margin-top:26px; flex-wrap:wrap;}
+  .stat b{display:block; font-family:'Baloo 2'; font-size:1.6rem; color:var(--sky-deep);}
+  .stat span{font-size:.82rem; color:var(--ink-soft);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--sky-deep); color:#fff; border-radius:28px; padding:60px 48px; text-align:center; position:relative; overflow:hidden;
+  }
+  .contact h2{color:#fff; margin:0 0 12px; font-size:clamp(1.7rem,3.4vw,2.3rem);}
+  .contact p{color:#DCF0FC; max-width:52ch; margin:0 auto 28px; line-height:1.6;}
+  .contact .btn-primary{background:var(--sun); color:#3A2A00;}
+  .contact .btn-primary:hover{background:#ffbd3d;}
+  .contact-links{display:flex; gap:18px; justify-content:center; margin-top:30px; flex-wrap:wrap;}
+  .contact-links a{
+    text-decoration:none; color:#fff; font-weight:600; font-size:.9rem; opacity:.9; border-bottom:1px solid rgba(255,255,255,.4); padding-bottom:2px;
+  }
+  .contact-links a:hover{opacity:1;}
+
+  footer{padding:34px 0; text-align:center; color:var(--ink-soft); font-size:.85rem;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; gap:40px;}
+    .about-grid{grid-template-columns:1fr;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .navlinks{display:none;}
+    .menu-btn{display:block;}
+  }
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr;}
+    .contact{padding:44px 24px;}
+    .stat-row{gap:22px;}
+  }
+
+  :focus-visible{outline:3px solid var(--sky-deep); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#home" class="brand">Danyal<span>.</span></a>
+    <ul class="navlinks" id="navlinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#story">Story Animation</a></li>
+      <li><a href="#rhymes">Nursery Rhymes</a></li>
+      <li><a href="#motion">Motion &amp; Graphics</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact" class="cta">Contact</a></li>
+    </ul>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="cloud c1">
+    <svg viewBox="0 0 200 100" fill="none"><ellipse cx="60" cy="60" rx="55" ry="32" fill="#fff"/><ellipse cx="110" cy="45" rx="45" ry="30" fill="#fff"/><ellipse cx="150" cy="60" rx="38" ry="25" fill="#fff"/></svg>
+  </div>
+  <div class="cloud c2">
+    <svg viewBox="0 0 200 100" fill="none"><ellipse cx="60" cy="60" rx="55" ry="32" fill="#fff"/><ellipse cx="110" cy="45" rx="45" ry="30" fill="#fff"/></svg>
+  </div>
+  <div class="cloud c3">
+    <svg viewBox="0 0 200 100" fill="none"><ellipse cx="60" cy="60" rx="45" ry="26" fill="#fff"/><ellipse cx="110" cy="50" rx="35" ry="22" fill="#fff"/></svg>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-copy">
+      <span class="eyebrow">2D Animator · Motion &amp; Graphic Design</span>
+      <h1>I bring <span class="accent">stories</span> to life, frame by frame.</h1>
+      <p class="lead">Hi, I'm Danyal — a 2D animator and graphic designer with 7+ years crafting character animation, nursery rhymes, and motion graphics for children's educational media around the world.</p>
+      <div class="hero-actions">
+        <a href="#story" class="btn btn-primary">See my work</a>
+        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+      </div>
+      <div class="avatar-row">
+        <div class="avatar">
+          <!-- Replace with <img src="your-photo.jpg" alt="Danyal Amin"> -->
+          DA
+        </div>
+        <div>
+          <div class="name">Danyal Amin</div>
+          <div class="role">Based in Islamabad · Working with clients worldwide</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="showreel">
+      <span class="showreel-tag">Showreel ▶</span>
+      <div class="showreel-frame">
+        <iframe src="https://www.youtube.com/embed/-qG2uJysMno" title="Danyal Amin — Animation Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C320,90 720,0 1440,45 L1440,70 L0,70 Z" fill="#EFF8FF"/></svg>
+</section>
+
+<!-- ---------------- STORY ANIMATION ---------------- -->
+<section class="portfolio-section section-alt" id="story">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag">Selected Work</span>
+        <h2>Best Story Animation</h2>
+        <p>Character-driven story episodes built for young audiences — rigging, animation, and expression work.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Vimeo embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Story</span><h3>Episode Title Here</h3><p>Short description of the story, characters, and your role in the production.</p></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Vimeo embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Story</span><h3>Episode Title Here</h3><p>Short description of the story, characters, and your role in the production.</p></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Vimeo embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Story</span><h3>Episode Title Here</h3><p>Short description of the story, characters, and your role in the production.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- NURSERY RHYMES ---------------- -->
+<section class="portfolio-section" id="rhymes">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag">Selected Work</span>
+        <h2>Nursery Rhymes</h2>
+        <p>Playful, sing-along animations designed to teach, delight, and stay on-brand for kids' channels.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Video embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Rhyme</span><h3>Rhyme Title Here</h3><p>Short description of the rhyme and the animation style used.</p></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Video embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Rhyme</span><h3>Rhyme Title Here</h3><p>Short description of the rhyme and the animation style used.</p></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Video embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Rhyme</span><h3>Rhyme Title Here</h3><p>Short description of the rhyme and the animation style used.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- MOTION & GRAPHICS ---------------- -->
+<section class="portfolio-section section-alt" id="motion">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="tag">Selected Work</span>
+        <h2>Motion &amp; Graphic Design</h2>
+        <p>Titles, logo reveals, lower-thirds, and motion graphics work across freelance and client projects.</p>
+      </div>
+    </div>
+    <div class="grid">
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Video embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Motion</span><h3>Project Title Here</h3><p>Short description of the motion graphics project and tools used.</p></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Video embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Motion</span><h3>Project Title Here</h3><p>Short description of the motion graphics project and tools used.</p></div>
+      </article>
+      <article class="card">
+        <div class="card-media"><div class="placeholder-media">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
+          <span>Video embed placeholder</span>
+        </div></div>
+        <div class="card-body"><span class="pill">Motion</span><h3>Project Title Here</h3><p>Short description of the motion graphics project and tools used.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- ABOUT ---------------- -->
+<section class="portfolio-section about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo">
+      <!-- Replace with <img src="your-photo.jpg" alt="Danyal Amin"> -->
+      <svg class="ph-icon" width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+    </div>
+    <div>
+      <span class="tag">About</span>
+      <h2>Animating stories for the next generation.</h2>
+      <p>I'm Danyal Amin, a 2D animator and graphic designer with around 7 years of experience across children's educational media, freelance projects, and studio collaborations. My work spans character animation, rigging, motion graphics, and subtitling — currently creating content for Youpi Creole TV and Muslim Reminder Kids, alongside international freelance clients.</p>
+      <p>I hold a BS in Computer Science, which shapes how I approach animation: technically precise, expression-driven, and built to hold up across formats and platforms.</p>
+      <div class="stat-row">
+        <div class="stat"><b>7+</b><span>Years experience</span></div>
+        <div class="stat"><b>2</b><span>Ongoing TV/YouTube channels</span></div>
+        <div class="stat"><b>Global</b><span>Freelance clientele</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ---------------- CONTACT ---------------- -->
+<section class="portfolio-section" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Let's animate something great together.</h2>
+      <p>Open for freelance projects, ongoing collaborations, and studio partnerships. Reach out and let's talk about your project.</p>
+      <a href="mailto:hello@danyalamin.art" class="btn btn-primary">hello@danyalamin.art</a>
+      <div class="contact-links">
+        <a href="#" target="_blank" rel="noopener">Vimeo</a>
+        <a href="#" target="_blank" rel="noopener">YouTube</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Fiverr</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Danyal Amin. All rights reserved.</div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const menuBtn = document.getElementById('menuBtn');
+  const navlinks = document.getElementById('navlinks');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navlinks.style.display === 'flex';
+    navlinks.style.display = isOpen ? 'none' : 'flex';
+    navlinks.style.flexDirection = 'column';
+    navlinks.style.position = 'absolute';
+    navlinks.style.top = '76px';
+    navlinks.style.left = '0';
+    navlinks.style.right = '0';
+    navlinks.style.background = '#F5FAFF';
+    navlinks.style.padding = '14px 28px';
+    navlinks.style.borderBottom = '1px solid #DCEBF7';
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>
+
+</body>
+</html>
