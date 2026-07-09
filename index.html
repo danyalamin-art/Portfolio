@@ -1803,25 +1803,26 @@
     .filter-pills { gap: 7px; margin-bottom: 24px; }
     .filter-pill { font-size: 0.74rem; padding: 7px 12px; }
 
+    /* Mobile only: 2 cards per row (desktop/tablet layout unchanged) */
     .portfolio-grid {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
       margin-bottom: 28px;
     }
     .portfolio-card { border-radius: 10px; }
     .portfolio-card:hover { transform: none; }
-    .portfolio-info { padding: 7px 4px 9px; }
+    .portfolio-info { padding: 8px 6px 10px; }
     .portfolio-title {
-      font-size: 0.58rem;
-      margin-bottom: 3px;
-      line-height: 1.25;
+      font-size: 0.72rem;
+      margin-bottom: 4px;
+      line-height: 1.3;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
     .portfolio-tag {
-      font-size: 0.5rem;
+      font-size: 0.58rem;
       padding: 2px 5px;
       max-width: 100%;
       overflow: hidden;
@@ -2731,6 +2732,12 @@
       applyPortfolioFilter(typeof activePortfolioFilter !== 'undefined' ? activePortfolioFilter : 'All');
     };
     let activePortfolioFilter = 'All';
+    /** Mobile home portfolio: 2-col layout + max 8 videos (desktop unchanged). */
+    const MOBILE_PORTFOLIO_MQ = window.matchMedia('(max-width: 560px)');
+    const MOBILE_HOME_PORTFOLIO_LIMIT = 8;
+    function isMobileHomePortfolio() {
+      return MOBILE_PORTFOLIO_MQ.matches;
+    }
     function applyPortfolioFilter(filterName) {
       const filter = filterName || 'All';
       activePortfolioFilter = filter;
@@ -2738,18 +2745,36 @@
       filterPills.forEach(pill => {
         pill.classList.toggle('active', pill.dataset.filter === filter);
       });
+      // Admin mode always shows full set so content can be edited
+      const limitMobile =
+        isMobileHomePortfolio() &&
+        !document.body.classList.contains('cms-admin-active');
       let visibleCount = 0;
+      let mobileShown = 0;
       portfolioCards.forEach(card => {
         const categories = (card.dataset.cat || '').split('|');
-        const show = filter === 'All'
+        let show = filter === 'All'
           ? card.dataset.featured === 'true'
           : categories.includes(filter);
+        if (show && limitMobile) {
+          if (mobileShown >= MOBILE_HOME_PORTFOLIO_LIMIT) show = false;
+          else mobileShown++;
+        }
         card.hidden = !show;
         if (show) visibleCount++;
       });
       if (portfolioNoResults) {
         portfolioNoResults.style.display = visibleCount === 0 ? 'block' : 'none';
       }
+    }
+    // Re-apply when crossing mobile breakpoint so desktop still shows all featured
+    function onMobilePortfolioMqChange() {
+      applyPortfolioFilter(activePortfolioFilter);
+    }
+    if (MOBILE_PORTFOLIO_MQ.addEventListener) {
+      MOBILE_PORTFOLIO_MQ.addEventListener('change', onMobilePortfolioMqChange);
+    } else if (MOBILE_PORTFOLIO_MQ.addListener) {
+      MOBILE_PORTFOLIO_MQ.addListener(onMobilePortfolioMqChange);
     }
 
     function getPortfolioFilterFromHash() {
