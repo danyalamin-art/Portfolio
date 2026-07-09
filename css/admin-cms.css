@@ -8,11 +8,66 @@ body.cms-admin-active.cms-banner-on {
 }
 
 /*
- * Subtle admin entry at the bottom of every page.
- * Soft + light so visitors barely notice it; you know to click the bottom-center button.
- * Opens passcode → Content Manager (no ?admin required). ?admin still works too.
+ * Subtle admin entry — sits in the footer bar next to “Danyal Amin” + star
+ * (immediately to the right of the star). Soft/light so visitors barely notice it.
+ * Opens passcode → Content Manager. ?admin still works as a backup.
  */
+.footer-logo {
+  /* ensure star + lock sit on one row with the name */
+  flex-wrap: nowrap;
+}
 .cms-stealth-entry {
+  position: relative;
+  flex: 0 0 auto;
+  width: 22px;
+  height: 22px;
+  margin: 0 0 0 2px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.38);
+  box-shadow: none;
+  cursor: pointer;
+  opacity: 0.55;
+  transform: none;
+  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease,
+    border-color 0.2s ease, transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  vertical-align: middle;
+  line-height: 0;
+}
+.cms-stealth-entry svg {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.cms-stealth-entry:hover,
+.cms-stealth-entry:focus-visible {
+  opacity: 0.95;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(141, 198, 63, 0.22);
+  border-color: rgba(141, 198, 63, 0.45);
+  transform: scale(1.06);
+  outline: none;
+}
+.cms-stealth-entry:active {
+  transform: scale(0.96);
+}
+.cms-stealth-entry.cms-stealth-hidden {
+  display: none !important;
+}
+/* Fallback only if a page has no footer logo */
+.cms-stealth-entry.cms-stealth-fixed {
   position: fixed;
   bottom: 14px;
   left: 50%;
@@ -20,62 +75,15 @@ body.cms-admin-active.cms-banner-on {
   z-index: 10020;
   width: 34px;
   height: 34px;
-  padding: 0;
   margin: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(20, 105, 69, 0.1);
-  border-radius: 999px;
-  background: rgba(250, 249, 244, 0.42);
-  color: rgba(20, 105, 69, 0.32);
-  box-shadow: 0 2px 10px rgba(13, 77, 50, 0.06);
-  cursor: pointer;
   opacity: 0.42;
-  transition: opacity 0.2s ease, color 0.2s ease, background 0.2s ease,
-    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  border-color: rgba(20, 105, 69, 0.12);
+  background: rgba(250, 249, 244, 0.42);
+  color: rgba(20, 105, 69, 0.35);
 }
-.cms-stealth-entry svg {
-  width: 15px;
-  height: 15px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 1.75;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  pointer-events: none;
-}
-.cms-stealth-entry:hover,
-.cms-stealth-entry:focus-visible {
-  opacity: 0.9;
-  color: rgba(20, 105, 69, 0.62);
-  background: rgba(227, 240, 228, 0.72);
-  border-color: rgba(20, 105, 69, 0.22);
-  box-shadow: 0 4px 14px rgba(13, 77, 50, 0.12);
-  transform: translateX(-50%) translateY(-1px);
-  outline: none;
-}
-.cms-stealth-entry:active {
-  transform: translateX(-50%) scale(0.96);
-}
-.cms-stealth-entry.cms-stealth-hidden {
-  display: none !important;
-}
-@media (max-width: 640px) {
-  .cms-stealth-entry {
-    bottom: 12px;
-    width: 32px;
-    height: 32px;
-    opacity: 0.38;
-  }
-  .cms-stealth-entry svg {
-    width: 14px;
-    height: 14px;
-  }
+.cms-stealth-entry.cms-stealth-fixed:hover,
+.cms-stealth-entry.cms-stealth-fixed:focus-visible {
+  transform: translateX(-50%) scale(1.06);
 }
 
 /* Nav Content Manager button (shown only with ?admin or after unlock) */

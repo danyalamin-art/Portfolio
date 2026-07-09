@@ -1,7 +1,7 @@
 /**
  * Content Manager — modeled after the interactive portfolio admin system.
  * Access:
- *   1) Light lock button at bottom center → passcode (preferred; no special URL needed)
+ *   1) Footer: Danyal Amin ★ [lock] → passcode (preferred; no special URL needed)
  *   2) Or append ?admin to the URL → nav Content Manager → passcode
  * Works on Home and All Projects. Auth session keeps edit mode across pages.
  * Publish Live: writes js/site-data.js to GitHub so every visitor sees updates.
@@ -633,15 +633,33 @@
 
     const footerLogo = document.querySelector('.footer-logo');
     if (footerLogo && t.footerBrand) {
-      const svg = footerLogo.querySelector('svg');
+      const star =
+        footerLogo.querySelector('.footer-star') ||
+        footerLogo.querySelector(':scope > svg');
+      const stealth = document.getElementById('cmsStealthEntry');
       footerLogo.innerHTML = '';
       footerLogo.appendChild(document.createTextNode(t.footerBrand + ' '));
-      if (svg) footerLogo.appendChild(svg);
+      if (star) {
+        star.classList.add('footer-star');
+        footerLogo.appendChild(star);
+      } else {
+        const starEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        starEl.setAttribute('class', 'footer-star');
+        starEl.setAttribute('viewBox', '0 0 24 24');
+        starEl.setAttribute('aria-hidden', 'true');
+        starEl.innerHTML =
+          '<path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/>';
+        footerLogo.appendChild(starEl);
+      }
+      // Re-attach lock button to the right of the star after text refresh
+      if (stealth) footerLogo.appendChild(stealth);
     }
     const footerCopy = document.querySelector('.footer-copy');
     if (footerCopy) {
       footerCopy.innerHTML = esc(t.footerCopyright) + '<br>' + esc(t.footerTagline);
     }
+    // Ensure stealth entry is always present next to the star after content apply
+    injectStealthEntry();
   }
 
   function setTextKeepSvgEl(el, val) {
@@ -857,50 +875,72 @@
   }
 
   /**
-   * Light, low-contrast button fixed at the bottom center of every page.
-   * Visitors rarely notice it; you click it → passcode → Content Manager.
+   * Light lock button in the footer: “Danyal Amin” ★ [lock]
+   * Immediately to the right of the star. Passcode → Content Manager.
    * Works without ?admin. The ?admin URL still works as a backup.
    */
   function injectStealthEntry() {
-    if (document.getElementById('cmsStealthEntry')) return;
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.id = 'cmsStealthEntry';
-    btn.className = 'cms-stealth-entry';
-    btn.setAttribute('aria-label', 'Site tools');
-    // Empty title on purpose — no hover tooltip for public visitors
-    btn.title = '';
-    btn.innerHTML =
-      '<svg viewBox="0 0 24 24" aria-hidden="true">' +
-      '<rect x="5" y="11" width="14" height="10" rx="2"/>' +
-      '<path d="M8 11V8a4 4 0 018 0v3"/>' +
-      '</svg>';
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      ensureShell();
-      if (isAdminMode) {
-        exitAdminMode();
-        return;
+    let btn = document.getElementById('cmsStealthEntry');
+    const isNew = !btn;
+    if (isNew) {
+      btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'cmsStealthEntry';
+      btn.className = 'cms-stealth-entry';
+      btn.setAttribute('aria-label', 'Site tools');
+      // Empty title on purpose — no hover tooltip for public visitors
+      btn.title = '';
+      btn.innerHTML =
+        '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+        '<rect x="5" y="11" width="14" height="10" rx="2"/>' +
+        '<path d="M8 11V8a4 4 0 018 0v3"/>' +
+        '</svg>';
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        ensureShell();
+        if (isAdminMode) {
+          exitAdminMode();
+          return;
+        }
+        // Still authorized from this browser session → re-enter edit mode instantly
+        if (isAuthorized()) {
+          enableAdminChrome();
+          setAdminMode(true);
+          toast('🔓 Content Manager active');
+          return;
+        }
+        // Ask for password, then unlock edit mode (Home + All Projects)
+        open('cmsAuthOverlay');
+        const err = document.getElementById('cmsAuthError');
+        if (err) err.classList.remove('show');
+        const pass = document.getElementById('cmsPass');
+        if (pass) {
+          pass.value = '';
+          setTimeout(() => pass.focus(), 50);
+        }
+      });
+    }
+
+    const logo = document.querySelector('.footer-logo');
+    if (logo) {
+      btn.classList.remove('cms-stealth-fixed');
+      const star =
+        logo.querySelector('.footer-star') || logo.querySelector(':scope > svg');
+      if (star) {
+        // Place immediately to the right of the star
+        if (star.nextSibling !== btn) {
+          star.insertAdjacentElement('afterend', btn);
+        }
+      } else if (btn.parentNode !== logo) {
+        logo.appendChild(btn);
       }
-      // Still authorized from this browser session → re-enter edit mode instantly
-      if (isAuthorized()) {
-        enableAdminChrome();
-        setAdminMode(true);
-        toast('🔓 Content Manager active');
-        return;
-      }
-      // Ask for password, then unlock edit mode (Home + All Projects)
-      open('cmsAuthOverlay');
-      const err = document.getElementById('cmsAuthError');
-      if (err) err.classList.remove('show');
-      const pass = document.getElementById('cmsPass');
-      if (pass) {
-        pass.value = '';
-        setTimeout(() => pass.focus(), 50);
-      }
-    });
-    document.body.appendChild(btn);
+    } else if (btn.parentNode !== document.body) {
+      // Fallback if a page has no footer
+      btn.classList.add('cms-stealth-fixed');
+      document.body.appendChild(btn);
+    }
+
     updateStealthEntryVisibility();
   }
 

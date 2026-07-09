@@ -6,12 +6,13 @@ Works on **Home** and **All Projects**. After you unlock once, **View All Projec
 
 ## Open admin (recommended — no special URL)
 
-1. Go to the **bottom center** of any page (Home or All Projects)
-2. Click the **light lock button** (soft circle — easy for you to spot, not loud for visitors)
-3. Enter the passcode: **`danyaladmin`**
-4. Content Manager unlocks — edit projects, texts, and Publish Live
+1. Scroll to the **footer bar** (dark green strip at the bottom)
+2. Find **Danyal Amin** and the **star ★**
+3. Click the **light lock button** immediately to the **right of the star**
+4. Enter the passcode: **`danyaladmin`**
+5. Content Manager unlocks — edit projects, texts, and Publish Live
 
-Same button works on **Home** and **All Projects**. After unlock once, navigation keeps you in edit mode until you exit.
+Same footer control works on **Home** and **All Projects**. After unlock once, navigation keeps you in edit mode until you exit.
 
 ## Open admin (optional URL)
 
