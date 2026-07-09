@@ -1,7 +1,7 @@
 /**
  * Content Manager — modeled after the interactive portfolio admin system.
  * Access:
- *   1) Subtle footer · button → passcode (preferred; no URL change)
+ *   1) Light lock button at bottom center → passcode (preferred; no special URL needed)
  *   2) Or append ?admin to the URL → nav Content Manager → passcode
  * Works on Home and All Projects. Auth session keeps edit mode across pages.
  * Publish Live: writes js/site-data.js to GitHub so every visitor sees updates.
@@ -857,8 +857,9 @@
   }
 
   /**
-   * Very light entry control at the bottom of every page.
-   * Looks like a tiny decorative mark — only you know to click it.
+   * Light, low-contrast button fixed at the bottom center of every page.
+   * Visitors rarely notice it; you click it → passcode → Content Manager.
+   * Works without ?admin. The ?admin URL still works as a backup.
    */
   function injectStealthEntry() {
     if (document.getElementById('cmsStealthEntry')) return;
@@ -867,27 +868,37 @@
     btn.id = 'cmsStealthEntry';
     btn.className = 'cms-stealth-entry';
     btn.setAttribute('aria-label', 'Site tools');
+    // Empty title on purpose — no hover tooltip for public visitors
     btn.title = '';
-    btn.textContent = '·';
-    btn.addEventListener('click', () => {
+    btn.innerHTML =
+      '<svg viewBox="0 0 24 24" aria-hidden="true">' +
+      '<rect x="5" y="11" width="14" height="10" rx="2"/>' +
+      '<path d="M8 11V8a4 4 0 018 0v3"/>' +
+      '</svg>';
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       ensureShell();
       if (isAdminMode) {
         exitAdminMode();
         return;
       }
+      // Still authorized from this browser session → re-enter edit mode instantly
       if (isAuthorized()) {
         enableAdminChrome();
         setAdminMode(true);
         toast('🔓 Content Manager active');
         return;
       }
+      // Ask for password, then unlock edit mode (Home + All Projects)
       open('cmsAuthOverlay');
+      const err = document.getElementById('cmsAuthError');
+      if (err) err.classList.remove('show');
       const pass = document.getElementById('cmsPass');
       if (pass) {
         pass.value = '';
         setTimeout(() => pass.focus(), 50);
       }
-      document.getElementById('cmsAuthError')?.classList.remove('show');
     });
     document.body.appendChild(btn);
     updateStealthEntryVisibility();
@@ -896,7 +907,7 @@
   function updateStealthEntryVisibility() {
     const btn = document.getElementById('cmsStealthEntry');
     if (!btn) return;
-    // Hide the mark while full admin chrome is active (banner + nav button)
+    // Hide while Content Manager chrome is open; show again after Exit
     btn.classList.toggle('cms-stealth-hidden', isAdminMode);
   }
 

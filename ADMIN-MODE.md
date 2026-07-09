@@ -4,18 +4,18 @@ Edit your portfolio in the browser and **Publish Live** so changes update GitHub
 
 Works on **Home** and **All Projects**. After you unlock once, **View All Projects** / **Back to Home** keep you in edit mode — same edit ✏️ / delete 🗑 buttons and **+ Add New Portfolio Video** on both pages.
 
-## Open admin (recommended)
+## Open admin (recommended — no special URL)
 
-1. Scroll to the **bottom** of the site
-2. Click the tiny **·** mark centered at the bottom (very light on purpose — only you know it’s there)
+1. Go to the **bottom center** of any page (Home or All Projects)
+2. Click the **light lock button** (soft circle — easy for you to spot, not loud for visitors)
 3. Enter the passcode: **`danyaladmin`**
 4. Content Manager unlocks — edit projects, texts, and Publish Live
 
-Same control works on **Home** and **All Projects**.
+Same button works on **Home** and **All Projects**. After unlock once, navigation keeps you in edit mode until you exit.
 
 ## Open admin (optional URL)
 
-You can still append **`?admin`** if you prefer:
+You can still append **`?admin`** if you prefer (backup method):
 
 - Live home: `https://danyalamin.art/?admin`
 - Live all projects: `https://danyalamin.art/pages/all-projects.html?admin`
