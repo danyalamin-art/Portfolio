@@ -43,9 +43,10 @@ Optional: check **Remember token on this browser**.
 1. Open `https://danyalamin.art/` → hard-refresh (**Ctrl+F5**) if you just deployed
 2. Click the subtle **·** at the bottom → passcode: **`danyaladmin`**
 3. Edit texts, showreel, or portfolio projects (including on **View All Projects**)
-4. If a token is saved, edits **auto-publish** to GitHub  
+4. **Reorder videos:** drag any project card (use the **⠿** handle or the card itself) on Home or All Projects — order is shared across both pages
+5. If a token is saved, edits **auto-publish** to GitHub  
    Otherwise click **🚀 Publish Live**
-5. Wait **1–2 minutes** for GitHub Pages to rebuild — then everyone sees the update
+6. Wait **1–2 minutes** for GitHub Pages to rebuild — then everyone sees the update
 
 ## Banner tools
 

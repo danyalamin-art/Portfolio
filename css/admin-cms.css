@@ -410,7 +410,43 @@ body[data-page="all"].cms-admin-active .cms-add-project-wrap {
 }
 .cms-card-controls .cms-edit { background: #8DC63F; }
 .cms-card-controls .cms-del { background: #e85d4c; color: #fff; }
+.cms-card-controls .cms-drag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #0d4d32;
+  color: #c8efd4;
+  cursor: grab;
+  font-size: 0.95rem;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  user-select: none;
+  pointer-events: none; /* drag the whole card; grip is visual only */
+}
 .cms-card-controls button:hover { transform: scale(1.08); }
+
+/* Drag-to-reorder (Content Manager only) */
+body.cms-admin-active .portfolio-card.cms-draggable,
+body.cms-admin-active .pcard.cms-draggable {
+  cursor: grab;
+}
+body.cms-admin-active .portfolio-card.cms-dragging,
+body.cms-admin-active .pcard.cms-dragging {
+  opacity: 0.55;
+  cursor: grabbing;
+  box-shadow: 0 12px 28px rgba(20, 105, 69, 0.28);
+  transform: scale(1.02);
+  z-index: 6;
+}
+body.cms-admin-active .portfolio-card.cms-drag-over,
+body.cms-admin-active .pcard.cms-drag-over {
+  outline: 2px dashed #8DC63F;
+  outline-offset: 3px;
+}
 
 .cms-add-project-wrap {
   display: none;

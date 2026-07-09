@@ -690,11 +690,12 @@
            data-goal="${esc(p.goal || '')}" data-result="${esc(p.result || '')}"
            onclick="if(!window.__cmsIgnoreClick)openVideoModal(this)">
         <div class="cms-card-controls">
+          <span class="cms-drag" title="Drag to reorder" aria-hidden="true">⠿</span>
           <button type="button" class="cms-edit" title="Edit" data-edit="${esc(p.id)}">✏️</button>
           <button type="button" class="cms-del" title="Delete" data-del="${esc(p.id)}">🗑</button>
         </div>
         <div class="portfolio-thumb">
-          <img src="${esc(p.thumbnail)}" alt="${esc(p.title)}" loading="lazy">
+          <img src="${esc(p.thumbnail)}" alt="${esc(p.title)}" loading="lazy" draggable="false">
           <span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
         <div class="portfolio-info">
@@ -707,6 +708,7 @@
 
     if (typeof window.rebindPortfolioFilters === 'function') window.rebindPortfolioFilters();
     else if (typeof applyPortfolioFilter === 'function') applyPortfolioFilter('All');
+    syncCardDragState(grid);
   }
 
   function renderAllCards() {
@@ -723,15 +725,132 @@
            data-goal="${esc(p.goal || '')}" data-result="${esc(p.result || '')}"
            onclick="if(!window.__cmsIgnoreClick)openVideoModal(this)">
         <div class="cms-card-controls">
+          <span class="cms-drag" title="Drag to reorder" aria-hidden="true">⠿</span>
           <button type="button" class="cms-edit" title="Edit project" data-edit="${esc(p.id)}">✏️</button>
           <button type="button" class="cms-del" title="Delete project" data-del="${esc(p.id)}">🗑</button>
         </div>
-        <div class="pthumb"><img src="${esc(p.thumbnail)}" alt="${esc(p.title)}" loading="lazy"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
+        <div class="pthumb"><img src="${esc(p.thumbnail)}" alt="${esc(p.title)}" loading="lazy" draggable="false"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="pinfo"><h3 class="ptitle">${esc(p.title)}</h3>${renderTags(cats, 'ptag')}<p class="pdesc">${esc(summary)}</p></div>
       </div>`;
       })
       .join('');
     if (typeof window.rebindAllProjectsFilters === 'function') window.rebindAllProjectsFilters();
+    syncCardDragState(grid);
+  }
+
+  /** Enable/disable HTML5 drag on portfolio cards (admin only). */
+  function syncCardDragState(root) {
+    const scope = root || document;
+    scope.querySelectorAll('#portfolioGrid .portfolio-card, #cardGrid .pcard').forEach((card) => {
+      if (isAdminMode) {
+        card.setAttribute('draggable', 'true');
+        card.classList.add('cms-draggable');
+      } else {
+        card.removeAttribute('draggable');
+        card.classList.remove('cms-draggable', 'cms-dragging', 'cms-drag-over');
+      }
+    });
+  }
+
+  /**
+   * Rebuild projects[] from current grid DOM order, save, publish if token set.
+   * // ponytail: native DnD, no library
+   */
+  function applyOrderFromGrid(grid) {
+    if (!grid) return;
+    const ids = Array.from(grid.querySelectorAll('[data-id]'))
+      .map((el) => el.getAttribute('data-id'))
+      .filter(Boolean);
+    if (!ids.length) return;
+    const byId = new Map(projects.map((p) => [p.id, p]));
+    const next = [];
+    ids.forEach((id) => {
+      const p = byId.get(id);
+      if (p) {
+        next.push(p);
+        byId.delete(id);
+      }
+    });
+    byId.forEach((p) => next.push(p));
+    const prevKey = projects.map((p) => p.id).join('\0');
+    const nextKey = next.map((p) => p.id).join('\0');
+    if (prevKey === nextKey) return;
+    projects = next;
+    afterLocalSave('↕️ Project order updated');
+    if (typeof window.rebindPortfolioFilters === 'function') window.rebindPortfolioFilters();
+    if (typeof window.rebindAllProjectsFilters === 'function') window.rebindAllProjectsFilters();
+  }
+
+  /** One-time document listeners for drag-reorder on Home + All Projects. */
+  function bindCardDragReorder() {
+    if (document.documentElement.dataset.cmsDrag === '1') return;
+    document.documentElement.dataset.cmsDrag = '1';
+    let dragEl = null;
+
+    document.addEventListener('dragstart', (e) => {
+      if (!isAdminMode) return;
+      // Don't start a card drag from edit/delete
+      if (e.target.closest && e.target.closest('.cms-edit, .cms-del, a, input, textarea, select')) {
+        e.preventDefault();
+        return;
+      }
+      const card = e.target.closest && e.target.closest('#portfolioGrid .portfolio-card, #cardGrid .pcard');
+      if (!card) return;
+      dragEl = card;
+      window.__cmsIgnoreClick = true;
+      card.classList.add('cms-dragging');
+      try {
+        e.dataTransfer.effectAllowed = 'move';
+        e.dataTransfer.setData('text/plain', card.getAttribute('data-id') || '');
+        e.dataTransfer.setData('text/html', card.outerHTML);
+      } catch (err) { /* ignore */ }
+    });
+
+    document.addEventListener('dragover', (e) => {
+      if (!dragEl || !isAdminMode) return;
+      const over = e.target.closest && e.target.closest('#portfolioGrid .portfolio-card, #cardGrid .pcard');
+      if (!over || over === dragEl) return;
+      const grid = over.parentNode;
+      if (!grid || !grid.contains(dragEl)) return;
+      e.preventDefault();
+      try {
+        e.dataTransfer.dropEffect = 'move';
+      } catch (err) { /* ignore */ }
+      const rect = over.getBoundingClientRect();
+      const midX = rect.left + rect.width / 2;
+      const midY = rect.top + rect.height / 2;
+      // Grid-friendly: prefer horizontal half, then vertical
+      const insertBefore =
+        Math.abs(e.clientX - midX) > Math.abs(e.clientY - midY)
+          ? e.clientX < midX
+          : e.clientY < midY;
+      if (insertBefore) {
+        if (over.previousSibling !== dragEl) grid.insertBefore(dragEl, over);
+      } else if (over.nextSibling !== dragEl) {
+        grid.insertBefore(dragEl, over.nextSibling);
+      }
+      grid.querySelectorAll('.cms-drag-over').forEach((n) => n.classList.remove('cms-drag-over'));
+      over.classList.add('cms-drag-over');
+    });
+
+    document.addEventListener('drop', (e) => {
+      if (!dragEl) return;
+      e.preventDefault();
+    });
+
+    document.addEventListener('dragend', () => {
+      if (!dragEl) return;
+      const grid = dragEl.parentNode;
+      dragEl.classList.remove('cms-dragging');
+      if (grid) {
+        grid.querySelectorAll('.cms-drag-over').forEach((n) => n.classList.remove('cms-drag-over'));
+        applyOrderFromGrid(grid);
+      }
+      dragEl = null;
+      setTimeout(() => {
+        window.__cmsIgnoreClick = false;
+      }, 80);
+    });
   }
 
   function refreshProjects() {
@@ -740,6 +859,7 @@
     else renderHomeCards();
     // Re-attach add-project control if the grid was re-created after navigation/render
     if (isAdminMode) injectAddProjectButton();
+    syncCardDragState();
   }
 
   function applyAll() {
@@ -755,7 +875,7 @@
     root.id = 'cmsRoot';
     root.innerHTML = `
       <div class="cms-banner" id="cmsBanner">
-        <div>🛠️ <strong>CONTENT MANAGER ACTIVE:</strong> Edit content, then <strong>Publish Live</strong> so every visitor sees it (updates GitHub).</div>
+        <div>🛠️ <strong>CONTENT MANAGER ACTIVE:</strong> Edit content, <strong>drag cards</strong> to reorder videos, then <strong>Publish Live</strong> (updates GitHub).</div>
         <div class="cms-banner-actions">
           <button type="button" class="cms-btn-publish" id="cmsPublish">🚀 Publish Live</button>
           <button type="button" class="cms-btn-edit" id="cmsEditTexts">✏️ Edit Site Texts &amp; Showreel</button>
@@ -991,6 +1111,7 @@
       preserveAdminLinks();
     }
     refreshProjects();
+    syncCardDragState();
     updateStealthEntryVisibility();
   }
 
@@ -1206,6 +1327,7 @@
     loadState();
     bindAdminNavGuard();
     bindGlobalCardAdminControls();
+    bindCardDragReorder();
 
     // Always available: shell (password modal) + subtle footer entry (Home + All Projects)
     ensureShell();
