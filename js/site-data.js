@@ -6,19 +6,6 @@ window.SITE_DATA_DEFAULTS = {
   "projects": [
     {
       "categories": [
-        "Nursery Rhymes"
-      ],
-      "id": "how-many-cats-song",
-      "title": "How Many Cats Song",
-      "featured": true,
-      "thumbnail": "https://i.vimeocdn.com/video/2177332588-feee58fc7f79fdbf2717742fa7121af7b453ae861bafc591f77f860aa6fca0b2-d_640?region=us",
-      "description": "A playful counting rhyme where curious cats help little ones learn numbers through song, color, and movement.",
-      "videoUrl": "https://player.vimeo.com/video/1208097889?title=0&byline=0&portrait=0&badge=0&autoplay=1",
-      "result": "From the full counting song: a lively excerpt where the cats and numbers hit their best moments.",
-      "goal": "Make counting feel playful so kids want to sing and learn numbers together."
-    },
-    {
-      "categories": [
         "Educational Animation"
       ],
       "id": "10-little-squirrels",
@@ -29,6 +16,19 @@ window.SITE_DATA_DEFAULTS = {
       "videoUrl": "https://player.vimeo.com/video/1208097311?title=0&byline=0&portrait=0&badge=0&autoplay=1",
       "result": "Pulled from the complete educational film — this cut shows the squirrels' energy and number beats in action.",
       "goal": "Turn early counting into a fun adventure with characters kids can root for."
+    },
+    {
+      "categories": [
+        "Nursery Rhymes"
+      ],
+      "id": "how-many-cats-song",
+      "title": "How Many Cats Song",
+      "featured": true,
+      "thumbnail": "https://i.vimeocdn.com/video/2177332588-feee58fc7f79fdbf2717742fa7121af7b453ae861bafc591f77f860aa6fca0b2-d_640?region=us",
+      "description": "A playful counting rhyme where curious cats help little ones learn numbers through song, color, and movement.",
+      "videoUrl": "https://player.vimeo.com/video/1208097889?title=0&byline=0&portrait=0&badge=0&autoplay=1",
+      "result": "From the full counting song: a lively excerpt where the cats and numbers hit their best moments.",
+      "goal": "Make counting feel playful so kids want to sing and learn numbers together."
     },
     {
       "categories": [
@@ -266,7 +266,7 @@ window.SITE_DATA_DEFAULTS = {
     "heroProfileName": "Danyal Amin",
     "heroLocation": "Based in Islamabad · Working with clients worldwide",
     "showreelBadge": "Showreel",
-    "showreelUrl": "https://player.vimeo.com/video/1208027744?title=0&byline=0&portrait=0&badge=0&autopause=0&loop=0&player_id=0&app_id=58479",
+    "showreelUrl": "https://player.vimeo.com/video/1208027744?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
     "showreelTitle": "Showreel",
     "portTitle": "Featured Portfolio",
     "portSub": "A glimpse of my recent work.",
