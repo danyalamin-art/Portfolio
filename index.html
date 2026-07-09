@@ -3,426 +3,3041 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Danyal Amin — 2D Animator &amp; Motion Designer</title>
-<meta name="description" content="Danyal Amin — 2D Animator and Graphic Designer. Story animation, nursery rhymes, and motion graphics for children's educational media.">
-<link rel="icon" type="image/png" href="FavIcon.png">
+<title>Danyal Amin — 2D Animator &amp; Motion Graphics Designer</title>
+<meta name="description" content="2D animator &amp; motion designer creating engaging character animation, explainer videos, motion graphics, and educational animations for brands and creators.">
+<meta name="author" content="Danyal Amin">
+<meta name="robots" content="index, follow">
+<!-- Update this to your live domain when ready (Netlify / custom domain) -->
+<link rel="canonical" href="https://danyalamin.art/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Danyal Amin Portfolio">
+<meta property="og:title" content="Danyal Amin — 2D Animator &amp; Motion Graphics Designer">
+<meta property="og:description" content="2D animator &amp; motion designer creating engaging character animation, explainer videos, motion graphics, and educational animations for brands and creators.">
+<meta property="og:url" content="https://danyalamin.art/">
+<meta property="og:image" content="https://i.vimeocdn.com/video/2175287645-a6d733cb48f63ca5a149d0e72f6c76d924be79cdfd528607946858ac6c5b8b12-d_1280">
+<meta property="og:image:alt" content="Showreel frame — kids 2D animation by Danyal Amin">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Danyal Amin — 2D Animator &amp; Motion Graphics Designer">
+<meta name="twitter:description" content="2D animator &amp; motion designer creating engaging character animation, explainer videos, motion graphics, and educational animations for brands and creators.">
+<meta name="twitter:image" content="https://i.vimeocdn.com/video/2175287645-a6d733cb48f63ca5a149d0e72f6c76d924be79cdfd528607946858ac6c5b8b12-d_1280">
+
+<link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+<link rel="icon" href="Assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="shortcut icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="Assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Danyal Amin",
+  "url": "https://danyalamin.art/",
+  "image": "https://danyalamin.art/Assets/danyal-portrait.svg",
+  "jobTitle": "2D Animator & Motion Graphics Designer",
+  "description": "2D animator & motion designer creating engaging character animation, explainer videos, motion graphics, and educational animations for brands and creators.",
+  "email": "mailto:danyal.animator@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Islamabad",
+    "addressCountry": "PK"
+  },
+  "sameAs": [
+    "https://www.fiverr.com/s/WE4Bj9E",
+    "https://www.upwork.com/freelancers/~015fe2949727610a99",
+    "https://www.linkedin.com/in/danyalamin418/",
+    "https://www.instagram.com/danyal_animations/"
+  ],
+  "knowsAbout": [
+    "2D Animation",
+    "Character Animation",
+    "Motion Graphics",
+    "Educational Animation",
+    "Nursery Rhymes",
+    "Explainer Videos"
+  ]
+}
+</script>
 <style>
-  :root{
-    --sky: #4FB8E8;
-    --sky-deep: #2E93C4;
-    --sun: #FFC857;
-    --paper: #F5FAFF;
-    --card: #FFFFFF;
-    --ink: #163455;
-    --ink-soft: #4F6B87;
-    --line: #DCEBF7;
-    --radius: 18px;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Work Sans', sans-serif;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.brand{font-family:'Baloo 2', sans-serif;}
-  a{color:inherit;}
-  img{max-width:100%;display:block;}
-  .wrap{max-width:1140px; margin:0 auto; padding:0 28px;}
-
-  /* ---------- NAV ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:rgba(245,250,255,0.86);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid var(--line);
-  }
-  nav.wrap{
-    display:flex; align-items:center; justify-content:space-between;
-    height:76px;
-  }
-  .brand{font-weight:700; font-size:1.3rem; color:var(--ink); text-decoration:none; letter-spacing:.2px;}
-  .brand span{color:var(--sky-deep);}
-  .navlinks{display:flex; gap:6px; list-style:none; margin:0; padding:0;}
-  .navlinks a{
-    text-decoration:none; font-weight:600; font-size:.95rem; color:var(--ink-soft);
-    padding:9px 16px; border-radius:999px; transition:.2s;
-  }
-  .navlinks a:hover, .navlinks a:focus-visible{background:#E7F4FD; color:var(--sky-deep); outline:none;}
-  .navlinks a.cta{background:var(--sun); color:#3A2A00;}
-  .navlinks a.cta:hover{background:#ffbd3d;}
-  .menu-btn{display:none; background:none; border:none; cursor:pointer; padding:8px;}
-  .menu-btn span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; border-radius:2px;}
-
-  /* ---------- HERO ---------- */
-  .hero{position:relative; overflow:hidden; padding:76px 0 40px;}
-  .hero .wrap{display:grid; grid-template-columns:1.1fr 1fr; gap:56px; align-items:center; position:relative; z-index:2;}
-  .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-weight:600; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--sky-deep); background:#E7F4FD; padding:6px 14px; border-radius:999px; margin-bottom:18px;
-  }
-  .hero h1{font-size:clamp(2.2rem, 4.4vw, 3.4rem); line-height:1.08; margin:0 0 18px; font-weight:800;}
-  .hero h1 .accent{color:var(--sky-deep); position:relative;}
-  .hero p.lead{font-size:1.12rem; color:var(--ink-soft); max-width:46ch; margin:0 0 30px; line-height:1.6;}
-  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px;}
-  .btn{
-    display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:700;
-    padding:14px 26px; border-radius:999px; font-size:.98rem; transition:.2s; border:2px solid transparent;
-  }
-  .btn-primary{background:var(--sky-deep); color:#fff;}
-  .btn-primary:hover{background:#217aa8; transform:translateY(-1px);}
-  .btn-ghost{border-color:var(--sky-deep); color:var(--sky-deep);}
-  .btn-ghost:hover{background:#E7F4FD;}
-
-  .avatar-row{display:flex; align-items:center; gap:16px;}
-  .avatar{
-    width:64px; height:64px; border-radius:50%; background:linear-gradient(150deg,var(--sky),var(--sun));
-    display:flex; align-items:center; justify-content:center; font-family:'Baloo 2'; font-weight:700; color:#fff; font-size:1.4rem;
-    border:3px solid #fff; box-shadow:0 6px 18px rgba(47,140,190,.28); flex-shrink:0; overflow:hidden;
-  }
-  .avatar img{width:100%; height:100%; object-fit:cover;}
-  .avatar-row .name{font-weight:700; font-size:.98rem;}
-  .avatar-row .role{color:var(--ink-soft); font-size:.86rem;}
-
-  .showreel{position:relative;}
-  .showreel-frame{
-    position:relative; border-radius:24px; overflow:hidden; background:#0d2438;
-    box-shadow:0 22px 50px -18px rgba(22,52,85,.45);
-    aspect-ratio:16/9; border:6px solid #fff;
-  }
-  .showreel-frame iframe{width:100%; height:100%; border:0; display:block;}
-  .showreel-tag{
-    position:absolute; top:-16px; left:22px; background:var(--sun); color:#3A2A00;
-    font-family:'Baloo 2'; font-weight:700; padding:8px 18px; border-radius:999px; font-size:.85rem;
-    box-shadow:0 8px 18px rgba(255,200,87,.4); z-index:3;
+  :root {
+    --forest: #146945;
+    --forest-dark: #0d4d32;
+    --lime: #8DC63F;
+    --cream: #FAF9F4;
+    --ink: #1C2620;
+    --ink-soft: #38443C;
+    --white: #FFFFFF;
+    --sage-mist: #E3F0E4;
   }
 
-  .cloud{position:absolute; opacity:.55; z-index:1;}
-  .cloud svg{display:block;}
-  .cloud.c1{top:6%; left:-60px; width:180px; animation:drift 26s ease-in-out infinite;}
-  .cloud.c2{top:60%; right:-40px; width:130px; animation:drift 22s ease-in-out infinite reverse;}
-  .cloud.c3{bottom:2%; left:38%; width:100px; animation:drift 30s ease-in-out infinite;}
-  @keyframes drift{0%,100%{transform:translateY(0px);} 50%{transform:translateY(-18px);}}
-  @media (prefers-reduced-motion: reduce){ .cloud{animation:none;} }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* ---------- WAVE DIVIDER ---------- */
-  .wave{display:block; width:100%; height:70px; margin-top:-4px;}
+  html { scroll-behavior: smooth; }
 
-  /* ---------- SECTIONS ---------- */
-  section.portfolio-section{padding:74px 0;}
-  .section-head{display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:36px; flex-wrap:wrap; gap:16px;}
-  .section-head .tag{
-    font-weight:600; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--sky-deep); margin-bottom:8px; display:block;
-  }
-  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem); margin:0; font-weight:700;}
-  .section-head p{color:var(--ink-soft); margin:6px 0 0; max-width:52ch;}
-
-  .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:26px;}
-  .card{
-    background:var(--card); border-radius:var(--radius); overflow:hidden; border:1px solid var(--line);
-    transition:.25s; display:flex; flex-direction:column;
-  }
-  .card:hover{transform:translateY(-5px); box-shadow:0 20px 34px -20px rgba(22,52,85,.28); border-color:transparent;}
-  .card-media{
-    aspect-ratio:16/10; position:relative; background:linear-gradient(135deg,#DFF1FC,#F5FAFF);
-    display:flex; align-items:center; justify-content:center; overflow:hidden;
-  }
-  .card-media iframe{width:100%; height:100%; border:0;}
-  .placeholder-media{
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; color:var(--sky-deep); text-align:center; padding:20px;
-  }
-  .placeholder-media svg{width:38px; height:38px; opacity:.7;}
-  .placeholder-media span{font-size:.78rem; font-weight:600; color:var(--ink-soft);}
-  .card-body{padding:18px 20px 22px;}
-  .card-body h3{font-size:1.06rem; margin:0 0 6px; font-weight:700;}
-  .card-body p{margin:0; font-size:.88rem; color:var(--ink-soft); line-height:1.5;}
-  .pill{
-    display:inline-block; font-size:.72rem; font-weight:700; color:var(--sky-deep); background:#E7F4FD;
-    padding:4px 10px; border-radius:999px; margin-bottom:10px;
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    overflow-x: hidden;
   }
 
-  .section-alt{background:#EFF8FF;}
-
-  /* ---------- ABOUT ---------- */
-  .about-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:56px; align-items:center;}
-  .about-photo{
-    aspect-ratio:4/5; border-radius:24px; background:linear-gradient(160deg,var(--sky),#8fd6f7);
-    display:flex; align-items:center; justify-content:center; overflow:hidden; border:6px solid #fff;
-    box-shadow:0 20px 40px -18px rgba(22,52,85,.35);
-  }
-  .about-photo img{width:100%; height:100%; object-fit:cover;}
-  .about-photo .ph-icon{color:#fff; opacity:.85;}
-  .about h2{font-size:clamp(1.6rem,3vw,2.2rem); margin:0 0 16px;}
-  .about p{color:var(--ink-soft); line-height:1.7; margin:0 0 16px;}
-  .stat-row{display:flex; gap:34px; margin-top:26px; flex-wrap:wrap;}
-  .stat b{display:block; font-family:'Baloo 2'; font-size:1.6rem; color:var(--sky-deep);}
-  .stat span{font-size:.82rem; color:var(--ink-soft);}
-
-  /* ---------- CONTACT ---------- */
-  .contact{
-    background:var(--sky-deep); color:#fff; border-radius:28px; padding:60px 48px; text-align:center; position:relative; overflow:hidden;
-  }
-  .contact h2{color:#fff; margin:0 0 12px; font-size:clamp(1.7rem,3.4vw,2.3rem);}
-  .contact p{color:#DCF0FC; max-width:52ch; margin:0 auto 28px; line-height:1.6;}
-  .contact .btn-primary{background:var(--sun); color:#3A2A00;}
-  .contact .btn-primary:hover{background:#ffbd3d;}
-  .contact-links{display:flex; gap:18px; justify-content:center; margin-top:30px; flex-wrap:wrap;}
-  .contact-links a{
-    text-decoration:none; color:#fff; font-weight:600; font-size:.9rem; opacity:.9; border-bottom:1px solid rgba(255,255,255,.4); padding-bottom:2px;
-  }
-  .contact-links a:hover{opacity:1;}
-
-  footer{padding:34px 0; text-align:center; color:var(--ink-soft); font-size:.85rem;}
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width:900px){
-    .hero .wrap{grid-template-columns:1fr; gap:40px;}
-    .about-grid{grid-template-columns:1fr;}
-    .grid{grid-template-columns:repeat(2,1fr);}
-    .navlinks{display:none;}
-    .menu-btn{display:block;}
-  }
-  @media (max-width:560px){
-    .grid{grid-template-columns:1fr;}
-    .contact{padding:44px 24px;}
-    .stat-row{gap:22px;}
+  /* ===================== HERO OUTER (bg image + wave) ===================== */
+  .hero-outer {
+    position: relative;
+    overflow: hidden;
+    background-image: url('Assets/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 122px;
   }
 
-  :focus-visible{outline:3px solid var(--sky-deep); outline-offset:2px;}
+  .wave-divider {
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    line-height: 0;
+    z-index: 2;
+  }
+
+  .wave-divider svg {
+    width: 100%;
+    height: 100px;
+    display: block;
+  }
+
+  .wave-divider path {
+    fill: var(--cream);
+  }
+
+  /* ===================== NAVBAR ===================== */
+  .nav-wrap {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 28px 24px 0;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 12px 14px 12px 28px;
+    box-shadow: 0 10px 30px rgba(20, 105, 69, 0.15), 0 2px 8px rgba(20, 105, 69, 0.08);
+    gap: 20px;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+    line-height: 1.05;
+    white-space: nowrap;
+    text-decoration: none;
+    min-width: 0;
+  }
+  .brand-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2.5px solid var(--white);
+    box-shadow: 0 0 0 2px var(--sage-mist), 0 4px 12px rgba(20, 105, 69, 0.18);
+  }
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  .brand-name { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--forest); }
+  .brand-tag { font-size: 0.72rem; font-weight: 500; color: var(--ink-soft); margin-top: 2px; }
+
+  .nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
+  .nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.98rem;
+    padding-bottom: 6px;
+    transition: color 0.2s ease;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: var(--lime);
+    border-radius: 4px;
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-links a:hover::after { width: 60%; }
+  .nav-links a.active { color: var(--forest-dark); font-weight: 600; }
+  .nav-links a.active::after { width: 60%; }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--forest);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    padding: 12px 26px;
+    border-radius: 100px;
+    white-space: nowrap;
+    box-shadow: 0 6px 16px rgba(20, 105, 69, 0.28);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .contact-btn:hover { background: var(--forest-dark); transform: translateY(-1px); }
+  .contact-btn svg { width: 16px; height: 16px; stroke: var(--lime); }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .menu-toggle span { width: 22px; height: 2.5px; background: var(--forest); border-radius: 2px; }
+
+  .form-success {
+    display: none;
+    background: var(--sage-mist);
+    color: var(--forest-dark);
+    border: 1.5px solid #CFE3D2;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .form-success.visible { display: block; }
+
+  .form-error {
+    display: none;
+    background: #FEF2F2;
+    color: #991B1B;
+    border: 1.5px solid #FECACA;
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .form-error.visible { display: block; }
+
+  /* ===================== HERO CONTENT ===================== */
+  .hero {
+    position: relative;
+    z-index: 3;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 64px 24px 0;
+    display: grid;
+    grid-template-columns: 1fr 1.05fr;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-text-panel {
+    position: relative;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 28px;
+    padding: 36px 34px;
+  }
+
+  .eyebrow {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--forest);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .eyebrow svg { width: 20px; height: 20px; fill: var(--lime); }
+
+  .hero-name {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .hero-name .accent { color: var(--forest); }
+
+  .hero-role {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--forest-dark);
+    line-height: 1.3;
+    margin-bottom: 16px;
+  }
+
+  .hero-desc {
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 460px;
+    margin-bottom: 26px;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--forest);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.02rem;
+    padding: 15px 30px;
+    border-radius: 100px;
+    box-shadow: 0 8px 20px rgba(20, 105, 69, 0.28);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .cta-btn:hover { background: var(--forest-dark); transform: translateY(-2px); }
+  .cta-btn svg { width: 16px; height: 16px; stroke: var(--lime); }
+
+  .hero-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1.5px solid rgba(20, 105, 69, 0.12);
+  }
+  .hero-profile-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px rgba(20, 105, 69, 0.1), 0 6px 18px rgba(20, 105, 69, 0.2);
+  }
+  .hero-profile-info { min-width: 0; }
+  .hero-profile-name {
+    display: block;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .hero-profile-location {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    line-height: 1.45;
+  }
+  .hero-profile-location svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--forest);
+    fill: none;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .hero-video { position: relative; z-index: 3; }
+
+  .video-card {
+    position: relative;
+    background: var(--white);
+    border-radius: 22px;
+    padding: 8px;
+    box-shadow: 0 20px 45px rgba(20, 105, 69, 0.25), 0 4px 14px rgba(20, 105, 69, 0.12);
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0d1f16;
+  }
+  .video-frame iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+  .showreel-badge {
+    position: absolute;
+    top: -18px;
+    left: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--forest);
+    color: var(--white);
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 100px;
+    box-shadow: 0 8px 18px rgba(20, 105, 69, 0.35);
+    transform: rotate(-4deg);
+    z-index: 4;
+  }
+  .showreel-badge svg { width: 14px; height: 14px; fill: var(--lime); }
+
+  @media (max-width: 940px) {
+    .nav-wrap { padding: 14px 14px 0; }
+    .navbar {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      grid-template-areas:
+        "brand contact menu"
+        "links links links";
+      align-items: center;
+      padding: 10px 12px;
+      gap: 8px 10px;
+    }
+    .brand { grid-area: brand; min-width: 0; white-space: normal; }
+    .brand-text { min-width: 0; }
+    .brand-name { font-size: 1.15rem; }
+    .brand-tag {
+      display: block;
+      font-size: 0.62rem;
+      line-height: 1.25;
+      white-space: normal;
+    }
+    .contact-btn {
+      grid-area: contact;
+      padding: 9px 16px;
+      font-size: 0.85rem;
+    }
+    .menu-toggle { grid-area: menu; display: flex; }
+    .nav-links {
+      grid-area: links;
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+      padding: 6px 0 2px;
+      border-top: 1px solid #E8F0E9;
+      margin-top: 2px;
+    }
+    .nav-links a {
+      padding: 11px 8px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+    }
+    .nav-links a::after { display: none; }
+    .navbar.nav-open .nav-links { display: flex; }
+
+    .hero-outer { padding-bottom: 88px; }
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      text-align: center;
+      padding: 36px 16px 0;
+    }
+    .hero-text-panel {
+      padding: 26px 22px;
+      border-radius: 18px;
+    }
+    .hero-desc { margin-left: auto; margin-right: auto; max-width: 100%; font-size: 0.95rem; }
+    .eyebrow { justify-content: center; font-size: 1.1rem; }
+    .hero-name { font-size: 2rem; }
+    .hero-role { font-size: 1.15rem; }
+    .hero-profile { justify-content: center; }
+    .showreel-badge { left: 50%; transform: translateX(-50%) rotate(-4deg); }
+    .wave-divider svg { height: 72px; }
+  }
+
+  /* ===================== SECTIONS ===================== */
+  .section {
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 68px 24px 72px;
+    overflow: hidden;
+  }
+
+  .section-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 42px;
+  }
+
+  .section .eyebrow {
+    justify-content: center;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    color: var(--forest);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+
+  .section-title svg { width: 26px; height: 26px; fill: var(--lime); }
+
+  .title-underline {
+    width: 68px;
+    height: 4px;
+    border-radius: 100px;
+    background: linear-gradient(90deg, var(--forest) 0%, var(--lime) 100%);
+    margin: 10px auto 0;
+  }
+
+  @media (max-width: 560px) {
+    .section-title { font-size: 1.9rem; }
+  }
+
+  /* ===================== SECTION DIVIDER ===================== */
+  .section-divider {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 36px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    right: 24px;
+    top: 50%;
+    border-top: 2px dashed #CFE3D2;
+  }
+  .section:has(+ .section-divider),
+  .about-section:has(+ .section-divider) {
+    padding-bottom: 0;
+  }
+  .section-divider + .section,
+  .section-divider + .about-section,
+  .section-divider + .contact-outer {
+    padding-top: 0;
+  }
+  .section-divider span {
+    position: relative;
+    z-index: 1;
+    background: var(--cream);
+    padding: 0 14px;
+    display: inline-flex;
+    color: var(--forest);
+  }
+  .section-divider:has(+ .contact-outer) span {
+    background: #EEF6EE;
+  }
+  .section-divider span svg { width: 20px; height: 20px; fill: var(--lime); }
+
+  /* ===================== FEATURED PORTFOLIO ===================== */
+  .portfolio-subtitle {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    margin-top: -8px;
+    margin-bottom: 30px;
+  }
+
+  .filter-pills {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+  }
+
+  .filter-pill {
+    border: 1.5px solid #D3E4D6;
+    background: var(--white);
+    color: var(--ink-soft);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.88rem;
+    padding: 9px 20px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-pill:hover { border-color: var(--forest); color: var(--forest); }
+  .filter-pill.active {
+    background: var(--forest);
+    border-color: var(--forest);
+    color: var(--white);
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    margin-bottom: 40px;
+  }
+
+  .portfolio-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(20, 105, 69, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .portfolio-card:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(20, 105, 69, 0.15); }
+
+  .portfolio-thumb {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #0d1f16;
+  }
+  .portfolio-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .portfolio-card { cursor: pointer; }
+  .portfolio-no-results {
+    display: none;
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+    padding: 20px 0 8px;
+  }
+  .video-modal-overlay {
+    position: fixed; inset: 0; background: rgba(15, 30, 20, 0.78);
+    display: none; align-items: center; justify-content: center;
+    z-index: 999; padding: 20px; backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .video-modal-overlay.open { display: flex; }
+  .video-modal {
+    position: relative; width: 100%; max-width: 920px;
+    background: var(--white); border-radius: 24px; padding: 12px 12px 14px;
+    box-shadow: 0 30px 70px rgba(13, 77, 50, 0.28), 0 0 0 1px rgba(20, 105, 69, 0.08);
+    border: 1px solid rgba(20, 105, 69, 0.08);
+    max-height: min(92vh, 900px);
+    overflow: auto;
+    animation: videoModalIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes videoModalIn {
+    from { opacity: 0; transform: translateY(16px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .video-modal-header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 12px; padding: 8px 10px 12px; border-bottom: 1px solid rgba(20, 105, 69, 0.08);
+    margin-bottom: 12px;
+  }
+  .video-modal-title {
+    font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.2rem;
+    color: var(--forest); line-height: 1.25; padding: 2px 0 0;
+  }
+  .video-modal-close {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+    background: var(--sage-mist); border: none; color: var(--forest);
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .video-modal-close:hover {
+    background: var(--forest); color: var(--white); transform: rotate(90deg);
+  }
+  .video-modal-close svg { width: 18px; height: 18px; stroke: currentColor; }
+  .video-modal-frame {
+    position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px;
+    overflow: hidden; background: #0d1f16;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+  }
+  .video-modal-frame iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+  .video-modal-info {
+    padding: 14px 10px 4px;
+  }
+  .video-modal-tags {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px;
+  }
+  .video-modal-tags .portfolio-tag { font-size: 0.72rem; }
+  .video-modal-desc {
+    color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .video-modal-case {
+    margin-bottom: 12px;
+    padding: 14px 14px 12px;
+    background: linear-gradient(165deg, #f3faf4 0%, var(--sage-mist) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(20, 105, 69, 0.1);
+  }
+  .video-modal-case-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.68rem; font-weight: 700; color: var(--forest);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+  .video-modal-case-label svg {
+    width: 14px; height: 14px; stroke: var(--lime); fill: none; stroke-width: 2;
+  }
+  .video-modal-case-grid {
+    display: grid; gap: 10px;
+  }
+  .video-modal-case-row {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+  .video-modal-case-key {
+    font-size: 0.68rem; font-weight: 700; color: var(--forest);
+    text-transform: uppercase; letter-spacing: 0.04em;
+    padding-top: 2px;
+  }
+  .video-modal-case-val {
+    font-size: 0.84rem; color: var(--ink-soft); line-height: 1.5;
+  }
+  .video-modal-process {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+  }
+  .video-modal-process-step {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-size: 0.74rem; font-weight: 600; color: var(--ink);
+    background: var(--white); border: 1px solid rgba(20, 105, 69, 0.1);
+    padding: 4px 10px; border-radius: 100px;
+  }
+  .video-modal-process-step b {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--forest); color: var(--white);
+    font-size: 0.62rem; display: inline-flex; align-items: center; justify-content: center;
+    font-weight: 700;
+  }
+  .video-modal-process-arrow {
+    color: var(--lime); font-size: 0.75rem; font-weight: 700;
+  }
+  .video-modal-tools {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
+    margin-bottom: 14px; padding: 12px 14px;
+    background: var(--white); border-radius: 14px;
+    border: 1px solid rgba(20, 105, 69, 0.08);
+  }
+  .video-modal-tools-label {
+    font-size: 0.72rem; font-weight: 700; color: var(--forest);
+    text-transform: uppercase; letter-spacing: 0.06em; flex-shrink: 0;
+  }
+  .video-modal-tools-list {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  }
+  .video-modal-tool {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 0.78rem; font-weight: 600; color: var(--ink-soft);
+  }
+  .video-modal-tool img {
+    width: 28px; height: 28px; border-radius: 8px; object-fit: cover;
+    box-shadow: 0 2px 8px rgba(20, 105, 69, 0.14);
+    background: var(--white);
+  }
+  .video-modal-meta {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 8px 16px; padding-top: 12px; border-top: 1px solid rgba(20, 105, 69, 0.08);
+    font-size: 0.72rem; font-weight: 500; color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .video-modal-meta strong {
+    color: var(--forest); font-weight: 600;
+  }
+  body.modal-open { overflow: hidden; }
+  @media (max-width: 640px) {
+    .video-modal { border-radius: 18px; padding: 10px; max-height: 94vh; }
+    .video-modal-title { font-size: 1.05rem; }
+    .video-modal-header { padding: 4px 4px 10px; margin-bottom: 10px; }
+    .video-modal-info { padding: 12px 4px 2px; }
+    .video-modal-desc { font-size: 0.86rem; }
+    .video-modal-case { padding: 12px; }
+    .video-modal-case-row { grid-template-columns: 1fr; gap: 2px; }
+    .video-modal-case-key { padding-top: 0; }
+    .video-modal-tools { padding: 10px 12px; gap: 8px; }
+    .video-modal-tool img { width: 24px; height: 24px; border-radius: 6px; }
+    .video-modal-tool { font-size: 0.72rem; }
+  }
+
+  .play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .play-btn svg { width: 16px; height: 16px; fill: var(--forest); margin-left: 2px; }
+
+  .portfolio-info {
+    padding: 16px 18px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .portfolio-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.02rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  .portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  .portfolio-tag {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 600;
+    padding: 3px 12px;
+    border-radius: 100px;
+  }
+  .tag-edu { background: #E4EEFB; color: #2E63A6; }
+  .tag-nursery { background: #F9E4F3; color: #A84B92; }
+  .tag-character { background: #E4F5E8; color: var(--forest); }
+  .tag-motion { background: #FDEBD8; color: #C4711F; }
+
+  .view-more-wrap { text-align: center; margin-bottom: 10px; }
+
+  /* ===================== ABOUT ME ===================== */
+  .about-section {
+    position: relative;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 52px 24px 0;
+    overflow: hidden;
+  }
+
+  .about-glow {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 160px;
+    height: 160px;
+    background: rgba(141, 198, 63, 0.08);
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .about-header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .about-eyebrow {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--forest);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .about-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--forest);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0;
+    line-height: 1.1;
+  }
+
+  .about-title svg { width: 22px; height: 22px; fill: var(--lime); }
+
+  .about-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 0.95fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .about-portrait-wrap {
+    position: relative;
+    max-width: 380px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .about-portrait-glow {
+    position: absolute;
+    right: -16px;
+    top: -16px;
+    width: 80px;
+    height: 80px;
+    background: rgba(141, 198, 63, 0.12);
+    border-radius: 50%;
+    filter: blur(20px);
+    pointer-events: none;
+  }
+
+  .about-portrait-frame {
+    position: relative;
+    background: var(--white);
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow: 0 20px 40px rgba(20, 105, 69, 0.12);
+    border: 1px solid rgba(20, 105, 69, 0.08);
+    overflow: hidden;
+  }
+
+  .about-portrait-frame img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 32px;
+    display: block;
+  }
+
+  .about-portrait-label {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    right: 24px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 14px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(20, 105, 69, 0.1);
+    border: 1px solid rgba(20, 105, 69, 0.12);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .about-portrait-label .dot {
+    width: 8px;
+    height: 8px;
+    background: var(--lime);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .about-portrait-label span {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--forest);
+  }
+
+  .about-content { text-align: left; }
+
+  .about-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(20, 105, 69, 0.06);
+    border: 1px solid rgba(20, 105, 69, 0.12);
+    border-radius: 100px;
+    padding: 6px 14px;
+    margin-bottom: 16px;
+  }
+
+  .about-pill svg { width: 14px; height: 14px; fill: rgba(20, 105, 69, 0.2); }
+
+  .about-pill span {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: var(--forest);
+  }
+
+  .about-headline {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 1.75rem;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .about-text {
+    font-size: 0.98rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .about-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 18px;
+    box-shadow: 0 2px 8px rgba(20, 105, 69, 0.06);
+    text-align: left;
+  }
+
+  .about-stat.green { background: #c8efd4; border: 1.5px solid #7ed09a; }
+  .about-stat.blue { background: #c5e8f7; border: 1.5px solid #6ec5e8; }
+  .about-stat.gold { background: #ffe4b5; border: 1.5px solid #ffc56a; }
+
+  .about-stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .about-stat.green .about-stat-icon {
+    background: #e8faf0;
+    border-color: #9ed9b0;
+  }
+
+  .about-stat.blue .about-stat-icon {
+    background: #20b2eb;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 2px 6px rgba(32, 178, 235, 0.35);
+  }
+
+  .about-stat.gold .about-stat-icon {
+    background: #fff5e0;
+    border-color: #ffc878;
+  }
+
+  .about-stat-icon svg { width: 20px; height: 20px; }
+
+  .about-stat h4 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: #132c45;
+    line-height: 1.2;
+  }
+
+  .about-stat p {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: rgba(19, 44, 69, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===================== SKILLS / TOOLS / WORKFLOW ===================== */
+  .stw-card {
+    position: relative;
+    z-index: 1;
+    background: var(--white);
+    border-radius: 24px;
+    padding: 32px 34px;
+    box-shadow: 0 10px 28px rgba(20, 105, 69, 0.08);
+    display: grid;
+    grid-template-columns: 1fr 1.1fr 1fr;
+    column-gap: 0;
+    row-gap: 0;
+    align-items: start;
+  }
+
+  .stw-col {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 0 20px;
+  }
+  .stw-col:first-child { padding-left: 0; }
+  .stw-col:last-child { padding-right: 0; }
+  .stw-col:not(:last-child) {
+    border-right: 1px solid rgba(20, 105, 69, 0.09);
+  }
+
+  .stw-col h3 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    min-height: 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .stw-col h3::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 52px;
+    height: 2px;
+    border-radius: 100px;
+    background: #9AA8A0;
+  }
+
+  .skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 230px;
+  }
+  .skills-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+  }
+  .skills-list svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 14px;
+    column-gap: 8px;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    align-items: start;
+  }
+  .tool-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    width: 76px;
+    justify-self: center;
+  }
+  .tool-item:nth-child(1) { grid-column: 1 / 3; }
+  .tool-item:nth-child(2) { grid-column: 3 / 5; }
+  .tool-item:nth-child(3) { grid-column: 5 / 7; }
+  .tool-item:nth-child(4) { grid-column: 2 / 4; }
+  .tool-item:nth-child(5) { grid-column: 4 / 6; }
+  .tool-badge {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(20, 105, 69, 0.14);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: var(--white);
+  }
+  .tool-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(20, 105, 69, 0.2);
+  }
+  .tool-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+  }
+  .tool-item span { font-size: 0.78rem; color: var(--ink-soft); text-align: center; font-weight: 500; line-height: 1.2; }
+
+  .workflow-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 270px;
+    margin: 0 auto;
+  }
+  .workflow-item { display: flex; align-items: flex-start; gap: 12px; width: 100%; }
+  .workflow-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    padding: 0 0 4px;
+    margin: 0;
+    color: var(--forest);
+    flex-shrink: 0;
+  }
+  .workflow-arrow svg {
+    width: 16px;
+    height: 20px;
+    stroke: var(--forest);
+    fill: none;
+    opacity: 0.85;
+  }
+  .workflow-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.82rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(20, 105, 69, 0.25);
+  }
+  .workflow-text h4 {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 0.98rem;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .workflow-text p {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.35;
+  }
+
+  /* ===================== TESTIMONIALS CAROUSEL ===================== */
+  #testimonials .section-header {
+    position: relative;
+    z-index: 5;
+  }
+  .t-carousel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 1180px;
+    margin: 0 auto;
+    outline: none;
+  }
+  .t-carousel__stage {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    height: 400px;
+    overflow: hidden;
+    cursor: grab;
+    touch-action: pan-y;
+  }
+  .t-carousel__stage.is-dragging {
+    cursor: grabbing;
+  }
+  .t-carousel__track {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .testimonial-card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 340px;
+    max-width: 88vw;
+    background: var(--white);
+    border-radius: 22px;
+    padding: 28px 26px;
+    box-shadow: 0 8px 22px rgba(20, 105, 69, 0.08);
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    transition:
+      transform 0.6s cubic-bezier(0.45, 0, 0.55, 1),
+      opacity 0.6s cubic-bezier(0.45, 0, 0.55, 1),
+      box-shadow 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+    will-change: transform, opacity;
+    pointer-events: none;
+    user-select: none;
+    overflow: visible;
+  }
+  .testimonial-card.is-active {
+    pointer-events: auto;
+    z-index: 10;
+    box-shadow:
+      0 28px 56px rgba(20, 105, 69, 0.2),
+      0 0 0 1px rgba(141, 198, 63, 0.18),
+      0 0 48px rgba(141, 198, 63, 0.14);
+    filter: none;
+  }
+  .testimonial-card.is-side {
+    z-index: 5;
+    box-shadow: 0 10px 28px rgba(20, 105, 69, 0.1);
+  }
+  .testimonial-card.is-far {
+    z-index: 2;
+    box-shadow: 0 4px 14px rgba(20, 105, 69, 0.06);
+  }
+  .t-carousel__nav {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background: var(--forest);
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 18px rgba(20, 105, 69, 0.28);
+    transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    z-index: 20;
+  }
+  .t-carousel__nav:hover {
+    background: var(--forest-dark);
+    transform: scale(1.06);
+    box-shadow: 0 10px 24px rgba(20, 105, 69, 0.35);
+  }
+  .t-carousel__nav:active {
+    transform: scale(0.96);
+  }
+  .t-carousel__nav svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--lime);
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .quote-mark { font-family: 'Baloo 2', sans-serif; font-size: 2.4rem; color: var(--lime); line-height: 1; margin-bottom: 4px; }
+  .stars { display: flex; gap: 3px; margin-bottom: 14px; }
+  .stars svg { width: 15px; height: 15px; fill: #F5B942; }
+  .testimonial-text { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.55; margin-bottom: 20px; }
+  .testimonial-person { display: flex; align-items: center; gap: 12px; }
+  .testimonial-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--sage-mist);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    color: var(--forest);
+    font-size: 1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .testimonial-person h5 { font-family: 'Baloo 2', sans-serif; font-size: 0.92rem; color: var(--ink); }
+  .testimonial-person span { font-size: 0.78rem; color: var(--ink-soft); }
+
+  .testimonial-verified {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .testimonial-verified__label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+  .testimonial-verified__logo {
+    height: 22px;
+    width: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    #testimonials.section {
+      padding-left: 12px;
+      padding-right: 12px;
+      overflow: hidden;
+    }
+    .t-carousel {
+      position: relative;
+      gap: 0;
+      padding: 0 2px;
+    }
+    .t-carousel__stage {
+      width: 100%;
+      min-height: 260px;
+      padding: 0 38px;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+    .t-carousel__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 36px;
+      height: 36px;
+      z-index: 25;
+      box-shadow: 0 4px 14px rgba(20, 105, 69, 0.24);
+    }
+    .t-carousel__nav--prev { left: 0; }
+    .t-carousel__nav--next { right: 0; }
+    .t-carousel__nav:hover {
+      transform: translateY(-50%) scale(1.05);
+    }
+    .t-carousel__nav:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+    .t-carousel__nav svg {
+      width: 16px;
+      height: 16px;
+    }
+    .testimonial-card {
+      width: 100%;
+      max-width: 100%;
+      padding: 34px 18px 20px;
+      border-radius: 18px;
+    }
+    .testimonial-card:not(.is-active) {
+      visibility: hidden;
+    }
+    .testimonial-card.is-active {
+      visibility: visible;
+    }
+    .quote-mark { font-size: 2rem; }
+    .stars { margin-bottom: 10px; }
+    .stars svg { width: 13px; height: 13px; }
+    .testimonial-text {
+      font-size: 0.86rem;
+      line-height: 1.5;
+      margin-bottom: 16px;
+    }
+    .testimonial-person h5 { font-size: 0.86rem; }
+    .testimonial-person span { font-size: 0.74rem; }
+    .testimonial-avatar { width: 38px; height: 38px; font-size: 0.9rem; }
+    .repeat-client-badge {
+      top: 10px;
+      right: 10px;
+      font-size: 0.58rem;
+      padding: 5px 8px;
+      gap: 4px;
+    }
+    .repeat-client-badge svg { width: 11px; height: 11px; }
+    .testimonial-verified {
+      margin-top: 18px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .testimonial-verified__label { font-size: 0.82rem; }
+    .testimonial-verified__logo { height: 18px; }
+  }
+
+  .repeat-client-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-dark) 100%);
+    color: var(--white);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 7px 11px;
+    border-radius: 100px;
+    box-shadow: 0 4px 14px rgba(20, 105, 69, 0.28);
+    z-index: 2;
+    white-space: nowrap;
+  }
+  .repeat-client-badge svg {
+    width: 13px;
+    height: 13px;
+    stroke: var(--lime);
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+  }
+
+  /* ===================== CONTACT ===================== */
+  .contact-outer {
+    position: relative;
+    background: linear-gradient(180deg, #EEF6EE 0%, #E5F1E6 100%);
+    overflow: hidden;
+    padding: 68px 24px 58px;
+  }
+  .contact-leaf {
+    position: absolute;
+    width: 220px;
+    opacity: 0.9;
+    z-index: 0;
+  }
+  .contact-leaf.left { bottom: -20px; left: -30px; }
+  .contact-leaf.right { bottom: -20px; right: -30px; transform: scaleX(-1); }
+
+  .contact-top {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto 36px;
+    text-align: center;
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 50px;
+    align-items: flex-start;
+  }
+
+  .contact-heading {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    font-size: 1.9rem;
+    color: var(--forest-dark);
+    line-height: 1.25;
+    margin-bottom: 0;
+  }
+
+  .contact-column-title {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--forest);
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .contact-info-list { display: flex; flex-direction: column; gap: 16px; }
+
+  .contact-highlight-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 22px;
+    background: var(--white);
+    border: 1.5px solid #CFE3D2;
+    border-radius: 18px;
+    box-shadow:
+      0 10px 28px rgba(20, 105, 69, 0.1),
+      0 0 0 1px rgba(141, 198, 63, 0.12);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .contact-highlight-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--lime);
+    box-shadow:
+      0 16px 36px rgba(20, 105, 69, 0.16),
+      0 0 0 1px rgba(141, 198, 63, 0.22);
+  }
+  .contact-highlight-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-dark) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 6px 16px rgba(20, 105, 69, 0.22);
+  }
+  .contact-highlight-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: var(--lime);
+  }
+  .contact-highlight-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+  .contact-highlight-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .contact-highlight-value {
+    font-family: 'Baloo 2', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    word-break: break-word;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    font-weight: 500;
+    padding: 4px 2px 0;
+  }
+  .contact-info-item svg { width: 20px; height: 20px; stroke: var(--forest); flex-shrink: 0; }
+
+  .contact-form-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 14px 34px rgba(20, 105, 69, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .contact-form-card input,
+  .contact-form-card select,
+  .contact-form-card textarea {
+    width: 100%;
+    border: 1.5px solid #E1E9E2;
+    border-radius: 12px;
+    padding: 13px 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    color: var(--ink);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .contact-form-card input:focus,
+  .contact-form-card select:focus,
+  .contact-form-card textarea:focus { border-color: var(--forest); }
+  .contact-form-card textarea { resize: vertical; min-height: 100px; font-family: 'Inter', sans-serif; }
+
+  .send-btn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--forest);
+    color: var(--white);
+    border: none;
+    font-weight: 600;
+    font-size: 0.98rem;
+    padding: 14px 28px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .send-btn:hover { background: var(--forest-dark); transform: translateY(-2px); }
+  .send-btn svg { width: 15px; height: 15px; stroke: var(--lime); }
+
+  /* ===================== FOOTER ===================== */
+  .site-footer {
+    background: var(--forest-dark);
+    color: rgba(255,255,255,0.85);
+    padding: 26px 24px;
+  }
+  .footer-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .footer-logo {
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer-logo svg { width: 16px; height: 16px; fill: var(--lime); }
+  .footer-copy { font-size: 0.82rem; text-align: center; line-height: 1.5; }
+  .footer-socials { display: flex; gap: 10px; }
+  .footer-socials a {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .footer-socials a:hover { background: var(--lime); transform: translateY(-2px); }
+  .footer-socials svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--white);
+    display: block;
+  }
+
+  @media (max-width: 980px) {
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .about-grid { grid-template-columns: 1fr; gap: 36px; }
+    .about-content { text-align: center; }
+    .about-pill { margin-left: auto; margin-right: auto; }
+    .about-stats { grid-template-columns: 1fr; }
+    .stw-card {
+      grid-template-columns: 1fr;
+      row-gap: 0;
+      padding: 28px 26px;
+    }
+    .stw-col {
+      padding: 0 0 24px;
+      border-right: none;
+      border-bottom: 1px solid rgba(20, 105, 69, 0.09);
+    }
+    .stw-col:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .skills-list,
+    .tools-grid,
+    .workflow-list { max-width: 100%; }
+    .testimonial-card { width: min(300px, calc(100vw - 120px)); }
+    .contact-inner { grid-template-columns: 1fr; }
+    .contact-highlight-value { font-size: 1.22rem; }
+  }
+  @media (max-width: 560px) {
+    .nav-wrap { padding: 10px 10px 0; }
+    .navbar { padding: 8px 10px; gap: 6px 8px; }
+    .brand-name { font-size: 1rem; }
+    .brand-tag { font-size: 0.56rem; }
+    .brand-avatar { width: 34px; height: 34px; }
+    .contact-btn { padding: 8px 10px; font-size: 0; gap: 0; }
+    .contact-btn svg { width: 18px; height: 18px; }
+
+    .hero-outer { padding-bottom: 64px; }
+    .hero { padding: 24px 12px 0; gap: 20px; }
+    .hero-text-panel { padding: 18px 14px; border-radius: 14px; }
+    .hero-name { font-size: 1.65rem; }
+    .hero-role { font-size: 0.95rem; margin-bottom: 10px; }
+    .hero-desc { font-size: 0.86rem; line-height: 1.55; margin-bottom: 16px; }
+    .cta-btn {
+      width: 100%;
+      justify-content: center;
+      padding: 11px 18px;
+      font-size: 0.9rem;
+    }
+    .hero-profile {
+      margin-top: 18px;
+      padding-top: 18px;
+      gap: 12px;
+      justify-content: center;
+    }
+    .hero-profile-avatar { width: 52px; height: 52px; }
+    .hero-profile-name { font-size: 0.92rem; }
+    .hero-profile-location { font-size: 0.78rem; }
+    .showreel-badge { font-size: 0.78rem; padding: 7px 12px; top: -12px; }
+    .video-card { border-radius: 14px; padding: 6px; }
+    .wave-divider svg { height: 56px; }
+
+    .section { padding: 44px 12px 48px; }
+    .section-header { margin-bottom: 28px; }
+    .portfolio-subtitle { font-size: 0.9rem; margin-bottom: 20px; }
+    .filter-pills { gap: 7px; margin-bottom: 24px; }
+    .filter-pill { font-size: 0.74rem; padding: 7px 12px; }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .portfolio-card { border-radius: 10px; }
+    .portfolio-card:hover { transform: none; }
+    .portfolio-info { padding: 7px 4px 9px; }
+    .portfolio-title {
+      font-size: 0.58rem;
+      margin-bottom: 3px;
+      line-height: 1.25;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .portfolio-tag {
+      font-size: 0.5rem;
+      padding: 2px 5px;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .play-btn { width: 26px; height: 26px; }
+    .play-btn svg { width: 9px; height: 9px; margin-left: 1px; }
+
+    .about-section { padding: 40px 12px 0; }
+    .about-title { font-size: 1.75rem; }
+    .about-headline { font-size: 1.3rem; }
+    .about-text { font-size: 0.9rem; }
+    .about-portrait-wrap { max-width: 260px; }
+    .about-portrait-frame { border-radius: 24px; padding: 8px; }
+    .about-portrait-frame img { border-radius: 18px; }
+    .about-portrait-label { bottom: 14px; left: 14px; right: 14px; padding: 10px 12px; }
+    .about-portrait-label span { font-size: 0.72rem; }
+
+    .stw-card { padding: 22px 16px; border-radius: 18px; }
+    .tool-item { width: 64px; }
+    .tool-badge { width: 44px; height: 44px; }
+    .tool-item span { font-size: 0.68rem; }
+
+    .t-carousel__stage { padding: 0 34px; min-height: 220px; }
+    .t-carousel__nav { width: 32px; height: 32px; }
+    .t-carousel__nav svg { width: 14px; height: 14px; }
+    .testimonial-card { padding: 32px 14px 18px; border-radius: 16px; }
+    .quote-mark { font-size: 1.75rem; }
+    .testimonial-text { font-size: 0.82rem; margin-bottom: 14px; }
+    .repeat-client-badge { top: 8px; right: 8px; font-size: 0.54rem; padding: 4px 7px; }
+    .form-row { grid-template-columns: 1fr; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    .contact-highlight-card { padding: 18px 16px; gap: 14px; }
+    .contact-highlight-icon { width: 48px; height: 48px; }
+    .contact-highlight-value { font-size: 1.08rem; }
+    .section-divider { padding: 24px 12px; }
+  }
 </style>
 </head>
-<body>
+<body data-page="home">
 
-<header>
-  <nav class="wrap">
-    <a href="#home" class="brand">Danyal Amin<span>.</span></a>
-    <ul class="navlinks" id="navlinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#story">Story Animation</a></li>
-      <li><a href="#rhymes">Nursery Rhymes</a></li>
-      <li><a href="#motion">Motion Design</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact" class="cta">Contact</a></li>
-    </ul>
-    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
+  <div class="hero-outer" id="home">
 
-<section class="hero" id="home">
-  <div class="cloud c1">
-    <svg viewBox="0 0 200 100" fill="none"><ellipse cx="60" cy="60" rx="55" ry="32" fill="#fff"/><ellipse cx="110" cy="45" rx="45" ry="30" fill="#fff"/><ellipse cx="150" cy="60" rx="38" ry="25" fill="#fff"/></svg>
-  </div>
-  <div class="cloud c2">
-    <svg viewBox="0 0 200 100" fill="none"><ellipse cx="60" cy="60" rx="55" ry="32" fill="#fff"/><ellipse cx="110" cy="45" rx="45" ry="30" fill="#fff"/></svg>
-  </div>
-  <div class="cloud c3">
-    <svg viewBox="0 0 200 100" fill="none"><ellipse cx="60" cy="60" rx="45" ry="26" fill="#fff"/><ellipse cx="110" cy="50" rx="35" ry="22" fill="#fff"/></svg>
-  </div>
-
-  <div class="wrap">
-    <div class="hero-copy">
-      <span class="eyebrow">2D Animator · Motion &amp; Graphic Designer</span>
-      <h1>Bringing <span class="accent">Ideas</span> to Life in Every Frame.</h1>
-      <p class="lead">Hi, I'm Danyal — a 2D animator and graphic designer with 7+ years crafting character animation, nursery rhymes, and motion graphics for children's educational media around the world.</p>
-      <div class="hero-actions">
-        <a href="#story" class="btn btn-primary">See my work</a>
-        <a href="#contact" class="btn btn-ghost">Get in touch</a>
-      </div>
-      <div class="avatar-row">
-        <div class="avatar">
-          <img src="danyal.png" alt="Danyal Amin">
+    <div class="nav-wrap">
+      <nav class="navbar" id="navbar">
+        <div class="brand">
+          <img src="Assets/danyal-avatar.svg" alt="" class="brand-avatar" width="42" height="42">
+          <div class="brand-text">
+            <span class="brand-name">Danyal Amin</span>
+            <span class="brand-tag">2D Animator &amp; Motion Graphics Designer</span>
+          </div>
         </div>
-        <div>
-          <div class="name">Danyal Amin</div>
-          <div class="role">Based in Islamabad · Working with clients worldwide</div>
+
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+        </ul>
+
+        <a href="#contact" class="contact-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 6l-10 7L2 6"/>
+            <path d="M2 6h20v12H2z"/>
+          </svg>
+          Contact
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+
+    <section class="hero">
+
+      <div class="hero-text-panel">
+        <p class="eyebrow">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          Hi, I'm
+        </p>
+        <h1 class="hero-name">Danyal <span class="accent">Amin</span></h1>
+        <p class="hero-role">2D Animator &amp; Motion Graphics Designer</p>
+        <p class="hero-desc">
+          I bring stories to life through engaging children's animations, nursery rhymes,
+          educational cartoons, character animation and motion graphics.
+        </p>
+        <a href="#portfolio" class="cta-btn">
+          See My Work
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/>
+            <path d="M13 6l6 6-6 6"/>
+          </svg>
+        </a>
+
+        <div class="hero-profile">
+          <img src="Assets/danyal-avatar.svg" alt="Danyal Amin" class="hero-profile-avatar" width="64" height="64">
+          <div class="hero-profile-info">
+            <span class="hero-profile-name">Danyal Amin</span>
+            <span class="hero-profile-location">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21s7-4.35 7-10a7 7 0 10-14 0c0 5.65 7 10 7 10z"/>
+                <circle cx="12" cy="11" r="2.5"/>
+              </svg>
+              Based in Islamabad · Working with clients worldwide
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-video">
+        <span class="showreel-badge">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          Showreel
+        </span>
+        <div class="video-card">
+          <div class="video-frame">
+            <iframe id="heroShowreelFrame" src="https://player.vimeo.com/video/1206444179?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+              frameborder="0"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              title="5 Little Camels Song"></iframe>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+        <path d="M0,100 L0,58 C120,88 240,28 360,58 C480,88 600,28 720,58 C840,88 960,28 1080,58 C1200,88 1320,28 1440,58 L1440,100 Z"></path>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- ===================== FEATURED PORTFOLIO ===================== -->
+  <section class="section" id="portfolio">
+    <div class="section-header">
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+        Featured Portfolio
+        <svg viewBox="0 0 24 24" style="transform: scaleX(-1);"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+      </h2>
+      <div class="title-underline" aria-hidden="true"></div>
+    </div>
+    <p class="portfolio-subtitle">A glimpse of my recent work.</p>
+
+    <div class="filter-pills" id="portfolioFilters">
+      <button class="filter-pill active" data-filter="All">All</button>
+      <button class="filter-pill" data-filter="Nursery Rhymes">Nursery Rhymes</button>
+      <button class="filter-pill" data-filter="Educational Animation">Educational Animation</button>
+      <button class="filter-pill" data-filter="Character Animation">Character Animation</button>
+      <button class="filter-pill" data-filter="Motion Graphics">Motion Graphics</button>
+    </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+      <!-- rendered by admin-cms / site-data -->
+    </div>
+
+    <p class="portfolio-no-results" id="portfolioNoResults">No projects in this category yet.</p>
+
+    <div class="view-more-wrap">
+      <a href="pages/all-projects.html" class="cta-btn">
+        View All Projects
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <div class="section-divider">
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+    </span>
+  </div>
+
+  <!-- ===================== ABOUT ME ===================== -->
+  <section class="about-section" id="about">
+    <div class="about-glow"></div>
+
+    <div class="about-header">
+      <p class="about-eyebrow">Get to Know Me</p>
+      <h2 class="about-title">
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        About Me
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+      </h2>
+      <div class="title-underline" aria-hidden="true"></div>
+    </div>
+
+    <div class="about-grid">
+
+      <div class="about-portrait-wrap">
+        <div class="about-portrait-glow"></div>
+        <div class="about-portrait-frame">
+          <img src="Assets/danyal-portrait.svg" alt="Danyal Amin — 2D Animator &amp; Motion Graphics Designer">
+          <div class="about-portrait-label">
+            <span class="dot"></span>
+            <span>Creative Animator &amp; Designer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <div class="about-pill">
+          <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+          <span>Passionate Storyteller</span>
+        </div>
+
+        <h3 class="about-headline">Bringing Stories to Life for Little Minds 🌟</h3>
+
+        <p class="about-text">
+          Hello! I'm <strong>Danyal Amin</strong>, a professional 2D Animator and Motion Graphics Designer with over 6 years of experience. My core passion lies in crafting cute, engaging, and educational animated videos that children love to watch, sing along with, and learn from.
+        </p>
+
+        <p class="about-text">
+          Over the years, I've had the pleasure of partnering with leading kids' YouTube channels, educational institutions, and global publishers. Whether it's animating playful nursery rhymes like <em>Twinkle Twinkle Little Star</em>, rigging expressive animal characters, or composing vibrant motion graphics, I ensure every single frame is filled with magic, positive energy, and clear educational value.
+        </p>
+
+        <div class="about-stats">
+          <div class="about-stat green">
+            <div class="about-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#0f8a3c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+            </div>
+            <div>
+              <h4>6+ years</h4>
+              <p>experience</p>
+            </div>
+          </div>
+
+          <div class="about-stat blue">
+            <div class="about-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div>
+              <h4>200+ projects</h4>
+              <p>completed</p>
+            </div>
+          </div>
+
+          <div class="about-stat gold">
+            <div class="about-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#fb8000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <div>
+              <h4>60+ happy clients</h4>
+              <p>worldwide</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider">
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+    </span>
+  </div>
+
+  <!-- ===================== SKILLS / TOOLS / WORKFLOW ===================== -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+        Skills, Tools &amp; Workflow
+        <svg viewBox="0 0 24 24" style="transform: scaleX(-1);"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+      </h2>
+      <div class="title-underline" aria-hidden="true"></div>
+    </div>
+
+    <div class="stw-card">
+
+      <div class="stw-col">
+        <h3>My Skills</h3>
+        <ul class="skills-list">
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#c8efd4" stroke="#146945" stroke-width="1.5"/><path d="M8 12.5l2.5 2.5 5.5-5.5" fill="none" stroke="#146945" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> 2D Character Animation</li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#c8efd4" stroke="#146945" stroke-width="1.5"/><path d="M8 12.5l2.5 2.5 5.5-5.5" fill="none" stroke="#146945" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Rigging &amp; Lip Sync</li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#c8efd4" stroke="#146945" stroke-width="1.5"/><path d="M8 12.5l2.5 2.5 5.5-5.5" fill="none" stroke="#146945" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Storyboarding</li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#c8efd4" stroke="#146945" stroke-width="1.5"/><path d="M8 12.5l2.5 2.5 5.5-5.5" fill="none" stroke="#146945" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Background Design</li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#c8efd4" stroke="#146945" stroke-width="1.5"/><path d="M8 12.5l2.5 2.5 5.5-5.5" fill="none" stroke="#146945" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Motion Graphics</li>
+          <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#c8efd4" stroke="#146945" stroke-width="1.5"/><path d="M8 12.5l2.5 2.5 5.5-5.5" fill="none" stroke="#146945" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Video Editing</li>
+        </ul>
+      </div>
+
+      <div class="stw-col">
+        <h3>Tools I Use</h3>
+        <div class="tools-grid">
+          <div class="tool-item">
+            <div class="tool-badge">
+              <img src="Assets/After effects.svg" alt="Adobe After Effects">
+            </div>
+            <span>After Effects</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-badge">
+              <img src="Assets/Illustrator.svg" alt="Adobe Illustrator">
+            </div>
+            <span>Illustrator</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-badge">
+              <img src="Assets/animate.svg" alt="Adobe Animate">
+            </div>
+            <span>Adobe Animate</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-badge">
+              <img src="Assets/Premier Pro.svg" alt="Adobe Premiere Pro">
+            </div>
+            <span>Premiere Pro</span>
+          </div>
+          <div class="tool-item">
+            <div class="tool-badge">
+              <img src="Assets/Photoshop.svg" alt="Adobe Photoshop">
+            </div>
+            <span>Photoshop</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stw-col">
+        <h3>My Workflow</h3>
+        <div class="workflow-list">
+          <div class="workflow-item">
+            <span class="workflow-num">1</span>
+            <div class="workflow-text">
+              <h4>Concept &amp; Script</h4>
+              <p>Understanding your idea and goals</p>
+            </div>
+          </div>
+          <div class="workflow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 4v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 12l5 5 5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="workflow-item">
+            <span class="workflow-num">2</span>
+            <div class="workflow-text">
+              <h4>Storyboard &amp; Animatic</h4>
+              <p>Planning the flow and key scenes</p>
+            </div>
+          </div>
+          <div class="workflow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 4v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 12l5 5 5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="workflow-item">
+            <span class="workflow-num">3</span>
+            <div class="workflow-text">
+              <h4>Design &amp; Animation</h4>
+              <p>Bringing visuals and motion to life</p>
+            </div>
+          </div>
+          <div class="workflow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 4v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 12l5 5 5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="workflow-item">
+            <span class="workflow-num">4</span>
+            <div class="workflow-text">
+              <h4>Editing &amp; Polish</h4>
+              <p>Sound, effects and final touches</p>
+            </div>
+          </div>
+          <div class="workflow-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 4v10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 12l5 5 5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="workflow-item">
+            <span class="workflow-num">5</span>
+            <div class="workflow-text">
+              <h4>Delivery</h4>
+              <p>High quality output, on time</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider">
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+    </span>
+  </div>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section class="section" id="testimonials">
+    <div class="section-header">
+      <h2 class="section-title">
+        <svg viewBox="0 0 24 24"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+        What Clients Say
+        <svg viewBox="0 0 24 24" style="transform: scaleX(-1);"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+      </h2>
+      <div class="title-underline" aria-hidden="true"></div>
+    </div>
+
+    <div class="t-carousel" id="testimonialCarousel" tabindex="0" aria-roledescription="carousel" aria-label="Client testimonials">
+      <button type="button" class="t-carousel__nav t-carousel__nav--prev" id="testimonialPrev" aria-label="Previous testimonial">
+        <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="t-carousel__stage" id="testimonialStage">
+        <div class="t-carousel__track" id="testimonialTrack">
+
+      <div class="testimonial-card">
+        <div class="repeat-client-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 12V10a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 12v2a4 4 0 01-4 4H3"/></svg>
+          Repeated Client
+        </div>
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        </div>
+        <p class="testimonial-text">Danyal A truly EXCELLED in character animation, offering storytelling that exceeded expectations with absolute professionalism. The project was a breeze with his proactive communication and quick responsiveness, ensuring everything was on time.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar"><img src="Assets/reviews/abdur-rahman.jpeg" alt="Abdur Rahman"></div>
+          <div>
+            <h5>Abdur Rahman</h5>
+            <span>YouTube Channel Owner</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="repeat-client-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 12V10a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 12v2a4 4 0 01-4 4H3"/></svg>
+          Repeated Client
+        </div>
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        </div>
+        <p class="testimonial-text">I like working with Danyal — he knows what I am looking for.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar"><img src="Assets/reviews/celestine-mcneal.jpeg" alt="Celestine McNeal"></div>
+          <div>
+            <h5>Celestine McNeal</h5>
+            <span>Book Author &amp; Education Channel Owner</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="repeat-client-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 12V10a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 12v2a4 4 0 01-4 4H3"/></svg>
+          Repeated Client
+        </div>
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        </div>
+        <p class="testimonial-text">Danyal is very consistent and always delivers quality work. Will be back for the next project. Thanks Danyal.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar"><img src="Assets/reviews/dajae-williams.jpeg" alt="Dajae Williams"></div>
+          <div>
+            <h5>Dajae Williams</h5>
+            <span>Singer, Writer, Artist</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        </div>
+        <p class="testimonial-text">Good customer service and timely deliver of good quality video, looking forward to the next project. Cheers!</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar"><img src="Assets/reviews/megniel.jpeg" alt="Megniel"></div>
+          <div>
+            <h5>Megniel</h5>
+            <span>Dentist</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        </div>
+        <p class="testimonial-text">Thank you so much! Danyal took our script and created the whole artistic rendition — it was better than we could have expected. He also was quick to do any edits we requested and was super easy to work with. Thank you again and excited to work with you on future projects.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">VL</div>
+          <div>
+            <h5>Veronica Leifer</h5>
+            <span>Senior Healthcare Consultant</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        </div>
+        <p class="testimonial-text">Thank you for your work, I am so happy with the video. It will help my patients and parents to understand their surgeries.</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">IL</div>
+          <div>
+            <h5>Irene Lopezes</h5>
+            <span>Doctor, Healthcare Specialist</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="repeat-client-badge">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 2l4 4-4 4"/><path d="M3 12V10a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 12v2a4 4 0 01-4 4H3"/></svg>
+          Repeated Client
+        </div>
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        </div>
+        <p class="testimonial-text">GREAT WORK AS ALWAYS!!!</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">SD</div>
+          <div>
+            <h5>Stephanie Dorciu</h5>
+            <span>YouTube Channel Owner</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">&ldquo;</div>
+        <div class="stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+        </div>
+        <p class="testimonial-text">Danyal A exceeded our expectations with his visually appealing animation delivery! Working with him was a breeze due to his quick responsiveness, proactive communication, and politeness. Despite needing some edits after the first draft, he turned them around very quickly. Great value for the service! We plan to work with Danyal A and his team again for future kids' animation projects!</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">CZ</div>
+          <div>
+            <h5>Czehmike</h5>
+            <span>YouTube Channel Owner</span>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+      <button type="button" class="t-carousel__nav t-carousel__nav--next" id="testimonialNext" aria-label="Next testimonial">
+        <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+
+    <div class="testimonial-verified">
+      <span class="testimonial-verified__label">Verified by:</span>
+      <img src="Assets/fiverr-logo.svg" alt="Fiverr" class="testimonial-verified__logo" width="90" height="27">
+    </div>
+  </section>
+
+  <div class="section-divider">
+    <span>
+      <svg viewBox="0 0 24 24"><path d="M12 2c-4 4-4 8 0 12 4-4 4-8 0-12zM2 14c4-2 8-2 10 2-4 2-8 2-10-2zM22 14c-4-2-8-2-10 2 4 2 8 2 10-2z"/></svg>
+    </span>
+  </div>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact-outer" id="contact">
+    <svg class="contact-leaf left" viewBox="0 0 200 200" fill="var(--forest)">
+      <path d="M10 190 Q0 120 40 80 Q80 40 150 30 Q140 90 100 130 Q60 170 10 190Z"/>
+    </svg>
+    <svg class="contact-leaf right" viewBox="0 0 200 200" fill="var(--forest)">
+      <path d="M10 190 Q0 120 40 80 Q80 40 150 30 Q140 90 100 130 Q60 170 10 190Z"/>
+    </svg>
+
+    <div class="contact-top">
+      <h2 class="contact-heading">Let's Create Something Amazing Together! ✨</h2>
+      <div class="title-underline" aria-hidden="true"></div>
+    </div>
+
+    <div class="contact-inner">
+      <div class="contact-direct">
+        <h3 class="contact-column-title">Contact Me Directly</h3>
+        <div class="contact-info-list">
+          <a href="mailto:danyal.animator@gmail.com" class="contact-highlight-card">
+            <span class="contact-highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z" opacity="0"/><path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/></svg>
+            </span>
+            <span class="contact-highlight-text">
+              <span class="contact-highlight-label">Email</span>
+              <span class="contact-highlight-value">danyal.animator@gmail.com</span>
+            </span>
+          </a>
+          <a href="tel:+923439874418" class="contact-highlight-card">
+            <span class="contact-highlight-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.68 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.32 1.85.55 2.81.68A2 2 0 0122 16.92z"/></svg>
+            </span>
+            <span class="contact-highlight-text">
+              <span class="contact-highlight-label">Phone or WhatsApp</span>
+              <span class="contact-highlight-value">+92 343 9874418</span>
+            </span>
+          </a>
+          <div class="contact-info-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Islamabad, Pakistan
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap">
+        <h3 class="contact-column-title">Tell Me About Your Project</h3>
+        <form class="contact-form-card" id="contactForm" action="https://formspree.io/f/xzdlqjza" method="POST">
+        <input type="hidden" name="_subject" value="New portfolio inquiry">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <select name="projectType" required>
+          <option value="" disabled selected>Project Type</option>
+          <option value="Nursery Rhymes">Nursery Rhymes</option>
+          <option value="Kids Cartoons">Kids Cartoons</option>
+          <option value="Character Animation">Character Animation</option>
+          <option value="Motion Graphics">Motion Graphics</option>
+          <option value="Other">Other</option>
+        </select>
+        <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+        <p class="form-error" id="formError" role="alert">Something went wrong. Please try again or email me directly.</p>
+        <p class="form-success" id="formSuccess">Thanks for your message! I'll get back to you soon.</p>
+        <button type="submit" class="send-btn" id="contactSubmitBtn">
+          Send Message
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        Danyal Amin
+        <svg viewBox="0 0 24 24"><path d="M12 2l2.9 6.6L22 9.3l-5 4.8 1.3 7-6.3-3.5L5.7 21l1.3-7-5-4.8 7.1-0.7z"/></svg>
+      </div>
+      <div class="footer-copy">
+        © 2025 Danyal Amin. All Rights Reserved.<br>
+        Bringing imagination to life through animation.
+      </div>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/danyal_animations/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/danyalamin418/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="video-modal-overlay" id="videoModalOverlay" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" onclick="if(event.target===this) closeVideoModal()">
+    <div class="video-modal">
+      <div class="video-modal-header">
+        <h3 class="video-modal-title" id="videoModalTitle"></h3>
+        <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="video-modal-frame">
+        <iframe id="videoModalFrame" src="" title="Project video" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="video-modal-info">
+        <div class="video-modal-tags" id="videoModalTags"></div>
+        <p class="video-modal-desc" id="videoModalDesc"></p>
+        <div class="video-modal-case" id="videoModalCase">
+          <div class="video-modal-case-label">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+            Light Case Study
+          </div>
+          <div class="video-modal-case-grid">
+            <div class="video-modal-case-row">
+              <span class="video-modal-case-key">Goal</span>
+              <span class="video-modal-case-val" id="videoModalGoal"></span>
+            </div>
+            <div class="video-modal-case-row">
+              <span class="video-modal-case-key">Role</span>
+              <span class="video-modal-case-val" id="videoModalRole">2D Animator &amp; Motion Graphics Designer</span>
+            </div>
+            <div class="video-modal-case-row">
+              <span class="video-modal-case-key">Process</span>
+              <div class="video-modal-case-val">
+                <div class="video-modal-process" id="videoModalProcess"></div>
+              </div>
+            </div>
+            <div class="video-modal-case-row">
+              <span class="video-modal-case-key">Result</span>
+              <span class="video-modal-case-val" id="videoModalResult"></span>
+            </div>
+          </div>
+        </div>
+        <div class="video-modal-tools" id="videoModalTools" hidden>
+          <span class="video-modal-tools-label">Made with</span>
+          <div class="video-modal-tools-list" id="videoModalToolsList"></div>
+        </div>
+        <div class="video-modal-meta">
+          <span>Format: <strong>2D Animation / Motion Graphics</strong></span>
+          <span>Danyal Amin Portfolio</span>
         </div>
       </div>
     </div>
-
-    <div class="showreel">
-      <span class="showreel-tag">Showreel ▶</span>
-      <div class="showreel-frame">
-        <iframe src="https://www.youtube.com/embed/-qG2uJysMno" title="Danyal Amin — Animation Showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
   </div>
 
-  <svg class="wave" viewBox="0 0 1440 70" preserveAspectRatio="none"><path d="M0,40 C320,90 720,0 1440,45 L1440,70 L0,70 Z" fill="#EFF8FF"/></svg>
-</section>
+  <script>
+    const TAG_CLASS_MAP = {
+      'Nursery Rhymes': 'tag-nursery',
+      'Educational Animation': 'tag-edu',
+      'Character Animation': 'tag-character',
+      'Motion Graphics': 'tag-motion'
+    };
+    const TOOL_BASE = 'Assets/';
+    const TOOL_DEFS = {
+      illustrator: { name: 'Illustrator', file: 'Illustrator.svg' },
+      aftereffects: { name: 'After Effects', file: 'After effects.svg' },
+      photoshop: { name: 'Photoshop', file: 'Photoshop.svg' },
+      animate: { name: 'Adobe Animate', file: 'animate.svg' },
+      premiere: { name: 'Premiere Pro', file: 'Premier Pro.svg' }
+    };
+    const CATEGORY_TOOLS = {
+      'Nursery Rhymes': ['illustrator', 'aftereffects'],
+      'Educational Animation': ['photoshop', 'illustrator', 'aftereffects'],
+      'Character Animation': ['animate', 'aftereffects', 'illustrator'],
+      'Motion Graphics': ['aftereffects', 'illustrator', 'premiere', 'photoshop']
+    };
+    const TOOL_ORDER = ['illustrator', 'photoshop', 'animate', 'aftereffects', 'premiere'];
+    const CATEGORY_PROCESS = {
+      'Nursery Rhymes': ['Concept', 'Character design', 'Song-synced animation', 'Polish'],
+      'Educational Animation': ['Learning goal', 'Clear visuals', 'Animate & teach', 'Final polish'],
+      'Character Animation': ['Character design', 'Acting & timing', 'Animation', 'Polish'],
+      'Motion Graphics': ['Concept', 'Design assets', 'Motion design', 'Edit & deliver']
+    };
+    const CATEGORY_CASE_FALLBACK = {
+      'Nursery Rhymes': {
+        goal: 'Create a fun, musical kids animation that is easy to sing and watch again.',
+        result: 'A hand-picked highlight from the complete nursery rhyme, made for a quick portfolio look.'
+      },
+      'Educational Animation': {
+        goal: 'Explain an idea simply so children learn while staying entertained.',
+        result: 'A teaching-focused cut from the longer educational film — clear, friendly, and memorable.'
+      },
+      'Character Animation': {
+        goal: 'Bring a character to life with personality, timing, and expressive motion.',
+        result: 'A performance-led extract from the full character film, where acting and timing do the talking.'
+      },
+      'Motion Graphics': {
+        goal: 'Communicate the message with dynamic design, motion, and visual clarity.',
+        result: 'A design-forward beat from the complete motion graphics video — clean craft in a quick view.'
+      }
+    };
 
-<!-- ---------------- STORY ANIMATION ---------------- -->
-<section class="portfolio-section section-alt" id="story">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag">Selected Work</span>
-        <h2>Best Story Animation</h2>
-        <p>Character-driven story episodes built for young audiences — rigging, animation, and expression work.</p>
-      </div>
-    </div>
-    <div class="grid">
-      <article class="card">
-        <div class="card-media">
-          <iframe src="https://player.vimeo.com/video/1206368222?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" title="Help The Needy — Animated by Danyal Amin"></iframe>
-        </div>
-        <div class="card-body"><span class="pill">Story</span><h3>Help The Needy</h3><p>Character-driven story animation encouraging kindness and generosity, animated by Danyal Amin.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-media">
-          <iframe src="https://player.vimeo.com/video/1166050993?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" title="Stu the Fly – Children's Song Animation | Animated by Danyal Amin"></iframe>
-        </div>
-        <div class="card-body"><span class="pill">Story</span><h3>Stu the Fly</h3><p>Children's song animation bringing Stu the Fly to life, animated by Danyal Amin.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-media"><div class="placeholder-media">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
-          <span>Vimeo embed placeholder</span>
-        </div></div>
-        <div class="card-body"><span class="pill">Story</span><h3>Episode Title Here</h3><p>Short description of the story, characters, and your role in the production.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
+    function toolsForCategories(categories) {
+      const keys = new Set();
+      categories.forEach(cat => { (CATEGORY_TOOLS[cat] || []).forEach(k => keys.add(k)); });
+      return TOOL_ORDER.filter(k => keys.has(k)).map(k => TOOL_DEFS[k]);
+    }
+    function primaryCategory(categories) {
+      return categories[0] || 'Nursery Rhymes';
+    }
+    function processForCategories(categories) {
+      return CATEGORY_PROCESS[primaryCategory(categories)] || CATEGORY_PROCESS['Nursery Rhymes'];
+    }
+    function renderProcessSteps(steps) {
+      const wrap = document.getElementById('videoModalProcess');
+      if (!wrap) return;
+      wrap.innerHTML = '';
+      steps.forEach((step, i) => {
+        if (i > 0) {
+          const arrow = document.createElement('span');
+          arrow.className = 'video-modal-process-arrow';
+          arrow.setAttribute('aria-hidden', 'true');
+          arrow.textContent = '→';
+          wrap.appendChild(arrow);
+        }
+        const pill = document.createElement('span');
+        pill.className = 'video-modal-process-step';
+        pill.innerHTML = '<b>' + (i + 1) + '</b>' + step;
+        wrap.appendChild(pill);
+      });
+    }
+    function openVideoModal(el) {
+      const url = el.dataset.video || '';
+      const projectTitle = el.dataset.title || el.querySelector('.portfolio-title, .ptitle')?.textContent?.trim() || '';
+      const cat = el.dataset.cat || '';
+      const desc = el.dataset.desc || '';
+      const goal = el.dataset.goal || '';
+      const result = el.dataset.result || '';
+      const categories = cat.split('|').map(s => s.trim()).filter(Boolean);
 
-<!-- ---------------- NURSERY RHYMES ---------------- -->
-<section class="portfolio-section" id="rhymes">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag">Selected Work</span>
-        <h2>Nursery Rhymes</h2>
-        <p>Playful, sing-along animations designed to teach, delight, and stay on-brand for kids' channels.</p>
-      </div>
-    </div>
-    <div class="grid">
-      <article class="card">
-        <div class="card-media"><div class="placeholder-media">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
-          <span>Video embed placeholder</span>
-        </div></div>
-        <div class="card-body"><span class="pill">Rhyme</span><h3>Rhyme Title Here</h3><p>Short description of the rhyme and the animation style used.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-media"><div class="placeholder-media">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
-          <span>Video embed placeholder</span>
-        </div></div>
-        <div class="card-body"><span class="pill">Rhyme</span><h3>Rhyme Title Here</h3><p>Short description of the rhyme and the animation style used.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-media"><div class="placeholder-media">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
-          <span>Video embed placeholder</span>
-        </div></div>
-        <div class="card-body"><span class="pill">Rhyme</span><h3>Rhyme Title Here</h3><p>Short description of the rhyme and the animation style used.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
+      document.getElementById('videoModalFrame').src = url;
+      document.getElementById('videoModalTitle').textContent = projectTitle;
+      document.getElementById('videoModalFrame').title = projectTitle || 'Project video';
 
-<!-- ---------------- MOTION & GRAPHICS ---------------- -->
-<section class="portfolio-section section-alt" id="motion">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <span class="tag">Selected Work</span>
-        <h2>Motion Design</h2>
-        <p>Titles, logo reveals, lower-thirds, and motion graphics work across freelance and client projects.</p>
-      </div>
-    </div>
-    <div class="grid">
-      <article class="card">
-        <div class="card-media"><div class="placeholder-media">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
-          <span>Video embed placeholder</span>
-        </div></div>
-        <div class="card-body"><span class="pill">Motion</span><h3>Project Title Here</h3><p>Short description of the motion graphics project and tools used.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-media"><div class="placeholder-media">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
-          <span>Video embed placeholder</span>
-        </div></div>
-        <div class="card-body"><span class="pill">Motion</span><h3>Project Title Here</h3><p>Short description of the motion graphics project and tools used.</p></div>
-      </article>
-      <article class="card">
-        <div class="card-media"><div class="placeholder-media">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 5v14l11-7z"/></svg>
-          <span>Video embed placeholder</span>
-        </div></div>
-        <div class="card-body"><span class="pill">Motion</span><h3>Project Title Here</h3><p>Short description of the motion graphics project and tools used.</p></div>
-      </article>
-    </div>
-  </div>
-</section>
+      const tagsEl = document.getElementById('videoModalTags');
+      tagsEl.innerHTML = '';
+      const tagPrefix = document.body.dataset.page === 'all' ? 'ptag' : 'portfolio-tag';
+      categories.forEach(name => {
+        const span = document.createElement('span');
+        span.className = tagPrefix + ' ' + (TAG_CLASS_MAP[name] || 'tag-character');
+        span.textContent = name;
+        tagsEl.appendChild(span);
+      });
 
-<!-- ---------------- ABOUT ---------------- -->
-<section class="portfolio-section about" id="about">
-  <div class="wrap about-grid">
-    <div class="about-photo">
-      <img src="danyal.png" alt="Danyal Amin">
-    </div>
-    <div>
-      <span class="tag">About Me</span>
-      <h2>Meet the Animator Behind the Stories</h2>
-      <p>I'm Danyal Amin, a 2D animator with over seven years of experience creating animations that educate, entertain, and inspire. I've collaborated with international YouTube channels, educational platforms, and freelance clients to produce character animation, nursery rhymes, motion graphics, and storytelling content. My passion for animation and attention to detail allow me to create expressive characters, smooth motion, and engaging visuals that connect with audiences of all ages.</p>
-      <div class="stat-row">
-        <div class="stat"><b>7+</b><span>Years experience</span></div>
-        <div class="stat"><b>2</b><span>Ongoing TV/YouTube channels</span></div>
-        <div class="stat"><b>Global</b><span>Freelance clientele</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+      const descEl = document.getElementById('videoModalDesc');
+      descEl.textContent = desc;
+      descEl.style.display = desc ? 'block' : 'none';
 
-<!-- ---------------- CONTACT ---------------- -->
-<section class="portfolio-section" id="contact">
-  <div class="wrap">
-    <div class="contact">
-      <h2>Let's animate something great together.</h2>
-      <p>Open for freelance projects, ongoing collaborations, and studio partnerships. Reach out and let's talk about your project.</p>
-      <a href="mailto:danyalaminn@gmail.com" class="btn btn-primary">danyalaminn@gmail.com</a>
-      <div class="contact-links">
-        <a href="#" target="_blank" rel="noopener">Vimeo</a>
-        <a href="#" target="_blank" rel="noopener">YouTube</a>
-        <a href="#" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.linkedin.com/in/danyalamin418" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#" target="_blank" rel="noopener">Fiverr</a>
-      </div>
-    </div>
-  </div>
-</section>
+      const fb = CATEGORY_CASE_FALLBACK[primaryCategory(categories)] || CATEGORY_CASE_FALLBACK['Nursery Rhymes'];
+      document.getElementById('videoModalGoal').textContent = goal || fb.goal;
+      document.getElementById('videoModalResult').textContent = result || fb.result;
+      renderProcessSteps(processForCategories(categories));
 
-<footer>
-  <div class="wrap">© <span id="year"></span> Danyal Amin. All rights reserved.</div>
-</footer>
+      const toolsWrap = document.getElementById('videoModalTools');
+      const toolsList = document.getElementById('videoModalToolsList');
+      const tools = toolsForCategories(categories);
+      toolsList.innerHTML = '';
+      if (tools.length) {
+        tools.forEach(tool => {
+          const item = document.createElement('span');
+          item.className = 'video-modal-tool';
+          item.innerHTML = '<img src="' + TOOL_BASE + tool.file + '" alt="' + tool.name + '" width="28" height="28"><span>' + tool.name + '</span>';
+          toolsList.appendChild(item);
+        });
+        toolsWrap.hidden = false;
+      } else {
+        toolsWrap.hidden = true;
+      }
+      document.getElementById('videoModalOverlay').classList.add('open');
+      document.body.classList.add('modal-open');
+    }
+    function closeVideoModal() {
+      document.getElementById('videoModalOverlay').classList.remove('open');
+      document.getElementById('videoModalFrame').src = '';
+      document.body.classList.remove('modal-open');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeVideoModal();
+    });
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-  const menuBtn = document.getElementById('menuBtn');
-  const navlinks = document.getElementById('navlinks');
-  menuBtn.addEventListener('click', () => {
-    const isOpen = navlinks.style.display === 'flex';
-    navlinks.style.display = isOpen ? 'none' : 'flex';
-    navlinks.style.flexDirection = 'column';
-    navlinks.style.position = 'absolute';
-    navlinks.style.top = '76px';
-    navlinks.style.left = '0';
-    navlinks.style.right = '0';
-    navlinks.style.background = '#F5FAFF';
-    navlinks.style.padding = '14px 28px';
-    navlinks.style.borderBottom = '1px solid #DCEBF7';
-    menuBtn.setAttribute('aria-expanded', String(!isOpen));
-  });
-</script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navbar = document.getElementById('navbar');
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('nav-open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+    navbar.querySelectorAll('.nav-links a, .contact-btn').forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
 
+
+
+    
+    const filterPills = Array.from(document.querySelectorAll('#portfolioFilters .filter-pill'));
+    let portfolioCards = [];
+    const portfolioSection = document.getElementById('portfolio');
+    const portfolioNoResults = document.getElementById('portfolioNoResults');
+
+    window.rebindPortfolioFilters = function() {
+      applyPortfolioFilter(typeof activePortfolioFilter !== 'undefined' ? activePortfolioFilter : 'All');
+    };
+    let activePortfolioFilter = 'All';
+    function applyPortfolioFilter(filterName) {
+      const filter = filterName || 'All';
+      activePortfolioFilter = filter;
+      portfolioCards = Array.from(document.querySelectorAll('#portfolioGrid .portfolio-card'));
+      filterPills.forEach(pill => {
+        pill.classList.toggle('active', pill.dataset.filter === filter);
+      });
+      let visibleCount = 0;
+      portfolioCards.forEach(card => {
+        const categories = (card.dataset.cat || '').split('|');
+        const show = filter === 'All'
+          ? card.dataset.featured === 'true'
+          : categories.includes(filter);
+        card.hidden = !show;
+        if (show) visibleCount++;
+      });
+      if (portfolioNoResults) {
+        portfolioNoResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    }
+
+    function getPortfolioFilterFromHash() {
+      const raw = location.hash.replace(/^#/, '');
+      if (!raw.startsWith('portfolio')) return null;
+      const query = raw.includes('?') ? raw.slice(raw.indexOf('?') + 1) : '';
+      return new URLSearchParams(query).get('filter') || 'All';
+    }
+
+    function handlePortfolioHash(scrollIntoView) {
+      const raw = location.hash.replace(/^#/, '');
+      if (!raw.startsWith('portfolio')) return;
+      applyPortfolioFilter(getPortfolioFilterFromHash());
+      if (scrollIntoView && portfolioSection) {
+        portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    filterPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        const filter = pill.dataset.filter;
+        applyPortfolioFilter(filter);
+        const hash = filter === 'All' ? '#portfolio' : '#portfolio?filter=' + encodeURIComponent(filter);
+        history.replaceState(null, '', hash);
+      });
+    });
+
+    window.addEventListener('hashchange', () => handlePortfolioHash(true));
+    if (location.hash.startsWith('#portfolio')) {
+      handlePortfolioHash(false);
+    } else {
+      applyPortfolioFilter('All');
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const submitBtn = document.getElementById('contactSubmitBtn');
+      const success = document.getElementById('formSuccess');
+      const error = document.getElementById('formError');
+
+      success.classList.remove('visible');
+      error.classList.remove('visible');
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          success.classList.add('visible');
+          form.reset();
+          setTimeout(() => success.classList.remove('visible'), 5000);
+        } else {
+          error.classList.add('visible');
+        }
+      } catch {
+        error.classList.add('visible');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    (function () {
+      const carousel = document.getElementById('testimonialCarousel');
+      const stage = document.getElementById('testimonialStage');
+      const track = document.getElementById('testimonialTrack');
+      const prevBtn = document.getElementById('testimonialPrev');
+      const nextBtn = document.getElementById('testimonialNext');
+      if (!carousel || !stage || !track || !prevBtn || !nextBtn) return;
+
+      const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+      const total = cards.length;
+      if (!total) return;
+
+      let activeIndex = 0;
+      let autoplayTimer = null;
+      let isDragging = false;
+      let dragStartX = 0;
+      let dragDelta = 0;
+
+      const ACTIVE_SCALE = 1;
+      const SIDE_SCALE = 0.75;
+      const SIDE_OPACITY = 0.5;
+      const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+      function isMobileView() {
+        return mobileQuery.matches;
+      }
+
+      function getCardWidth() {
+        return cards[0] ? cards[0].offsetWidth : 340;
+      }
+
+      function getLayoutMetrics() {
+        if (isMobileView()) {
+          return { step: 0, sideScale: 1 };
+        }
+
+        const stageWidth = stage.offsetWidth;
+        const cardWidth = getCardWidth();
+        const margin = 14;
+        const availableHalf = Math.max(80, (stageWidth / 2) - margin);
+        let sideScale = SIDE_SCALE;
+        let peekStep = cardWidth * 0.56;
+        let sideHalf = (cardWidth * sideScale) / 2;
+        let maxStep = availableHalf - sideHalf;
+
+        if (maxStep < peekStep) {
+          sideScale = Math.min(
+            SIDE_SCALE,
+            Math.max(0.58, (availableHalf - peekStep * 0.85) / (cardWidth * 0.5))
+          );
+          sideHalf = (cardWidth * sideScale) / 2;
+          maxStep = availableHalf - sideHalf;
+          peekStep = Math.min(peekStep, Math.max(70, maxStep));
+        }
+
+        return {
+          step: Math.min(peekStep, Math.max(70, maxStep)),
+          sideScale
+        };
+      }
+
+      function updateStageHeight() {
+        let maxH = 0;
+        cards.forEach((card, i) => {
+          if (isMobileView() && i !== activeIndex) return;
+          maxH = Math.max(maxH, card.scrollHeight);
+        });
+        const minH = isMobileView() ? 220 : 360;
+        const pad = isMobileView() ? 20 : 32;
+        const stageHeight = Math.max(minH, maxH + pad);
+        stage.style.height = stageHeight + 'px';
+      }
+
+      function wrapOffset(offset) {
+        if (offset > total / 2) offset -= total;
+        if (offset < -total / 2) offset += total;
+        return offset;
+      }
+
+      function getCardStyle(offset) {
+        if (isMobileView()) {
+          if (offset === 0) {
+            return { x: 0, scale: ACTIVE_SCALE, opacity: 1, className: 'is-active' };
+          }
+          return { x: 0, scale: ACTIVE_SCALE, opacity: 0, className: '' };
+        }
+
+        const { step, sideScale } = getLayoutMetrics();
+
+        if (offset === 0) {
+          return {
+            x: 0,
+            scale: ACTIVE_SCALE,
+            opacity: 1,
+            className: 'is-active'
+          };
+        }
+        if (Math.abs(offset) === 1) {
+          return {
+            x: offset * step,
+            scale: sideScale,
+            opacity: SIDE_OPACITY,
+            className: 'is-side'
+          };
+        }
+        return {
+          x: offset * step * 1.12,
+          scale: sideScale * 0.92,
+          opacity: 0,
+          className: ''
+        };
+      }
+
+      function render(animate) {
+        cards.forEach((card, i) => {
+          const offset = wrapOffset(i - activeIndex);
+          const style = getCardStyle(offset);
+
+          card.classList.remove('is-active', 'is-side', 'is-far');
+          if (style.className) card.classList.add(style.className);
+
+          card.style.transform = 'translate(calc(-50% + ' + style.x + 'px), -50%) scale(' + style.scale + ')';
+          card.style.opacity = style.opacity;
+          card.style.zIndex = offset === 0 ? 10 : Math.abs(offset) === 1 ? 5 : 2;
+          card.style.transition = animate === false
+            ? 'none'
+            : 'transform 0.6s cubic-bezier(0.45, 0, 0.55, 1), opacity 0.6s cubic-bezier(0.45, 0, 0.55, 1), box-shadow 0.6s cubic-bezier(0.45, 0, 0.55, 1)';
+        });
+      }
+
+      function goTo(index) {
+        activeIndex = ((index % total) + total) % total;
+        updateStageHeight();
+        render(true);
+      }
+
+      function next() { goTo(activeIndex + 1); }
+      function prev() { goTo(activeIndex - 1); }
+
+      function startAutoplay() {
+        stopAutoplay();
+        autoplayTimer = setInterval(next, 3000);
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      prevBtn.addEventListener('click', () => { prev(); startAutoplay(); });
+      nextBtn.addEventListener('click', () => { next(); startAutoplay(); });
+
+      carousel.addEventListener('mouseenter', stopAutoplay);
+      carousel.addEventListener('mouseleave', startAutoplay);
+
+      carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); startAutoplay(); }
+        if (e.key === 'ArrowRight') { e.preventDefault(); next(); startAutoplay(); }
+      });
+
+      function onDragStart(clientX) {
+        isDragging = true;
+        dragStartX = clientX;
+        dragDelta = 0;
+        stage.classList.add('is-dragging');
+        stopAutoplay();
+      }
+
+      function onDragMove(clientX) {
+        if (!isDragging) return;
+        dragDelta = clientX - dragStartX;
+        cards.forEach((card, i) => {
+          const offset = wrapOffset(i - activeIndex);
+          const style = getCardStyle(offset);
+          const dragOffset = dragDelta * 0.35;
+          card.style.transition = 'none';
+          card.style.transform = 'translate(calc(-50% + ' + (style.x + dragOffset) + 'px), -50%) scale(' + style.scale + ')';
+        });
+      }
+
+      function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        stage.classList.remove('is-dragging');
+        if (Math.abs(dragDelta) > 60) {
+          if (dragDelta < 0) next();
+          else prev();
+        } else {
+          render(true);
+        }
+        dragDelta = 0;
+        startAutoplay();
+      }
+
+      stage.addEventListener('mousedown', (e) => {
+        if (e.button !== 0) return;
+        onDragStart(e.clientX);
+      });
+      window.addEventListener('mousemove', (e) => onDragMove(e.clientX));
+      window.addEventListener('mouseup', onDragEnd);
+
+      stage.addEventListener('touchstart', (e) => {
+        onDragStart(e.touches[0].clientX);
+      }, { passive: true });
+      stage.addEventListener('touchmove', (e) => {
+        onDragMove(e.touches[0].clientX);
+      }, { passive: true });
+      stage.addEventListener('touchend', onDragEnd);
+
+      function onViewportChange() {
+        updateStageHeight();
+        render(true);
+      }
+
+      window.addEventListener('resize', onViewportChange);
+      if (mobileQuery.addEventListener) {
+        mobileQuery.addEventListener('change', onViewportChange);
+      } else if (mobileQuery.addListener) {
+        mobileQuery.addListener(onViewportChange);
+      }
+
+      updateStageHeight();
+      render(false);
+      requestAnimationFrame(() => {
+        updateStageHeight();
+        render(true);
+      });
+      startAutoplay();
+    })();
+  </script>
+  <link rel="stylesheet" href="css/admin-cms.css">
+  <script src="js/site-data.js"></script>
+  <script src="js/admin-cms.js"></script>
 </body>
 </html>

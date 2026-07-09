@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Projects — Danyal Amin | 2D Animator &amp; Motion Designer</title>
+<meta name="description" content="Browse the full portfolio of Danyal Amin — 2D character animation, explainer videos, motion graphics, nursery rhymes, and educational animations.">
+<meta name="author" content="Danyal Amin">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://danyalamin.art/pages/all-projects.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Danyal Amin Portfolio">
+<meta property="og:title" content="All Projects — Danyal Amin">
+<meta property="og:description" content="Browse the full portfolio of Danyal Amin — 2D character animation, explainer videos, motion graphics, and educational animations.">
+<meta property="og:url" content="https://danyalamin.art/pages/all-projects.html">
+<meta property="og:image" content="https://i.vimeocdn.com/video/2175287645-a6d733cb48f63ca5a149d0e72f6c76d924be79cdfd528607946858ac6c5b8b12-d_1280">
+<meta property="og:image:alt" content="Showreel frame — kids 2D animation by Danyal Amin">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="All Projects — Danyal Amin">
+<meta name="twitter:description" content="Browse the full portfolio of Danyal Amin — 2D character animation, explainer videos, motion graphics, and educational animations.">
+<meta name="twitter:image" content="https://i.vimeocdn.com/video/2175287645-a6d733cb48f63ca5a149d0e72f6c76d924be79cdfd528607946858ac6c5b8b12-d_1280">
+
+<link rel="icon" href="../favicon.png" type="image/png" sizes="32x32">
+<link rel="icon" href="../Assets/favicon.png" type="image/png" sizes="64x64">
+<link rel="shortcut icon" href="../favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../Assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --forest: #146945;
+  --forest-dark: #0d4d32;
+  --lime: #8DC63F;
+  --cream: #FAF9F4;
+  --sage-mist: #E3F0E4;
+  --ink: #1C2620;
+  --ink-soft: #57655C;
+  --white: #FFFFFF;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; background: var(--cream); overflow-x: hidden; }
+
+/* ---- navbar (condensed, reused from homepage) ---- */
+.nav-wrap { max-width: 1180px; margin: 0 auto; padding: 28px 24px 0; }
+.navbar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--white); border-radius: 20px; padding: 12px 14px 12px 28px;
+  box-shadow: 0 10px 30px rgba(20,105,69,0.10), 0 2px 8px rgba(20,105,69,0.06);
+  gap: 20px;
+}
+.brand {
+  display: flex; flex-direction: row; align-items: center; gap: 11px;
+  line-height: 1.05; white-space: nowrap; text-decoration: none; min-width: 0;
+}
+.brand-avatar {
+  width: 42px; height: 42px; border-radius: 50%; object-fit: cover; flex-shrink: 0;
+  border: 2.5px solid var(--white);
+  box-shadow: 0 0 0 2px var(--sage-mist), 0 4px 12px rgba(20, 105, 69, 0.18);
+}
+.brand-text { display: flex; flex-direction: column; min-width: 0; }
+.brand-name { font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--forest); }
+.brand-tag { font-size: 0.72rem; font-weight: 500; color: var(--ink-soft); margin-top: 2px; }
+.nav-links { display: flex; align-items: center; gap: 34px; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--ink); font-weight: 500; font-size: 0.98rem; }
+.nav-links a:hover { color: var(--forest); }
+.contact-btn {
+  display: inline-flex; align-items: center; gap: 8px; background: var(--forest); color: var(--white);
+  font-weight: 600; font-size: 0.95rem; text-decoration: none; padding: 12px 26px; border-radius: 100px;
+  white-space: nowrap; box-shadow: 0 6px 16px rgba(20,105,69,0.28); transition: background .2s ease, transform .2s ease;
+}
+.contact-btn:hover { background: var(--forest-dark); transform: translateY(-1px); }
+.contact-btn svg { width:16px; height:16px; stroke: var(--lime); }
+.menu-toggle {
+  display: none; flex-direction: column; gap: 5px; background: none; border: none;
+  cursor: pointer; padding: 8px;
+}
+.menu-toggle span { width: 22px; height: 2.5px; background: var(--forest); border-radius: 2px; }
+@media (max-width: 940px) {
+  .nav-wrap { padding: 14px 14px 0; }
+  .navbar {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "brand contact menu"
+      "links links links";
+    align-items: center;
+    padding: 10px 12px;
+    gap: 8px 10px;
+  }
+  .brand { grid-area: brand; min-width: 0; white-space: normal; }
+  .brand-text { min-width: 0; }
+  .brand-name { font-size: 1.15rem; }
+  .brand-tag {
+    display: block;
+    font-size: 0.62rem;
+    line-height: 1.25;
+    white-space: normal;
+  }
+  .contact-btn { grid-area: contact; padding: 9px 16px; font-size: 0.85rem; }
+  .menu-toggle { grid-area: menu; display: flex; }
+  .nav-links {
+    grid-area: links;
+    display: none; flex-direction: column; align-items: stretch; gap: 0;
+    width: 100%; padding: 6px 0 2px;
+    border-top: 1px solid #E8F0E9; margin-top: 2px;
+  }
+  .nav-links a { padding: 11px 8px; border-radius: 8px; font-size: 0.92rem; }
+  .navbar.nav-open .nav-links { display: flex; }
+}
+
+/* ---- page header ---- */
+.page-wrap { max-width: 1180px; margin: 0 auto; padding: 20px 24px 90px; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  color: var(--forest); font-weight: 600; font-size: 0.92rem; margin: 26px 0 10px;
+}
+.back-link svg { width: 16px; height: 16px; stroke: var(--forest); }
+.back-link:hover { color: var(--forest-dark); }
+
+.page-header { text-align: center; padding: 26px 0 40px; position: relative; }
+.page-title {
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 2.3rem; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 14px; margin-bottom: 10px;
+}
+.page-title .emoji { font-size: 1.9rem; }
+.page-subtitle { color: var(--ink-soft); font-size: 1rem; max-width: 560px; margin: 0 auto; }
+
+.search-wrap { max-width: 420px; margin: 26px auto 0; position: relative; }
+.search-wrap input {
+  width: 100%; border: 1.5px solid #DCE9DD; background: var(--white); border-radius: 100px;
+  padding: 12px 20px 12px 42px; font-family: 'Inter', sans-serif; font-size: 0.92rem; color: var(--ink); outline: none;
+  transition: border-color .2s ease;
+}
+.search-wrap input:focus { border-color: var(--forest); }
+.search-wrap svg { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; stroke: var(--ink-soft); }
+
+/* ---- filter pills (reused) ---- */
+.filter-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 30px 0 40px; }
+.filter-pill {
+  border: 1.5px solid #D3E4D6; background: var(--white); color: var(--ink-soft); font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: 0.88rem; padding: 9px 20px; border-radius: 100px; cursor: pointer; transition: all .2s ease;
+}
+.filter-pill:hover { border-color: var(--forest); color: var(--forest); }
+.filter-pill.active { background: var(--forest); border-color: var(--forest); color: var(--white); }
+
+/* ---- card grid (reused pattern from homepage) ---- */
+.grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;
+}
+.pcard {
+  background: var(--white); border-radius: 16px; overflow: hidden;
+  box-shadow: 0 6px 18px rgba(20,105,69,0.08); transition: transform .25s ease, box-shadow .25s ease;
+}
+.pcard:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(20,105,69,0.15); }
+.pthumb {
+  position: relative; aspect-ratio: 4/3; overflow: hidden; background: #0d1f16;
+}
+.pthumb img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.play-btn {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 46px; height: 46px; border-radius: 50%; background: rgba(255,255,255,0.9);
+  display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.play-btn svg { width: 16px; height: 16px; fill: var(--forest); margin-left: 2px; }
+.pinfo {
+  padding: 16px 18px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ptitle { font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 1.02rem; color: var(--ink); margin-bottom: 8px; width: 100%; }
+.pdesc { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.5; margin-bottom: 12px; width: 100%; }
+.ptags { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.ptag { display: inline-block; font-size: 0.74rem; font-weight: 600; padding: 3px 12px; border-radius: 100px; }
+.tag-edu { background: #E4EEFB; color: #2E63A6; }
+.tag-nursery { background: #F9E4F3; color: #A84B92; }
+.tag-character { background: #E4F5E8; color: var(--forest); }
+.tag-motion { background: #FDEBD8; color: #C4711F; }
+
+.no-results { text-align: center; color: var(--ink-soft); padding: 40px 0; font-size: 0.95rem; display: none; }
+
+/* ---- video modal ---- */
+.pcard { cursor: pointer; }
+.video-modal-overlay {
+  position: fixed; inset: 0; background: rgba(15, 30, 20, 0.78);
+  display: none; align-items: center; justify-content: center;
+  z-index: 999; padding: 20px; backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.video-modal-overlay.open { display: flex; }
+.video-modal {
+  position: relative; width: 100%; max-width: 920px;
+  background: var(--white); border-radius: 24px; padding: 12px 12px 14px;
+  box-shadow: 0 30px 70px rgba(13, 77, 50, 0.28), 0 0 0 1px rgba(20, 105, 69, 0.08);
+  border: 1px solid rgba(20, 105, 69, 0.08);
+  max-height: min(92vh, 900px);
+  overflow: auto;
+  animation: videoModalIn 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes videoModalIn {
+  from { opacity: 0; transform: translateY(16px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.video-modal-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px; padding: 8px 10px 12px; border-bottom: 1px solid rgba(20, 105, 69, 0.08);
+  margin-bottom: 12px;
+}
+.video-modal-title {
+  font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 1.2rem;
+  color: var(--forest); line-height: 1.25; padding: 2px 0 0;
+}
+.video-modal-close {
+  flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+  background: var(--sage-mist); border: none; color: var(--forest);
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.video-modal-close:hover {
+  background: var(--forest); color: var(--white); transform: rotate(90deg);
+}
+.video-modal-close svg { width: 18px; height: 18px; stroke: currentColor; }
+.video-modal-frame {
+  position: relative; width: 100%; aspect-ratio: 16/9; border-radius: 16px;
+  overflow: hidden; background: #0d1f16;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+}
+.video-modal-frame iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+.video-modal-info { padding: 14px 10px 4px; }
+.video-modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.video-modal-tags .ptag,
+.video-modal-tags .portfolio-tag { font-size: 0.72rem; }
+.video-modal-desc {
+  color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55;
+  margin-bottom: 12px;
+}
+.video-modal-case {
+  margin-bottom: 12px;
+  padding: 14px 14px 12px;
+  background: linear-gradient(165deg, #f3faf4 0%, var(--sage-mist) 100%);
+  border-radius: 16px;
+  border: 1px solid rgba(20, 105, 69, 0.1);
+}
+.video-modal-case-label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.68rem; font-weight: 700; color: var(--forest);
+  text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.video-modal-case-label svg {
+  width: 14px; height: 14px; stroke: var(--lime); fill: none; stroke-width: 2;
+}
+.video-modal-case-grid { display: grid; gap: 10px; }
+.video-modal-case-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 10px;
+  align-items: start;
+}
+.video-modal-case-key {
+  font-size: 0.68rem; font-weight: 700; color: var(--forest);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  padding-top: 2px;
+}
+.video-modal-case-val {
+  font-size: 0.84rem; color: var(--ink-soft); line-height: 1.5;
+}
+.video-modal-process {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+}
+.video-modal-process-step {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.74rem; font-weight: 600; color: var(--ink);
+  background: var(--white); border: 1px solid rgba(20, 105, 69, 0.1);
+  padding: 4px 10px; border-radius: 100px;
+}
+.video-modal-process-step b {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--forest); color: var(--white);
+  font-size: 0.62rem; display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700;
+}
+.video-modal-process-arrow {
+  color: var(--lime); font-size: 0.75rem; font-weight: 700;
+}
+.video-modal-tools {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
+  margin-bottom: 14px; padding: 12px 14px;
+  background: var(--white); border-radius: 14px;
+  border: 1px solid rgba(20, 105, 69, 0.08);
+}
+.video-modal-tools-label {
+  font-size: 0.72rem; font-weight: 700; color: var(--forest);
+  text-transform: uppercase; letter-spacing: 0.06em; flex-shrink: 0;
+}
+.video-modal-tools-list {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+}
+.video-modal-tool {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.78rem; font-weight: 600; color: var(--ink-soft);
+}
+.video-modal-tool img {
+  width: 28px; height: 28px; border-radius: 8px; object-fit: cover;
+  box-shadow: 0 2px 8px rgba(20, 105, 69, 0.14);
+  background: var(--white);
+}
+.video-modal-meta {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 8px 16px; padding-top: 12px; border-top: 1px solid rgba(20, 105, 69, 0.08);
+  font-size: 0.72rem; font-weight: 500; color: var(--ink-soft);
+  letter-spacing: 0.02em;
+}
+.video-modal-meta strong { color: var(--forest); font-weight: 600; }
+body.modal-open { overflow: hidden; }
+@media (max-width: 640px) {
+  .video-modal { border-radius: 18px; padding: 10px; max-height: 94vh; }
+  .video-modal-title { font-size: 1.05rem; }
+  .video-modal-header { padding: 4px 4px 10px; margin-bottom: 10px; }
+  .video-modal-info { padding: 12px 4px 2px; }
+  .video-modal-desc { font-size: 0.86rem; }
+  .video-modal-case { padding: 12px; }
+  .video-modal-case-row { grid-template-columns: 1fr; gap: 2px; }
+  .video-modal-case-key { padding-top: 0; }
+  .video-modal-tools { padding: 10px 12px; gap: 8px; }
+  .video-modal-tool img { width: 24px; height: 24px; border-radius: 6px; }
+  .video-modal-tool { font-size: 0.72rem; }
+}
+
+@media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .nav-wrap { padding: 10px 10px 0; }
+  .navbar { padding: 8px 10px; gap: 6px 8px; }
+  .brand-name { font-size: 1rem; }
+  .brand-tag { font-size: 0.56rem; }
+  .brand-avatar { width: 34px; height: 34px; }
+  .contact-btn { padding: 8px 10px; font-size: 0; gap: 0; }
+  .contact-btn svg { width: 18px; height: 18px; }
+
+  .page-wrap { padding: 16px 12px 60px; }
+  .page-title { font-size: 1.55rem; gap: 8px; }
+  .page-subtitle { font-size: 0.88rem; }
+  .filter-pills { gap: 7px; margin: 20px 0 24px; }
+  .filter-pill { font-size: 0.74rem; padding: 7px 12px; }
+
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+  .pcard { border-radius: 10px; }
+  .pcard:hover { transform: none; }
+  .pinfo { padding: 7px 4px 9px; }
+  .ptitle {
+    font-size: 0.58rem;
+    margin-bottom: 3px;
+    line-height: 1.25;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .pdesc { display: none; }
+  .ptag {
+    font-size: 0.5rem;
+    padding: 2px 5px;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .play-btn { width: 26px; height: 26px; }
+  .play-btn svg { width: 9px; height: 9px; margin-left: 1px; }
+}
+
+</style>
+</head>
+<body data-page="all">
+
+  <div class="nav-wrap">
+    <nav class="navbar" id="navbar">
+      <a href="../index.html" class="brand">
+        <img src="../Assets/danyal-avatar.svg" alt="" class="brand-avatar" width="42" height="42">
+        <div class="brand-text">
+          <span class="brand-name">Danyal Amin</span>
+          <span class="brand-tag">2D Animator &amp; Motion Graphics Designer</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#portfolio">Portfolio</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#testimonials">Testimonials</a></li>
+      </ul>
+      <a href="../index.html#contact" class="contact-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 6l-10 7L2 6"/><path d="M2 6h20v12H2z"/>
+        </svg>
+        Contact
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+
+
+  <div class="page-wrap">
+    <a href="../index.html" class="back-link"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg> Back to Home</a>
+
+    <div class="page-header">
+      <h1 class="page-title"><span class="emoji">✳️</span> All Projects <span class="emoji">✳️</span></h1>
+      <p class="page-subtitle">Explore my collection of 2D animations and motion graphics created for kids to learn, enjoy and grow.</p>
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <input type="text" id="searchInput" placeholder="Search projects...">
+      </div>
+    </div>
+
+    <div class="filter-pills" id="filterPills">
+      <button class="filter-pill active" data-filter="All">All</button>
+      <button class="filter-pill" data-filter="Nursery Rhymes">Nursery Rhymes</button>
+      <button class="filter-pill" data-filter="Educational Animation">Educational Animation</button>
+      <button class="filter-pill" data-filter="Character Animation">Character Animation</button>
+      <button class="filter-pill" data-filter="Motion Graphics">Motion Graphics</button>
+    </div>
+
+        <div class="grid" id="cardGrid">
+      <!-- rendered by admin-cms -->
+    </div>
+
+    <p class="no-results" id="noResults">No results found. Try a different search or filter.</p>
+  </div>
+
+  <div class="video-modal-overlay" id="videoModalOverlay" role="dialog" aria-modal="true" aria-labelledby="videoModalTitle" onclick="if(event.target===this) closeVideoModal()">
+    <div class="video-modal">
+      <div class="video-modal-header">
+        <h3 class="video-modal-title" id="videoModalTitle"></h3>
+        <button class="video-modal-close" onclick="closeVideoModal()" aria-label="Close video">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="video-modal-frame">
+        <iframe id="videoModalFrame" src="" title="Project video" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="video-modal-info">
+        <div class="video-modal-tags" id="videoModalTags"></div>
+        <p class="video-modal-desc" id="videoModalDesc"></p>
+        <div class="video-modal-case" id="videoModalCase">
+          <div class="video-modal-case-label">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M8 7h8M8 11h6"/></svg>
+            Light Case Study
+          </div>
+          <div class="video-modal-case-grid">
+            <div class="video-modal-case-row">
+              <span class="video-modal-case-key">Goal</span>
+              <span class="video-modal-case-val" id="videoModalGoal"></span>
+            </div>
+            <div class="video-modal-case-row">
+              <span class="video-modal-case-key">Role</span>
+              <span class="video-modal-case-val" id="videoModalRole">2D Animator &amp; Motion Graphics Designer</span>
+            </div>
+            <div class="video-modal-case-row">
+              <span class="video-modal-case-key">Process</span>
+              <div class="video-modal-case-val">
+                <div class="video-modal-process" id="videoModalProcess"></div>
+              </div>
+            </div>
+            <div class="video-modal-case-row">
+              <span class="video-modal-case-key">Result</span>
+              <span class="video-modal-case-val" id="videoModalResult"></span>
+            </div>
+          </div>
+        </div>
+        <div class="video-modal-tools" id="videoModalTools" hidden>
+          <span class="video-modal-tools-label">Made with</span>
+          <div class="video-modal-tools-list" id="videoModalToolsList"></div>
+        </div>
+        <div class="video-modal-meta">
+          <span>Format: <strong>2D Animation / Motion Graphics</strong></span>
+          <span>Danyal Amin Portfolio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+    const TAG_CLASS_MAP = {
+      'Nursery Rhymes': 'tag-nursery',
+      'Educational Animation': 'tag-edu',
+      'Character Animation': 'tag-character',
+      'Motion Graphics': 'tag-motion'
+    };
+    const TOOL_BASE = '../Assets/';
+    const TOOL_DEFS = {
+      illustrator: { name: 'Illustrator', file: 'Illustrator.svg' },
+      aftereffects: { name: 'After Effects', file: 'After effects.svg' },
+      photoshop: { name: 'Photoshop', file: 'Photoshop.svg' },
+      animate: { name: 'Adobe Animate', file: 'animate.svg' },
+      premiere: { name: 'Premiere Pro', file: 'Premier Pro.svg' }
+    };
+    const CATEGORY_TOOLS = {
+      'Nursery Rhymes': ['illustrator', 'aftereffects'],
+      'Educational Animation': ['photoshop', 'illustrator', 'aftereffects'],
+      'Character Animation': ['animate', 'aftereffects', 'illustrator'],
+      'Motion Graphics': ['aftereffects', 'illustrator', 'premiere', 'photoshop']
+    };
+    const TOOL_ORDER = ['illustrator', 'photoshop', 'animate', 'aftereffects', 'premiere'];
+    const CATEGORY_PROCESS = {
+      'Nursery Rhymes': ['Concept', 'Character design', 'Song-synced animation', 'Polish'],
+      'Educational Animation': ['Learning goal', 'Clear visuals', 'Animate & teach', 'Final polish'],
+      'Character Animation': ['Character design', 'Acting & timing', 'Animation', 'Polish'],
+      'Motion Graphics': ['Concept', 'Design assets', 'Motion design', 'Edit & deliver']
+    };
+    const CATEGORY_CASE_FALLBACK = {
+      'Nursery Rhymes': {
+        goal: 'Create a fun, musical kids animation that is easy to sing and watch again.',
+        result: 'A hand-picked highlight from the complete nursery rhyme, made for a quick portfolio look.'
+      },
+      'Educational Animation': {
+        goal: 'Explain an idea simply so children learn while staying entertained.',
+        result: 'A teaching-focused cut from the longer educational film — clear, friendly, and memorable.'
+      },
+      'Character Animation': {
+        goal: 'Bring a character to life with personality, timing, and expressive motion.',
+        result: 'A performance-led extract from the full character film, where acting and timing do the talking.'
+      },
+      'Motion Graphics': {
+        goal: 'Communicate the message with dynamic design, motion, and visual clarity.',
+        result: 'A design-forward beat from the complete motion graphics video — clean craft in a quick view.'
+      }
+    };
+
+    function toolsForCategories(categories) {
+      const keys = new Set();
+      categories.forEach(cat => { (CATEGORY_TOOLS[cat] || []).forEach(k => keys.add(k)); });
+      return TOOL_ORDER.filter(k => keys.has(k)).map(k => TOOL_DEFS[k]);
+    }
+    function primaryCategory(categories) {
+      return categories[0] || 'Nursery Rhymes';
+    }
+    function processForCategories(categories) {
+      return CATEGORY_PROCESS[primaryCategory(categories)] || CATEGORY_PROCESS['Nursery Rhymes'];
+    }
+    function renderProcessSteps(steps) {
+      const wrap = document.getElementById('videoModalProcess');
+      if (!wrap) return;
+      wrap.innerHTML = '';
+      steps.forEach((step, i) => {
+        if (i > 0) {
+          const arrow = document.createElement('span');
+          arrow.className = 'video-modal-process-arrow';
+          arrow.setAttribute('aria-hidden', 'true');
+          arrow.textContent = '→';
+          wrap.appendChild(arrow);
+        }
+        const pill = document.createElement('span');
+        pill.className = 'video-modal-process-step';
+        pill.innerHTML = '<b>' + (i + 1) + '</b>' + step;
+        wrap.appendChild(pill);
+      });
+    }
+    function openVideoModal(el) {
+      const url = el.dataset.video || '';
+      const projectTitle = el.dataset.title || el.querySelector('.portfolio-title, .ptitle')?.textContent?.trim() || '';
+      const cat = el.dataset.cat || '';
+      const desc = el.dataset.desc || '';
+      const goal = el.dataset.goal || '';
+      const result = el.dataset.result || '';
+      const categories = cat.split('|').map(s => s.trim()).filter(Boolean);
+
+      document.getElementById('videoModalFrame').src = url;
+      document.getElementById('videoModalTitle').textContent = projectTitle;
+      document.getElementById('videoModalFrame').title = projectTitle || 'Project video';
+
+      const tagsEl = document.getElementById('videoModalTags');
+      tagsEl.innerHTML = '';
+      const tagPrefix = true ? 'ptag' : 'portfolio-tag';
+      categories.forEach(name => {
+        const span = document.createElement('span');
+        span.className = tagPrefix + ' ' + (TAG_CLASS_MAP[name] || 'tag-character');
+        span.textContent = name;
+        tagsEl.appendChild(span);
+      });
+
+      const descEl = document.getElementById('videoModalDesc');
+      descEl.textContent = desc;
+      descEl.style.display = desc ? 'block' : 'none';
+
+      const fb = CATEGORY_CASE_FALLBACK[primaryCategory(categories)] || CATEGORY_CASE_FALLBACK['Nursery Rhymes'];
+      document.getElementById('videoModalGoal').textContent = goal || fb.goal;
+      document.getElementById('videoModalResult').textContent = result || fb.result;
+      renderProcessSteps(processForCategories(categories));
+
+      const toolsWrap = document.getElementById('videoModalTools');
+      const toolsList = document.getElementById('videoModalToolsList');
+      const tools = toolsForCategories(categories);
+      toolsList.innerHTML = '';
+      if (tools.length) {
+        tools.forEach(tool => {
+          const item = document.createElement('span');
+          item.className = 'video-modal-tool';
+          item.innerHTML = '<img src="' + TOOL_BASE + tool.file + '" alt="' + tool.name + '" width="28" height="28"><span>' + tool.name + '</span>';
+          toolsList.appendChild(item);
+        });
+        toolsWrap.hidden = false;
+      } else {
+        toolsWrap.hidden = true;
+      }
+      document.getElementById('videoModalOverlay').classList.add('open');
+      document.body.classList.add('modal-open');
+    }
+    function closeVideoModal() {
+      document.getElementById('videoModalOverlay').classList.remove('open');
+      document.getElementById('videoModalFrame').src = '';
+      document.body.classList.remove('modal-open');
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeVideoModal();
+    });
+
+  const menuToggle = document.getElementById('menuToggle');
+  const navbar = document.getElementById('navbar');
+  if (menuToggle && navbar) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navbar.classList.toggle('nav-open');
+      menuToggle.setAttribute('aria-expanded', isOpen);
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    });
+    navbar.querySelectorAll('.nav-links a, .contact-btn').forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('nav-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open menu');
+      });
+    });
+  }
+
+  const pills = Array.from(document.querySelectorAll('.filter-pill'));
+  const searchInput = document.getElementById('searchInput');
+  let cards = [];
+  const noResults = document.getElementById('noResults');
+  let activeFilter = 'All';
+
+  function applyFilters() {
+    cards = Array.from(document.querySelectorAll('#cardGrid .pcard'));
+    const q = ((searchInput && searchInput.value) || '').trim().toLowerCase();
+    let visibleCount = 0;
+    cards.forEach(c => {
+      const matchesFilter = activeFilter === 'All' || (c.dataset.cat || '').split('|').includes(activeFilter);
+      const matchesSearch = (c.dataset.title || '').toLowerCase().includes(q);
+      const show = matchesFilter && matchesSearch;
+      c.style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+    if (noResults) noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  pills.forEach(p => {
+    p.addEventListener('click', () => {
+      pills.forEach(x => x.classList.remove('active'));
+      p.classList.add('active');
+      activeFilter = p.dataset.filter;
+      applyFilters();
+    });
+  });
+  window.rebindAllProjectsFilters = applyFilters;
+  if (searchInput) searchInput.addEventListener('input', applyFilters);
+</script>
+  <link rel="stylesheet" href="../css/admin-cms.css">
+  <script src="../js/site-data.js"></script>
+  <script src="../js/admin-cms.js"></script>
+</body>
+</html>
