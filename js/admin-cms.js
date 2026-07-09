@@ -353,19 +353,22 @@
     const iframe = document.querySelector('.hero-video iframe, #heroShowreelFrame');
     if (iframe && t.showreelUrl) {
       let url = String(t.showreelUrl);
-      // Keep hero free of Vimeo "More from…" end screen: default freeze (loop=0).
-      // Set loop=1 in the showreel URL if you prefer continuous looping instead.
-      if (/player\.vimeo\.com/i.test(url) && !/[?&]loop=/i.test(url)) {
+      if (typeof window.prepareVimeoEmbedUrl === 'function') {
+        url = window.prepareVimeoEmbedUrl(url);
+      } else if (/player\.vimeo\.com/i.test(url) && !/[?&]loop=/i.test(url)) {
         url += (url.indexOf('?') >= 0 ? '&' : '?') + 'loop=0';
       }
       if (iframe.src !== url && iframe.getAttribute('src') !== url) {
         iframe.src = url;
       }
       iframe.title = t.showreelTitle || 'Showreel';
-      // Rebind freeze-on-last-frame after CMS updates the embed
       if (typeof window.setupHeroShowreel === 'function') {
         setTimeout(function () {
           try { window.setupHeroShowreel(); } catch (e) { /* ignore */ }
+        }, 200);
+      } else if (typeof window.bindVimeoFreeze === 'function') {
+        setTimeout(function () {
+          try { window.bindVimeoFreeze(iframe); } catch (e) { /* ignore */ }
         }, 200);
       }
     }

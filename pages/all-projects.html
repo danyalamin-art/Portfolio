@@ -576,9 +576,17 @@ body.modal-open { overflow: hidden; }
       const result = el.dataset.result || '';
       const categories = cat.split('|').map(s => s.trim()).filter(Boolean);
 
-      document.getElementById('videoModalFrame').src = url;
+      const frame = document.getElementById('videoModalFrame');
+      const embedUrl = (typeof window.prepareVimeoEmbedUrl === 'function')
+        ? window.prepareVimeoEmbedUrl(url)
+        : url;
+      frame.src = embedUrl;
       document.getElementById('videoModalTitle').textContent = projectTitle;
-      document.getElementById('videoModalFrame').title = projectTitle || 'Project video';
+      frame.title = projectTitle || 'Project video';
+      // Freeze on last frame — no Vimeo "More from…" end screen
+      if (typeof window.bindVimeoFreeze === 'function') {
+        setTimeout(function () { window.bindVimeoFreeze(frame); }, 80);
+      }
 
       const tagsEl = document.getElementById('videoModalTags');
       tagsEl.innerHTML = '';
@@ -619,7 +627,11 @@ body.modal-open { overflow: hidden; }
     }
     function closeVideoModal() {
       document.getElementById('videoModalOverlay').classList.remove('open');
-      document.getElementById('videoModalFrame').src = '';
+      const frame = document.getElementById('videoModalFrame');
+      if (typeof window.unbindVimeoFreeze === 'function') {
+        window.unbindVimeoFreeze(frame);
+      }
+      frame.src = '';
       document.body.classList.remove('modal-open');
     }
     document.addEventListener('keydown', (e) => {
@@ -677,5 +689,6 @@ body.modal-open { overflow: hidden; }
   <link rel="stylesheet" href="../css/admin-cms.css">
   <script src="../js/site-data.js"></script>
   <script src="../js/admin-cms.js"></script>
+  <script src="../js/vimeo-freeze.js"></script>
 </body>
 </html>

@@ -2642,9 +2642,17 @@
       const result = el.dataset.result || '';
       const categories = cat.split('|').map(s => s.trim()).filter(Boolean);
 
-      document.getElementById('videoModalFrame').src = url;
+      const frame = document.getElementById('videoModalFrame');
+      const embedUrl = (typeof window.prepareVimeoEmbedUrl === 'function')
+        ? window.prepareVimeoEmbedUrl(url)
+        : url;
+      frame.src = embedUrl;
       document.getElementById('videoModalTitle').textContent = projectTitle;
-      document.getElementById('videoModalFrame').title = projectTitle || 'Project video';
+      frame.title = projectTitle || 'Project video';
+      // Freeze on last frame — no Vimeo "More from…" end screen
+      if (typeof window.bindVimeoFreeze === 'function') {
+        setTimeout(function () { window.bindVimeoFreeze(frame); }, 80);
+      }
 
       const tagsEl = document.getElementById('videoModalTags');
       tagsEl.innerHTML = '';
@@ -2685,7 +2693,11 @@
     }
     function closeVideoModal() {
       document.getElementById('videoModalOverlay').classList.remove('open');
-      document.getElementById('videoModalFrame').src = '';
+      const frame = document.getElementById('videoModalFrame');
+      if (typeof window.unbindVimeoFreeze === 'function') {
+        window.unbindVimeoFreeze(frame);
+      }
+      frame.src = '';
       document.body.classList.remove('modal-open');
     }
     document.addEventListener('keydown', (e) => {
@@ -3039,94 +3051,7 @@
   <link rel="stylesheet" href="css/admin-cms.css">
   <script src="js/site-data.js"></script>
   <script src="js/admin-cms.js"></script>
-  <!-- Vimeo API: freeze hero showreel on last frame (no "More from…" end screen) -->
-  <script src="https://player.vimeo.com/api/player.js"></script>
-  <script>
-    (function () {
-      var player = null;
-      var lastSrc = '';
-
-      function wantsLoop(url) {
-        return /[?&]loop=1(?:&|$)/i.test(String(url || ''));
-      }
-
-      function cleanup() {
-        if (player) {
-          try { if (player.unload) player.unload(); } catch (e) {}
-          player = null;
-        }
-        lastSrc = '';
-      }
-
-      window.setupHeroShowreel = function setupHeroShowreel() {
-        var iframe = document.getElementById('heroShowreelFrame');
-        if (!iframe || !window.Vimeo || !window.Vimeo.Player) return;
-
-        var src = iframe.getAttribute('src') || iframe.src || '';
-        if (wantsLoop(src)) {
-          cleanup();
-          return;
-        }
-
-        // Same embed already controlled
-        if (player && lastSrc === src) return;
-
-        cleanup();
-        try {
-          player = new Vimeo.Player(iframe);
-          lastSrc = src;
-        } catch (e) {
-          return;
-        }
-
-        var freezing = false;
-        var lastDuration = 0;
-
-        player.getDuration().then(function (d) { lastDuration = d || 0; }).catch(function () {});
-
-        player.on('timeupdate', function (data) {
-          if (freezing) return;
-          var check = function (duration) {
-            lastDuration = duration || lastDuration;
-            if (!lastDuration || freezing) return;
-            // Pause just before true end so Vimeo never opens "More from…" recommendations
-            if (data.seconds >= lastDuration - 0.3) {
-              freezing = true;
-              var t = Math.max(0, lastDuration - 0.08);
-              player.pause().then(function () {
-                return player.setCurrentTime(t);
-              }).catch(function () {
-                freezing = false;
-              });
-            }
-          };
-          if (lastDuration) check(lastDuration);
-          else player.getDuration().then(check).catch(function () {});
-        });
-
-        player.on('ended', function () {
-          freezing = true;
-          player.getDuration().then(function (duration) {
-            var t = Math.max(0, (duration || lastDuration) - 0.08);
-            return player.setCurrentTime(t).then(function () { return player.pause(); });
-          }).catch(function () {});
-        });
-
-        player.on('play', function () {
-          if (freezing) freezing = false;
-        });
-      };
-
-      function boot() { window.setupHeroShowreel(); }
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', boot);
-      } else {
-        boot();
-      }
-      window.addEventListener('load', function () {
-        setTimeout(boot, 400);
-      });
-    })();
-  </script>
+  <!-- Freeze Vimeo on last frame (hero showreel + portfolio modal) -->
+  <script src="js/vimeo-freeze.js"></script>
 </body>
 </html>
