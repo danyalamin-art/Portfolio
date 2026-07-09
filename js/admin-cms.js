@@ -1,6 +1,9 @@
 /**
  * Content Manager — modeled after the interactive portfolio admin system.
- * Access: add ?admin to the site URL → Content Manager button in nav → passcode.
+ * Access:
+ *   1) Subtle footer · button → passcode (preferred; no URL change)
+ *   2) Or append ?admin to the URL → nav Content Manager → passcode
+ * Works on Home and All Projects. Auth session keeps edit mode across pages.
  * Publish Live: writes js/site-data.js to GitHub so every visitor sees updates.
  * Theme: forest green portfolio.
  */
@@ -339,6 +342,40 @@
       const next = withAdminParam(href);
       if (next !== href) a.setAttribute('href', next);
     });
+  }
+
+  /**
+   * Click-time guard: even if a link was re-rendered without ?admin,
+   * keep admin mode when navigating Home ↔ All Projects.
+   * Auth in localStorage is the real session; ?admin is a backup signal.
+   */
+  function bindAdminNavGuard() {
+    if (document.documentElement.dataset.cmsNavGuard === '1') return;
+    document.documentElement.dataset.cmsNavGuard = '1';
+    document.addEventListener(
+      'click',
+      (e) => {
+        if (!isAdminMode && !isAuthorized()) return;
+        const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+        if (!a || a.target === '_blank') return;
+        const href = a.getAttribute('href');
+        if (!isInternalSiteLink(href)) return;
+        const next = withAdminParam(href);
+        if (next !== href) a.setAttribute('href', next);
+      },
+      true
+    );
+  }
+
+  /** Full admin chrome: banner, nav button, card controls, link rewrite. */
+  function enableAdminChrome() {
+    document.body.classList.add('cms-admin-url');
+    ensureShell();
+    injectNavButton();
+    injectAddProjectButton();
+    injectHeroEdit();
+    preserveAdminLinks();
+    updateStealthEntryVisibility();
   }
 
   function esc(s) {
@@ -729,7 +766,12 @@
       '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Content Manager';
     btn.addEventListener('click', () => {
       if (isAdminMode) exitAdminMode();
-      else open('cmsAuthOverlay');
+      else {
+        ensureShell();
+        open('cmsAuthOverlay');
+        const pass = document.getElementById('cmsPass');
+        if (pass) setTimeout(() => pass.focus(), 50);
+      }
     });
     if (contact) {
       contact.classList.add('cms-hide-on-admin');
@@ -739,16 +781,58 @@
     }
   }
 
+  /**
+   * Very light entry control at the bottom of every page.
+   * Looks like a tiny decorative mark — only you know to click it.
+   */
+  function injectStealthEntry() {
+    if (document.getElementById('cmsStealthEntry')) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.id = 'cmsStealthEntry';
+    btn.className = 'cms-stealth-entry';
+    btn.setAttribute('aria-label', 'Site tools');
+    btn.title = '';
+    btn.textContent = '·';
+    btn.addEventListener('click', () => {
+      ensureShell();
+      if (isAdminMode) {
+        exitAdminMode();
+        return;
+      }
+      if (isAuthorized()) {
+        enableAdminChrome();
+        setAdminMode(true);
+        toast('🔓 Content Manager active');
+        return;
+      }
+      open('cmsAuthOverlay');
+      const pass = document.getElementById('cmsPass');
+      if (pass) {
+        pass.value = '';
+        setTimeout(() => pass.focus(), 50);
+      }
+      document.getElementById('cmsAuthError')?.classList.remove('show');
+    });
+    document.body.appendChild(btn);
+    updateStealthEntryVisibility();
+  }
+
+  function updateStealthEntryVisibility() {
+    const btn = document.getElementById('cmsStealthEntry');
+    if (!btn) return;
+    // Hide the mark while full admin chrome is active (banner + nav button)
+    btn.classList.toggle('cms-stealth-hidden', isAdminMode);
+  }
+
   function injectAddProjectButton() {
-    const port = document.getElementById('portfolio') || document.querySelector('.page-wrap');
-    if (!port || document.querySelector('.cms-add-project-wrap')) return;
+    if (document.querySelector('.cms-add-project-wrap')) return;
+    const grid = document.getElementById('portfolioGrid') || document.getElementById('cardGrid');
+    if (!grid || !grid.parentNode) return;
     const wrap = document.createElement('div');
     wrap.className = 'cms-add-project-wrap';
     wrap.innerHTML = '<button type="button" class="cms-add-project-btn" id="cmsAddProject">+ Add New Portfolio Video</button>';
-    const grid = document.getElementById('portfolioGrid') || document.getElementById('cardGrid');
-    if (grid && grid.parentNode) {
-      grid.parentNode.insertBefore(wrap, grid);
-    }
+    grid.parentNode.insertBefore(wrap, grid);
     document.getElementById('cmsAddProject').onclick = () => openProjectForm(null);
   }
 
@@ -778,7 +862,11 @@
         : '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Content Manager';
     }
     refreshProjects();
-    if (on) preserveAdminLinks();
+    if (on) {
+      enableAdminChrome();
+      preserveAdminLinks();
+    }
+    updateStealthEntryVisibility();
   }
 
   function onAuth(e) {
@@ -786,11 +874,13 @@
     const pass = document.getElementById('cmsPass').value;
     const correct = window.ADMIN_PASSCODE || 'danyaladmin';
     if (pass === correct) {
-      localStorage.setItem(KEYS.auth, 'true');
+      try {
+        localStorage.setItem(KEYS.auth, 'true');
+      } catch (err) { /* ignore */ }
       close('cmsAuthOverlay');
+      enableAdminChrome();
       setAdminMode(true);
-      preserveAdminLinks();
-      toast('🔓 Access granted — Content Manager active');
+      toast('🔓 Access granted — Content Manager active on this page');
     } else {
       document.getElementById('cmsAuthError').classList.add('show');
     }
@@ -798,12 +888,15 @@
 
   function exitAdminMode() {
     setAdminMode(false);
-    localStorage.removeItem(KEYS.auth);
+    try {
+      localStorage.removeItem(KEYS.auth);
+    } catch (err) { /* ignore */ }
     toast('🔒 Exited Admin Mode');
     // If user is not on ?admin URL, hide admin chrome after exit
     if (!isAdminUrl()) {
       document.body.classList.remove('cms-admin-url');
     }
+    updateStealthEntryVisibility();
   }
 
   function openTextsForm() {
@@ -990,20 +1083,22 @@
   function boot() {
     loadState();
     applyAll();
+    bindAdminNavGuard();
 
-    // ?admin unlocks the UI; authorized session also continues on All Projects / Home
-    const authorized = isAuthorized();
-    if (!isAdminUrl() && !authorized) return;
-
-    document.body.classList.add('cms-admin-url');
+    // Always available: shell (password modal) + subtle footer entry
     ensureShell();
-    injectNavButton();
-    injectAddProjectButton();
-    injectHeroEdit();
-    preserveAdminLinks();
+    injectStealthEntry();
 
-    if (authorized) {
-      setAdminMode(true);
+    const authorized = isAuthorized();
+    const fromUrl = isAdminUrl();
+
+    // ?admin shows nav Content Manager; authorized session restores full edit mode
+    // on both Home and All Projects without needing the query string again.
+    if (fromUrl || authorized) {
+      enableAdminChrome();
+      if (authorized) {
+        setAdminMode(true);
+      }
     }
   }
 
