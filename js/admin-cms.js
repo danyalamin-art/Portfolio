@@ -293,19 +293,59 @@
     return /[?&]admin(?:[=&#]|$)/i.test(s + '&') || /(?:^|[?&#])admin(?:[=&#]|$)/i.test(s + h);
   }
 
+  /** Auth is stored in both localStorage + sessionStorage so Home ↔ All Projects stays unlocked. */
   function isAuthorized() {
     try {
-      return localStorage.getItem(KEYS.auth) === 'true';
+      return (
+        localStorage.getItem(KEYS.auth) === 'true' ||
+        sessionStorage.getItem(KEYS.auth) === 'true'
+      );
     } catch (e) {
       return false;
     }
   }
 
+  function setAuthorized(on) {
+    try {
+      if (on) {
+        localStorage.setItem(KEYS.auth, 'true');
+        sessionStorage.setItem(KEYS.auth, 'true');
+      } else {
+        localStorage.removeItem(KEYS.auth);
+        sessionStorage.removeItem(KEYS.auth);
+      }
+    } catch (e) { /* ignore */ }
+  }
+
+  /** Keep ?admin in the address bar so a hard refresh / shared link still opens Content Manager. */
+  function ensureAdminInUrl() {
+    if (isAdminUrl()) return;
+    try {
+      const u = new URL(window.location.href);
+      const newSearch = u.search ? u.search + ( /[?&]$/.test(u.search) ? '' : '&' ) + 'admin' : '?admin';
+      history.replaceState(null, '', u.pathname + newSearch + u.hash);
+    } catch (e) { /* ignore */ }
+  }
+
   /** Append ?admin (or &admin) so Content Manager survives page navigation. */
   function withAdminParam(href) {
     if (!href || typeof href !== 'string') return href;
-    if (/^(https?:|mailto:|tel:|javascript:)/i.test(href)) return href;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return href;
     if (/[?&]admin(?:[=&#]|$)/i.test(href)) return href;
+
+    // Absolute same-site URLs (e.g. full danyalamin.art links) still need ?admin
+    if (/^https?:\/\//i.test(href)) {
+      try {
+        const abs = new URL(href);
+        if (abs.origin !== window.location.origin) return href;
+        if (abs.searchParams.has('admin')) return href;
+        abs.searchParams.append('admin', '');
+        // Prefer clean ?admin (empty value still matches isAdminUrl)
+        return abs.pathname + (abs.search || '?admin') + abs.hash;
+      } catch (e) {
+        return href;
+      }
+    }
 
     const hashIdx = href.indexOf('#');
     const hash = hashIdx >= 0 ? href.slice(hashIdx) : '';
@@ -319,8 +359,15 @@
 
   function isInternalSiteLink(href) {
     if (!href || typeof href !== 'string') return false;
-    if (/^(https?:|mailto:|tel:|javascript:)/i.test(href)) return false;
+    if (/^(mailto:|tel:|javascript:)/i.test(href)) return false;
     if (href.charAt(0) === '#') return false;
+    if (/^https?:\/\//i.test(href)) {
+      try {
+        return new URL(href).origin === window.location.origin;
+      } catch (e) {
+        return false;
+      }
+    }
     // Home, all-projects, relative paths in this static site
     return (
       /all-projects\.html/i.test(href) ||
@@ -329,7 +376,9 @@
       href === './' ||
       href === '../' ||
       /^\.\.\/($|\?|#|index\.html)/i.test(href) ||
-      /^pages\//i.test(href)
+      /^pages\//i.test(href) ||
+      // any relative .html in this portfolio
+      /\.html(?:\?|#|$)/i.test(href)
     );
   }
 
@@ -347,7 +396,7 @@
   /**
    * Click-time guard: even if a link was re-rendered without ?admin,
    * keep admin mode when navigating Home ↔ All Projects.
-   * Auth in localStorage is the real session; ?admin is a backup signal.
+   * Auth in storage is the real session; ?admin is a backup signal.
    */
   function bindAdminNavGuard() {
     if (document.documentElement.dataset.cmsNavGuard === '1') return;
@@ -362,6 +411,52 @@
         if (!isInternalSiteLink(href)) return;
         const next = withAdminParam(href);
         if (next !== href) a.setAttribute('href', next);
+      },
+      true
+    );
+  }
+
+  /**
+   * Capture-phase edit/delete on Home + All Projects.
+   * Survives re-renders and beats the card's inline openVideoModal handler.
+   */
+  function bindGlobalCardAdminControls() {
+    if (document.documentElement.dataset.cmsCardGuard === '1') return;
+    document.documentElement.dataset.cmsCardGuard = '1';
+    document.addEventListener(
+      'click',
+      (e) => {
+        if (!isAdminMode) return;
+        const t = e.target && e.target.closest ? e.target : null;
+        if (!t || !t.closest) return;
+
+        const editBtn = t.closest('[data-edit]');
+        if (editBtn && editBtn.closest('.cms-card-controls')) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+          window.__cmsIgnoreClick = true;
+          openProjectForm(editBtn.getAttribute('data-edit'));
+          setTimeout(() => (window.__cmsIgnoreClick = false), 250);
+          return;
+        }
+
+        const delBtn = t.closest('[data-del]');
+        if (delBtn && delBtn.closest('.cms-card-controls')) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+          window.__cmsIgnoreClick = true;
+          const id = delBtn.getAttribute('data-del');
+          if (!confirm('Delete this project?')) {
+            window.__cmsIgnoreClick = false;
+            return;
+          }
+          projects = projects.filter((p) => p.id !== id);
+          refreshProjects();
+          afterLocalSave('🗑️ Project deleted');
+          setTimeout(() => (window.__cmsIgnoreClick = false), 250);
+        }
       },
       true
     );
@@ -463,11 +558,16 @@
 
     setTextKeepSvg('#portfolio .section-title', t.portTitle);
     setText('.portfolio-subtitle', t.portSub);
-    const viewAll = document.querySelector('.view-more-wrap .cta-btn');
+    const viewAll = document.querySelector('.view-more-wrap .cta-btn, a.cta-btn[href*="all-projects"]');
     if (viewAll) {
       const svg = viewAll.querySelector('svg');
       viewAll.textContent = (t.portViewAll || 'View All Projects') + ' ';
       if (svg) viewAll.appendChild(svg);
+      // Keep admin query on this critical link after text rewrites
+      if (isAdminMode || isAuthorized() || isAdminUrl()) {
+        const href = viewAll.getAttribute('href');
+        if (href) viewAll.setAttribute('href', withAdminParam(href));
+      }
     }
 
     setText('.about-eyebrow', t.aboutEyebrow);
@@ -596,7 +696,6 @@
       })
       .join('');
 
-    bindCardAdminControls(grid);
     if (typeof window.rebindPortfolioFilters === 'function') window.rebindPortfolioFilters();
     else if (typeof applyPortfolioFilter === 'function') applyPortfolioFilter('All');
   }
@@ -615,53 +714,29 @@
            data-goal="${esc(p.goal || '')}" data-result="${esc(p.result || '')}"
            onclick="if(!window.__cmsIgnoreClick)openVideoModal(this)">
         <div class="cms-card-controls">
-          <button type="button" class="cms-edit" title="Edit" data-edit="${esc(p.id)}">✏️</button>
-          <button type="button" class="cms-del" title="Delete" data-del="${esc(p.id)}">🗑</button>
+          <button type="button" class="cms-edit" title="Edit project" data-edit="${esc(p.id)}">✏️</button>
+          <button type="button" class="cms-del" title="Delete project" data-del="${esc(p.id)}">🗑</button>
         </div>
         <div class="pthumb"><img src="${esc(p.thumbnail)}" alt="${esc(p.title)}" loading="lazy"><span class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span></div>
         <div class="pinfo"><h3 class="ptitle">${esc(p.title)}</h3>${renderTags(cats, 'ptag')}<p class="pdesc">${esc(summary)}</p></div>
       </div>`;
       })
       .join('');
-    bindCardAdminControls(grid);
     if (typeof window.rebindAllProjectsFilters === 'function') window.rebindAllProjectsFilters();
-  }
-
-  function bindCardAdminControls(root) {
-    root.querySelectorAll('[data-edit]').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        window.__cmsIgnoreClick = true;
-        openProjectForm(btn.getAttribute('data-edit'));
-        setTimeout(() => (window.__cmsIgnoreClick = false), 100);
-      });
-    });
-    root.querySelectorAll('[data-del]').forEach((btn) => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        window.__cmsIgnoreClick = true;
-        const id = btn.getAttribute('data-del');
-        if (!confirm('Delete this project?')) {
-          window.__cmsIgnoreClick = false;
-          return;
-        }
-        projects = projects.filter((p) => p.id !== id);
-        refreshProjects();
-        afterLocalSave('🗑️ Project deleted');
-        setTimeout(() => (window.__cmsIgnoreClick = false), 100);
-      });
-    });
   }
 
   function refreshProjects() {
     const page = document.body.dataset.page || 'home';
     if (page === 'all') renderAllCards();
     else renderHomeCards();
+    // Re-attach add-project control if the grid was re-created after navigation/render
+    if (isAdminMode) injectAddProjectButton();
   }
 
   function applyAll() {
     applyTexts();
     refreshProjects();
+    if (isAdminMode || isAuthorized() || isAdminUrl()) preserveAdminLinks();
   }
 
   /* ---------- Admin UI shell ---------- */
@@ -826,14 +901,21 @@
   }
 
   function injectAddProjectButton() {
-    if (document.querySelector('.cms-add-project-wrap')) return;
     const grid = document.getElementById('portfolioGrid') || document.getElementById('cardGrid');
     if (!grid || !grid.parentNode) return;
-    const wrap = document.createElement('div');
-    wrap.className = 'cms-add-project-wrap';
-    wrap.innerHTML = '<button type="button" class="cms-add-project-btn" id="cmsAddProject">+ Add New Portfolio Video</button>';
-    grid.parentNode.insertBefore(wrap, grid);
-    document.getElementById('cmsAddProject').onclick = () => openProjectForm(null);
+    let wrap = document.querySelector('.cms-add-project-wrap');
+    if (!wrap) {
+      wrap = document.createElement('div');
+      wrap.className = 'cms-add-project-wrap';
+      wrap.innerHTML =
+        '<button type="button" class="cms-add-project-btn" id="cmsAddProject">+ Add New Portfolio Video</button>';
+      grid.parentNode.insertBefore(wrap, grid);
+    } else if (wrap.nextElementSibling !== grid) {
+      // Keep the button directly above the project grid (Home + All Projects)
+      grid.parentNode.insertBefore(wrap, grid);
+    }
+    const btn = document.getElementById('cmsAddProject');
+    if (btn) btn.onclick = () => openProjectForm(null);
   }
 
   function injectHeroEdit() {
@@ -861,11 +943,12 @@
         ? '<svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg> Exit Admin Mode'
         : '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Content Manager';
     }
-    refreshProjects();
     if (on) {
       enableAdminChrome();
+      ensureAdminInUrl();
       preserveAdminLinks();
     }
+    refreshProjects();
     updateStealthEntryVisibility();
   }
 
@@ -874,13 +957,12 @@
     const pass = document.getElementById('cmsPass').value;
     const correct = window.ADMIN_PASSCODE || 'danyaladmin';
     if (pass === correct) {
-      try {
-        localStorage.setItem(KEYS.auth, 'true');
-      } catch (err) { /* ignore */ }
+      setAuthorized(true);
       close('cmsAuthOverlay');
       enableAdminChrome();
       setAdminMode(true);
-      toast('🔓 Access granted — Content Manager active on this page');
+      const page = document.body.dataset.page === 'all' ? 'All Projects' : 'Home';
+      toast('🔓 Access granted — Content Manager active on ' + page + ' (and View All Projects)');
     } else {
       document.getElementById('cmsAuthError').classList.add('show');
     }
@@ -888,9 +970,7 @@
 
   function exitAdminMode() {
     setAdminMode(false);
-    try {
-      localStorage.removeItem(KEYS.auth);
-    } catch (err) { /* ignore */ }
+    setAuthorized(false);
     toast('🔒 Exited Admin Mode');
     // If user is not on ?admin URL, hide admin chrome after exit
     if (!isAdminUrl()) {
@@ -1082,22 +1162,29 @@
   /* ---------- Boot ---------- */
   function boot() {
     loadState();
-    applyAll();
     bindAdminNavGuard();
+    bindGlobalCardAdminControls();
 
-    // Always available: shell (password modal) + subtle footer entry
+    // Always available: shell (password modal) + subtle footer entry (Home + All Projects)
     ensureShell();
     injectStealthEntry();
+
+    applyAll();
 
     const authorized = isAuthorized();
     const fromUrl = isAdminUrl();
 
-    // ?admin shows nav Content Manager; authorized session restores full edit mode
-    // on both Home and All Projects without needing the query string again.
+    // Authorized session restores full edit mode on BOTH Home and All Projects.
+    // ?admin alone shows the Content Manager entry so you can unlock on either page.
     if (fromUrl || authorized) {
       enableAdminChrome();
       if (authorized) {
         setAdminMode(true);
+      } else if (fromUrl) {
+        // Landed with ?admin but not unlocked yet — prompt so All Projects isn't "read only"
+        open('cmsAuthOverlay');
+        const pass = document.getElementById('cmsPass');
+        if (pass) setTimeout(() => pass.focus(), 50);
       }
     }
   }

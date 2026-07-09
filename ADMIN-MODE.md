@@ -2,7 +2,7 @@
 
 Edit your portfolio in the browser and **Publish Live** so changes update GitHub and every visitor sees them on **https://danyalamin.art**.
 
-Works on **Home** and **All Projects**. After you unlock once, **View All Projects** / **Back to Home** keep you in edit mode.
+Works on **Home** and **All Projects**. After you unlock once, **View All Projects** / **Back to Home** keep you in edit mode — same edit ✏️ / delete 🗑 buttons and **+ Add New Portfolio Video** on both pages.
 
 ## Open admin (recommended)
 

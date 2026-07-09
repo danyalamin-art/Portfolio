@@ -568,6 +568,8 @@ body.modal-open { overflow: hidden; }
       });
     }
     function openVideoModal(el) {
+      // Content Manager edit/delete buttons set this so the video modal does not open
+      if (window.__cmsIgnoreClick) return;
       const url = el.dataset.video || '';
       const projectTitle = el.dataset.title || el.querySelector('.portfolio-title, .ptitle')?.textContent?.trim() || '';
       const cat = el.dataset.cat || '';

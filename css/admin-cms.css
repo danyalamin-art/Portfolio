@@ -338,36 +338,50 @@ body.cms-admin-active .cms-banner { display: flex; }
   position: absolute;
   top: 8px;
   right: 8px;
-  z-index: 5;
+  z-index: 40;
   gap: 6px;
   pointer-events: auto;
 }
-body.cms-admin-active .cms-card-controls {
-  display: flex;
+/* Must win over page styles on both Home and All Projects */
+body.cms-admin-active .cms-card-controls,
+body.cms-admin-active .portfolio-card > .cms-card-controls,
+body.cms-admin-active .pcard > .cms-card-controls {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+/* Keep edit/delete above thumbnails even with overflow:hidden cards */
+body.cms-admin-active .portfolio-card .cms-card-controls,
+body.cms-admin-active .pcard .cms-card-controls {
+  z-index: 40;
 }
 /* All Projects page: keep add button visible above the grid */
 body[data-page="all"].cms-admin-active .cms-add-project-wrap {
-  display: block;
+  display: block !important;
   margin: 0 0 18px;
 }
 .cms-card-controls button {
   border: none;
   border-radius: 999px;
-  width: 32px;
-  height: 32px;
-  font-size: 0.85rem;
+  width: 34px;
+  height: 34px;
+  font-size: 0.9rem;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.28);
+  pointer-events: auto;
+  position: relative;
+  z-index: 41;
 }
 .cms-card-controls .cms-edit { background: #8DC63F; }
 .cms-card-controls .cms-del { background: #e85d4c; color: #fff; }
+.cms-card-controls button:hover { transform: scale(1.08); }
 
 .cms-add-project-wrap {
   display: none;
   text-align: center;
   margin: 8px 0 20px;
 }
-body.cms-admin-active .cms-add-project-wrap { display: block; }
+body.cms-admin-active .cms-add-project-wrap { display: block !important; }
 .cms-add-project-btn {
   border: 2px dashed #146945;
   background: #E3F0E4;
