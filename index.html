@@ -1940,11 +1940,11 @@
         </span>
         <div class="video-card">
           <div class="video-frame">
-            <iframe id="heroShowreelFrame" src="https://player.vimeo.com/video/1206444179?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            <iframe id="heroShowreelFrame" src="https://player.vimeo.com/video/1206444179?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;loop=0&amp;player_id=0&amp;app_id=58479"
               frameborder="0"
               allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
               referrerpolicy="strict-origin-when-cross-origin"
-              title="5 Little Camels Song"></iframe>
+              title="Showreel"></iframe>
           </div>
         </div>
       </div>
@@ -3039,5 +3039,94 @@
   <link rel="stylesheet" href="css/admin-cms.css">
   <script src="js/site-data.js"></script>
   <script src="js/admin-cms.js"></script>
+  <!-- Vimeo API: freeze hero showreel on last frame (no "More from…" end screen) -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    (function () {
+      var player = null;
+      var lastSrc = '';
+
+      function wantsLoop(url) {
+        return /[?&]loop=1(?:&|$)/i.test(String(url || ''));
+      }
+
+      function cleanup() {
+        if (player) {
+          try { if (player.unload) player.unload(); } catch (e) {}
+          player = null;
+        }
+        lastSrc = '';
+      }
+
+      window.setupHeroShowreel = function setupHeroShowreel() {
+        var iframe = document.getElementById('heroShowreelFrame');
+        if (!iframe || !window.Vimeo || !window.Vimeo.Player) return;
+
+        var src = iframe.getAttribute('src') || iframe.src || '';
+        if (wantsLoop(src)) {
+          cleanup();
+          return;
+        }
+
+        // Same embed already controlled
+        if (player && lastSrc === src) return;
+
+        cleanup();
+        try {
+          player = new Vimeo.Player(iframe);
+          lastSrc = src;
+        } catch (e) {
+          return;
+        }
+
+        var freezing = false;
+        var lastDuration = 0;
+
+        player.getDuration().then(function (d) { lastDuration = d || 0; }).catch(function () {});
+
+        player.on('timeupdate', function (data) {
+          if (freezing) return;
+          var check = function (duration) {
+            lastDuration = duration || lastDuration;
+            if (!lastDuration || freezing) return;
+            // Pause just before true end so Vimeo never opens "More from…" recommendations
+            if (data.seconds >= lastDuration - 0.3) {
+              freezing = true;
+              var t = Math.max(0, lastDuration - 0.08);
+              player.pause().then(function () {
+                return player.setCurrentTime(t);
+              }).catch(function () {
+                freezing = false;
+              });
+            }
+          };
+          if (lastDuration) check(lastDuration);
+          else player.getDuration().then(check).catch(function () {});
+        });
+
+        player.on('ended', function () {
+          freezing = true;
+          player.getDuration().then(function (duration) {
+            var t = Math.max(0, (duration || lastDuration) - 0.08);
+            return player.setCurrentTime(t).then(function () { return player.pause(); });
+          }).catch(function () {});
+        });
+
+        player.on('play', function () {
+          if (freezing) freezing = false;
+        });
+      };
+
+      function boot() { window.setupHeroShowreel(); }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+      } else {
+        boot();
+      }
+      window.addEventListener('load', function () {
+        setTimeout(boot, 400);
+      });
+    })();
+  </script>
 </body>
 </html>
