@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* Clean URL: .../index.html → .../  (e.g. /pages/all-projects/index.html → /pages/all-projects/) */
+(function () {
+  var path = location.pathname || '';
+  if (/\/index\.html$/i.test(path)) {
+    var clean = path.replace(/\/index\.html$/i, '/');
+    if (!clean) clean = '/';
+    location.replace(clean + location.search + location.hash);
+  }
+})();
+</script>
 <title>All Projects — Danyal Amin | 2D Animator &amp; Motion Designer</title>
 <meta name="description" content="Browse the full portfolio of Danyal Amin — 2D character animation, explainer videos, motion graphics, nursery rhymes, and educational animations.">
 <meta name="author" content="Danyal Amin">

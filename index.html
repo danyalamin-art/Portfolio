@@ -3,6 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+/* Clean URL: /index.html → / (same page on GitHub Pages; hide index.html in the bar) */
+(function () {
+  var path = location.pathname || '';
+  if (/\/index\.html$/i.test(path)) {
+    var clean = path.replace(/\/index\.html$/i, '/');
+    if (!clean) clean = '/';
+    location.replace(clean + location.search + location.hash);
+  }
+})();
+</script>
 <title>Danyal Amin — 2D Animator &amp; Motion Graphics Designer</title>
 <meta name="description" content="2D animator &amp; motion designer creating engaging character animation, explainer videos, motion graphics, and educational animations for brands and creators.">
 <meta name="author" content="Danyal Amin">
