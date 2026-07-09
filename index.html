@@ -39,7 +39,7 @@
   "@type": "Person",
   "name": "Danyal Amin",
   "url": "https://danyalamin.art/",
-  "image": "https://danyalamin.art/Assets/danyal-portrait.svg",
+  "image": "https://danyalamin.art/Assets/danyal-portrait.jpg",
   "jobTitle": "2D Animator & Motion Graphics Designer",
   "description": "2D animator & motion designer creating engaging character animation, explainer videos, motion graphics, and educational animations for brands and creators.",
   "email": "mailto:danyal.animator@gmail.com",
@@ -2020,7 +2020,7 @@
       <div class="about-portrait-wrap">
         <div class="about-portrait-glow"></div>
         <div class="about-portrait-frame">
-          <img src="Assets/danyal-portrait.svg" alt="Danyal Amin — 2D Animator &amp; Motion Graphics Designer">
+          <img src="Assets/danyal-portrait.jpg" alt="Danyal Amin — 2D Animator &amp; Motion Graphics Designer">
           <div class="about-portrait-label">
             <span class="dot"></span>
             <span>Creative Animator &amp; Designer</span>
@@ -2561,154 +2561,7 @@
   </div>
 
   <script>
-    const TAG_CLASS_MAP = {
-      'Nursery Rhymes': 'tag-nursery',
-      'Educational Animation': 'tag-edu',
-      'Character Animation': 'tag-character',
-      'Motion Graphics': 'tag-motion'
-    };
-    const TOOL_BASE = 'Assets/';
-    const TOOL_DEFS = {
-      illustrator: { name: 'Illustrator', file: 'Illustrator.svg' },
-      aftereffects: { name: 'After Effects', file: 'After effects.svg' },
-      photoshop: { name: 'Photoshop', file: 'Photoshop.svg' },
-      animate: { name: 'Adobe Animate', file: 'animate.svg' },
-      premiere: { name: 'Premiere Pro', file: 'Premier Pro.svg' }
-    };
-    const CATEGORY_TOOLS = {
-      'Nursery Rhymes': ['illustrator', 'aftereffects'],
-      'Educational Animation': ['photoshop', 'illustrator', 'aftereffects'],
-      'Character Animation': ['animate', 'aftereffects', 'illustrator'],
-      'Motion Graphics': ['aftereffects', 'illustrator', 'premiere', 'photoshop']
-    };
-    const TOOL_ORDER = ['illustrator', 'photoshop', 'animate', 'aftereffects', 'premiere'];
-    const CATEGORY_PROCESS = {
-      'Nursery Rhymes': ['Concept', 'Character design', 'Song-synced animation', 'Polish'],
-      'Educational Animation': ['Learning goal', 'Clear visuals', 'Animate & teach', 'Final polish'],
-      'Character Animation': ['Character design', 'Acting & timing', 'Animation', 'Polish'],
-      'Motion Graphics': ['Concept', 'Design assets', 'Motion design', 'Edit & deliver']
-    };
-    const CATEGORY_CASE_FALLBACK = {
-      'Nursery Rhymes': {
-        goal: 'Create a fun, musical kids animation that is easy to sing and watch again.',
-        result: 'A hand-picked highlight from the complete nursery rhyme, made for a quick portfolio look.'
-      },
-      'Educational Animation': {
-        goal: 'Explain an idea simply so children learn while staying entertained.',
-        result: 'A teaching-focused cut from the longer educational film — clear, friendly, and memorable.'
-      },
-      'Character Animation': {
-        goal: 'Bring a character to life with personality, timing, and expressive motion.',
-        result: 'A performance-led extract from the full character film, where acting and timing do the talking.'
-      },
-      'Motion Graphics': {
-        goal: 'Communicate the message with dynamic design, motion, and visual clarity.',
-        result: 'A design-forward beat from the complete motion graphics video — clean craft in a quick view.'
-      }
-    };
-
-    function toolsForCategories(categories) {
-      const keys = new Set();
-      categories.forEach(cat => { (CATEGORY_TOOLS[cat] || []).forEach(k => keys.add(k)); });
-      return TOOL_ORDER.filter(k => keys.has(k)).map(k => TOOL_DEFS[k]);
-    }
-    function primaryCategory(categories) {
-      return categories[0] || 'Nursery Rhymes';
-    }
-    function processForCategories(categories) {
-      return CATEGORY_PROCESS[primaryCategory(categories)] || CATEGORY_PROCESS['Nursery Rhymes'];
-    }
-    function renderProcessSteps(steps) {
-      const wrap = document.getElementById('videoModalProcess');
-      if (!wrap) return;
-      wrap.innerHTML = '';
-      steps.forEach((step, i) => {
-        if (i > 0) {
-          const arrow = document.createElement('span');
-          arrow.className = 'video-modal-process-arrow';
-          arrow.setAttribute('aria-hidden', 'true');
-          arrow.textContent = '→';
-          wrap.appendChild(arrow);
-        }
-        const pill = document.createElement('span');
-        pill.className = 'video-modal-process-step';
-        pill.innerHTML = '<b>' + (i + 1) + '</b>' + step;
-        wrap.appendChild(pill);
-      });
-    }
-    function openVideoModal(el) {
-      // Content Manager edit/delete buttons set this so the video modal does not open
-      if (window.__cmsIgnoreClick) return;
-      const url = el.dataset.video || '';
-      const projectTitle = el.dataset.title || el.querySelector('.portfolio-title, .ptitle')?.textContent?.trim() || '';
-      const cat = el.dataset.cat || '';
-      const desc = el.dataset.desc || '';
-      const goal = el.dataset.goal || '';
-      const result = el.dataset.result || '';
-      const categories = cat.split('|').map(s => s.trim()).filter(Boolean);
-
-      const frame = document.getElementById('videoModalFrame');
-      const embedUrl = (typeof window.prepareVimeoEmbedUrl === 'function')
-        ? window.prepareVimeoEmbedUrl(url)
-        : url;
-      frame.src = embedUrl;
-      document.getElementById('videoModalTitle').textContent = projectTitle;
-      frame.title = projectTitle || 'Project video';
-      // Freeze on last frame — no Vimeo "More from…" end screen
-      if (typeof window.bindVimeoFreeze === 'function') {
-        setTimeout(function () { window.bindVimeoFreeze(frame); }, 80);
-      }
-
-      const tagsEl = document.getElementById('videoModalTags');
-      tagsEl.innerHTML = '';
-      const tagPrefix = document.body.dataset.page === 'all' ? 'ptag' : 'portfolio-tag';
-      categories.forEach(name => {
-        const span = document.createElement('span');
-        span.className = tagPrefix + ' ' + (TAG_CLASS_MAP[name] || 'tag-character');
-        span.textContent = name;
-        tagsEl.appendChild(span);
-      });
-
-      const descEl = document.getElementById('videoModalDesc');
-      descEl.textContent = desc;
-      descEl.style.display = desc ? 'block' : 'none';
-
-      const fb = CATEGORY_CASE_FALLBACK[primaryCategory(categories)] || CATEGORY_CASE_FALLBACK['Nursery Rhymes'];
-      document.getElementById('videoModalGoal').textContent = goal || fb.goal;
-      document.getElementById('videoModalResult').textContent = result || fb.result;
-      renderProcessSteps(processForCategories(categories));
-
-      const toolsWrap = document.getElementById('videoModalTools');
-      const toolsList = document.getElementById('videoModalToolsList');
-      const tools = toolsForCategories(categories);
-      toolsList.innerHTML = '';
-      if (tools.length) {
-        tools.forEach(tool => {
-          const item = document.createElement('span');
-          item.className = 'video-modal-tool';
-          item.innerHTML = '<img src="' + TOOL_BASE + tool.file + '" alt="' + tool.name + '" width="28" height="28"><span>' + tool.name + '</span>';
-          toolsList.appendChild(item);
-        });
-        toolsWrap.hidden = false;
-      } else {
-        toolsWrap.hidden = true;
-      }
-      document.getElementById('videoModalOverlay').classList.add('open');
-      document.body.classList.add('modal-open');
-    }
-    function closeVideoModal() {
-      document.getElementById('videoModalOverlay').classList.remove('open');
-      const frame = document.getElementById('videoModalFrame');
-      if (typeof window.unbindVimeoFreeze === 'function') {
-        window.unbindVimeoFreeze(frame);
-      }
-      frame.src = '';
-      document.body.classList.remove('modal-open');
-    }
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeVideoModal();
-    });
-
+    // openVideoModal / closeVideoModal → js/portfolio-modal.js
     const menuToggle = document.getElementById('menuToggle');
     const navbar = document.getElementById('navbar');
     menuToggle.addEventListener('click', () => {
@@ -3080,7 +2933,7 @@
   <link rel="stylesheet" href="css/admin-cms.css">
   <script src="js/site-data.js"></script>
   <script src="js/admin-cms.js"></script>
-  <!-- Freeze Vimeo on last frame (hero showreel + portfolio modal) -->
   <script src="js/vimeo-freeze.js"></script>
+  <script src="js/portfolio-modal.js"></script>
 </body>
 </html>

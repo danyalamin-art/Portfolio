@@ -34,7 +34,6 @@
   let projects = [];
   let siteTexts = {};
   let isAdminMode = false;
-  let showAdminButton = false;
   let editingProject = null;
   let publishing = false;
 
@@ -601,14 +600,6 @@
     }
 
     setTextKeepSvg('#testimonials .section-title, .section#testimonials .section-title', t.testimonialsTitle);
-    const stw = document.querySelector('.section .section-title');
-    // skills title is second section after portfolio - better query
-    const titles = document.querySelectorAll('.section-title');
-    titles.forEach((el) => {
-      if (el.textContent.includes('Skills') || el.closest('.section')?.querySelector('.stw-card')) {
-        // only set if about skills
-      }
-    });
     const skillsHeader = document.querySelector('.stw-card')?.closest('.section')?.querySelector('.section-title');
     if (skillsHeader && t.skillsTitle) setTextKeepSvgEl(skillsHeader, t.skillsTitle);
 
