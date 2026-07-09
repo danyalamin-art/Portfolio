@@ -6,8 +6,11 @@ Edit your portfolio in the browser and **Publish Live** so changes update GitHub
 
 Append **`?admin`** to the site URL:
 
-- Live: `https://danyalamin.art/?admin`
+- Live home: `https://danyalamin.art/?admin`
+- Live all projects: `https://danyalamin.art/pages/all-projects.html?admin`
 - Local: `http://localhost:3000/?admin`
+
+Content Manager works on **Home** and **All Projects**. After you unlock once, links like **View All Projects** / **Back to Home** keep `?admin` so you stay in admin mode across pages.
 
 ## First-time setup (GitHub token)
 

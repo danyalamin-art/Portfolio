@@ -285,7 +285,7 @@ body.cms-admin-active .cms-banner { display: flex; }
 }
 .cms-auth-error.show { display: block; }
 
-/* Inline admin controls on portfolio cards */
+/* Inline admin controls on portfolio cards (home + all-projects) */
 .portfolio-card,
 .pcard {
   position: relative;
@@ -297,9 +297,15 @@ body.cms-admin-active .cms-banner { display: flex; }
   right: 8px;
   z-index: 5;
   gap: 6px;
+  pointer-events: auto;
 }
 body.cms-admin-active .cms-card-controls {
   display: flex;
+}
+/* All Projects page: keep add button visible above the grid */
+body[data-page="all"].cms-admin-active .cms-add-project-wrap {
+  display: block;
+  margin: 0 0 18px;
 }
 .cms-card-controls button {
   border: none;

@@ -287,7 +287,58 @@
   function isAdminUrl() {
     const s = window.location.search || '';
     const h = window.location.hash || '';
-    return /[?&]admin(?:[=&#]|$)/i.test(s + '&') || s.includes('admin') || h.includes('admin');
+    return /[?&]admin(?:[=&#]|$)/i.test(s + '&') || /(?:^|[?&#])admin(?:[=&#]|$)/i.test(s + h);
+  }
+
+  function isAuthorized() {
+    try {
+      return localStorage.getItem(KEYS.auth) === 'true';
+    } catch (e) {
+      return false;
+    }
+  }
+
+  /** Append ?admin (or &admin) so Content Manager survives page navigation. */
+  function withAdminParam(href) {
+    if (!href || typeof href !== 'string') return href;
+    if (/^(https?:|mailto:|tel:|javascript:)/i.test(href)) return href;
+    if (/[?&]admin(?:[=&#]|$)/i.test(href)) return href;
+
+    const hashIdx = href.indexOf('#');
+    const hash = hashIdx >= 0 ? href.slice(hashIdx) : '';
+    const base = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
+    // Keep pure in-page anchors as-is (home #portfolio etc.)
+    if (!base || base === '#' || base.charAt(0) === '#') return href;
+
+    const joiner = base.indexOf('?') >= 0 ? '&' : '?';
+    return base + joiner + 'admin' + hash;
+  }
+
+  function isInternalSiteLink(href) {
+    if (!href || typeof href !== 'string') return false;
+    if (/^(https?:|mailto:|tel:|javascript:)/i.test(href)) return false;
+    if (href.charAt(0) === '#') return false;
+    // Home, all-projects, relative paths in this static site
+    return (
+      /all-projects\.html/i.test(href) ||
+      /index\.html/i.test(href) ||
+      href === '/' ||
+      href === './' ||
+      href === '../' ||
+      /^\.\.\/($|\?|#|index\.html)/i.test(href) ||
+      /^pages\//i.test(href)
+    );
+  }
+
+  /** Rewrite View All / Home / Back links so ?admin is not lost. */
+  function preserveAdminLinks() {
+    if (!isAdminUrl() && !isAuthorized() && !isAdminMode) return;
+    document.querySelectorAll('a[href]').forEach((a) => {
+      const href = a.getAttribute('href');
+      if (!isInternalSiteLink(href)) return;
+      const next = withAdminParam(href);
+      if (next !== href) a.setAttribute('href', next);
+    });
   }
 
   function esc(s) {
@@ -727,6 +778,7 @@
         : '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Content Manager';
     }
     refreshProjects();
+    if (on) preserveAdminLinks();
   }
 
   function onAuth(e) {
@@ -737,6 +789,7 @@
       localStorage.setItem(KEYS.auth, 'true');
       close('cmsAuthOverlay');
       setAdminMode(true);
+      preserveAdminLinks();
       toast('🔓 Access granted — Content Manager active');
     } else {
       document.getElementById('cmsAuthError').classList.add('show');
@@ -746,11 +799,10 @@
   function exitAdminMode() {
     setAdminMode(false);
     localStorage.removeItem(KEYS.auth);
-    // hide admin UI affordances but keep ?admin button if still on admin url
     toast('🔒 Exited Admin Mode');
-    if (isAdminUrl()) {
-      // optional: strip admin from URL
-      // leave URL; user can re-enter
+    // If user is not on ?admin URL, hide admin chrome after exit
+    if (!isAdminUrl()) {
+      document.body.classList.remove('cms-admin-url');
     }
   }
 
@@ -939,15 +991,18 @@
     loadState();
     applyAll();
 
-    if (!isAdminUrl()) return;
+    // ?admin unlocks the UI; authorized session also continues on All Projects / Home
+    const authorized = isAuthorized();
+    if (!isAdminUrl() && !authorized) return;
 
     document.body.classList.add('cms-admin-url');
     ensureShell();
     injectNavButton();
     injectAddProjectButton();
     injectHeroEdit();
+    preserveAdminLinks();
 
-    if (localStorage.getItem(KEYS.auth) === 'true') {
+    if (authorized) {
       setAdminMode(true);
     }
   }
