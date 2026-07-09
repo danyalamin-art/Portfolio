@@ -19,7 +19,7 @@ Same footer control works on **Home** and **All Projects**. After unlock once, n
 You can still append **`?admin`** if you prefer (backup method):
 
 - Live home: `https://danyalamin.art/?admin`
-- Live all projects: `https://danyalamin.art/pages/all-projects.html?admin`
+- Live all projects: `https://danyalamin.art/pages/all-projects/?admin`
 - Local: `http://localhost:3000/?admin`
 
 With `?admin`, a **Content Manager** button also appears in the nav.

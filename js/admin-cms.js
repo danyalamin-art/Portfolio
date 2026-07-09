@@ -367,14 +367,15 @@
         return false;
       }
     }
-    // Home, all-projects, relative paths in this static site
+    // Home, all-projects (clean URL folder or legacy .html), relative paths
     return (
-      /all-projects\.html/i.test(href) ||
+      /all-projects(?:\.html|\/)?(?:[?#]|$)/i.test(href) ||
       /index\.html/i.test(href) ||
       href === '/' ||
       href === './' ||
       href === '../' ||
-      /^\.\.\/($|\?|#|index\.html)/i.test(href) ||
+      href === '../../' ||
+      /^\.\.\/(\.\.\/)?($|\?|#|index\.html)/i.test(href) ||
       /^pages\//i.test(href) ||
       // any relative .html in this portfolio
       /\.html(?:\?|#|$)/i.test(href)

@@ -49,8 +49,8 @@
   };
 
   function toolBase() {
-    // pages/all-projects.html needs ../Assets/
-    return document.body && document.body.dataset.page === 'all' ? '../Assets/' : 'Assets/';
+    // pages/all-projects/ is two levels deep; home is root
+    return document.body && document.body.dataset.page === 'all' ? '../../Assets/' : 'Assets/';
   }
 
   function toolsForCategories(categories) {
