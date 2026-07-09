@@ -266,7 +266,7 @@ window.SITE_DATA_DEFAULTS = {
     "heroProfileName": "Danyal Amin",
     "heroLocation": "Based in Islamabad · Working with clients worldwide",
     "showreelBadge": "Showreel",
-    "showreelUrl": "https://player.vimeo.com/video/1208027744?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&loop=0&amp;player_id=0&amp;app_id=58479",
+    "showreelUrl": "https://player.vimeo.com/video/1208027744?title=0&byline=0&portrait=0&badge=0&autopause=0&loop=0&player_id=0&app_id=58479",
     "showreelTitle": "Showreel",
     "portTitle": "Featured Portfolio",
     "portSub": "A glimpse of my recent work.",
