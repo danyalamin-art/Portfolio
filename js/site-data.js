@@ -84,30 +84,16 @@ window.SITE_DATA_DEFAULTS = {
     },
     {
       "categories": [
-        "Nursery Rhymes"
+        "Educational Animation"
       ],
-      "id": "twinkle-ahamdullilah-song",
-      "title": "Twinkle Ahamdullilah Song",
+      "id": "12-days-of-christmas",
+      "title": "12 Days of Christmas",
       "featured": true,
-      "thumbnail": "https://i.vimeocdn.com/video/2177333161-88f4af037ef699cffdde2c6c8326d5737f9b4a4de552d24c21fd41e7e5edef1c-d_640?region=us",
-      "description": "A gentle, faith-inspired lullaby with soft visuals and soothing motion for peaceful bedtime moments.",
-      "videoUrl": "https://player.vimeo.com/video/1208098558?title=0&byline=0&portrait=0&badge=0&autoplay=1",
-      "result": "A calm excerpt from the complete lullaby, chosen for its softest pacing and warm tone.",
-      "goal": "Deliver a calm, faith-inspired lullaby with soft visuals for bedtime."
-    },
-    {
-      "categories": [
-        "Character Animation",
-        "Motion Graphics"
-      ],
-      "id": "starry-the-starfish",
-      "title": "Starry The StarFish",
-      "featured": true,
-      "thumbnail": "https://i.vimeocdn.com/video/2177244705-330213675bb2e66bda737cdc4180414b3b3d9ba331583c21a22b27950709154e-d_640?region=us",
-      "description": "Starry the starfish comes to life under the sea with character animation and lively motion graphics.",
-      "videoUrl": "https://player.vimeo.com/video/1208027636?title=0&byline=0&portrait=0&badge=0&autoplay=1",
-      "result": "A standout underwater moment from Starry's full journey — character spark meets fluid motion design.",
-      "goal": "Introduce a friendly sea character with personality and polished motion design."
+      "thumbnail": "https://i.vimeocdn.com/video/2177332021-5cccced206ceb88cbd8c0bbd4d9813e2f35a2078cc833254c4781a120301a331-d_640?region=us",
+      "description": "A festive retelling of the classic holiday counting song, full of cheerful scenes and seasonal energy.",
+      "videoUrl": "https://player.vimeo.com/video/1208097310?title=0&byline=0&portrait=0&badge=0&autoplay=1",
+      "result": "A festive slice of the complete holiday film, with counting structure and seasonal cheer intact.",
+      "goal": "Refresh a classic holiday song with festive scenes kids recognize and love."
     },
     {
       "categories": [
@@ -124,16 +110,30 @@ window.SITE_DATA_DEFAULTS = {
     },
     {
       "categories": [
-        "Educational Animation"
+        "Nursery Rhymes"
       ],
-      "id": "12-days-of-christmas",
-      "title": "12 Days of Christmas",
+      "id": "muslim-wheels-on-the-bus-song",
+      "title": "Muslim Wheels on The Bus Song",
       "featured": true,
-      "thumbnail": "https://i.vimeocdn.com/video/2177332021-5cccced206ceb88cbd8c0bbd4d9813e2f35a2078cc833254c4781a120301a331-d_640?region=us",
-      "description": "A festive retelling of the classic holiday counting song, full of cheerful scenes and seasonal energy.",
-      "videoUrl": "https://player.vimeo.com/video/1208097310?title=0&byline=0&portrait=0&badge=0&autoplay=1",
-      "result": "A festive slice of the complete holiday film, with counting structure and seasonal cheer intact.",
-      "goal": "Refresh a classic holiday song with festive scenes kids recognize and love."
+      "thumbnail": "https://i.vimeocdn.com/video/2177332955-d3082f81abb5681120f23fc8cc8b3b854c82f9ce97a634e2b0d3a57557b7ad8a-d_640?region=us",
+      "description": "A fun bus ride rhyme with friendly characters and upbeat motion that keeps little viewers engaged.",
+      "videoUrl": "https://player.vimeo.com/video/1208098319?title=0&byline=0&portrait=0&badge=0&autoplay=1",
+      "result": "On-board highlights from the longer bus ride — clear actions, upbeat pacing, full-song flavor.",
+      "goal": "Adapt a familiar bus rhyme into a fun, culturally warm kids animation."
+    },
+    {
+      "categories": [
+        "Character Animation",
+        "Motion Graphics"
+      ],
+      "id": "starry-the-starfish",
+      "title": "Starry The StarFish",
+      "featured": true,
+      "thumbnail": "https://i.vimeocdn.com/video/2177244705-330213675bb2e66bda737cdc4180414b3b3d9ba331583c21a22b27950709154e-d_640?region=us",
+      "description": "Starry the starfish comes to life under the sea with character animation and lively motion graphics.",
+      "videoUrl": "https://player.vimeo.com/video/1208027636?title=0&byline=0&portrait=0&badge=0&autoplay=1",
+      "result": "A standout underwater moment from Starry's full journey — character spark meets fluid motion design.",
+      "goal": "Introduce a friendly sea character with personality and polished motion design."
     },
     {
       "categories": [
@@ -152,14 +152,14 @@ window.SITE_DATA_DEFAULTS = {
       "categories": [
         "Nursery Rhymes"
       ],
-      "id": "muslim-wheels-on-the-bus-song",
-      "title": "Muslim Wheels on The Bus Song",
+      "id": "twinkle-ahamdullilah-song",
+      "title": "Twinkle Ahamdullilah Song",
       "featured": true,
-      "thumbnail": "https://i.vimeocdn.com/video/2177332955-d3082f81abb5681120f23fc8cc8b3b854c82f9ce97a634e2b0d3a57557b7ad8a-d_640?region=us",
-      "description": "A fun bus ride rhyme with friendly characters and upbeat motion that keeps little viewers engaged.",
-      "videoUrl": "https://player.vimeo.com/video/1208098319?title=0&byline=0&portrait=0&badge=0&autoplay=1",
-      "result": "On-board highlights from the longer bus ride — clear actions, upbeat pacing, full-song flavor.",
-      "goal": "Adapt a familiar bus rhyme into a fun, culturally warm kids animation."
+      "thumbnail": "https://i.vimeocdn.com/video/2177333161-88f4af037ef699cffdde2c6c8326d5737f9b4a4de552d24c21fd41e7e5edef1c-d_640?region=us",
+      "description": "A gentle, faith-inspired lullaby with soft visuals and soothing motion for peaceful bedtime moments.",
+      "videoUrl": "https://player.vimeo.com/video/1208098558?title=0&byline=0&portrait=0&badge=0&autoplay=1",
+      "result": "A calm excerpt from the complete lullaby, chosen for its softest pacing and warm tone.",
+      "goal": "Deliver a calm, faith-inspired lullaby with soft visuals for bedtime."
     },
     {
       "categories": [
