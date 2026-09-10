@@ -10,7 +10,7 @@ window.SITE_DATA_DEFAULTS = {
       "categories": [
         "3D Animation"
       ],
-      "videoUrl": "https://player.vimeo.com/video/1225576675?badge=0&autopause=0&player_id=0&app_id=58479&muted=1",
+      "videoUrl": "https://player.vimeo.com/video/1225576675?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479",
       "thumbnail": "https://vumbnail.com/1225576675_large.jpg",
       "description": "A 3D AI animation showcase featuring consistent characters across multiple scenes and environments. The reel highlights character animation, expressions, lip syncing, cinematic composition, visual storytelling, and polished post-production.",
       "goal": "Create a professional animation demo that demonstrates strong character consistency, engaging visual storytelling, and the ability to maintain the same character design across different environments and scenes.",
